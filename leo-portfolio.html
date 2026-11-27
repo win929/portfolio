@@ -749,12 +749,12 @@ ol.flow li::before{top:8px}
 /* print: one slide per page (open the file in Chrome → Print → Save as PDF) */
 @media print{
   @page{size:1600px 900px;margin:0}
-  html,body{height:auto;background:#F6F7F9}
+  html,body{height:auto;background:#F6F7F9;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .app{position:static;display:block;padding:0}
   .controls,.overview{display:none!important}
   .viewport{overflow:visible}
   .stage{position:static;transform:none!important;width:1600px;height:auto;box-shadow:none;border-radius:0}
-  .slide{position:relative;width:1600px;height:900px;opacity:1;visibility:visible;transform:none;break-after:page;page-break-after:always}
+  .slide{position:relative;box-sizing:border-box;width:1600px;height:900px;overflow:hidden;opacity:1;visibility:visible;transform:none;break-after:page;page-break-after:always}
   .rise{animation:none!important}
   details.star{display:none}
 }
