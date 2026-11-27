@@ -2,7 +2,7 @@
 
 브라우저에서 넘겨 보는 인터랙티브 HTML 슬라이드 포트폴리오입니다.
 
-**바로 보기:** https://win929.github.io/Portfolio/
+**바로 보기:** https://win929.github.io/portfolio/
 
 ## 보는 방법
 
