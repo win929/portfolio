@@ -298,31 +298,47 @@ details.star>summary:hover{border-color:var(--accent)}
 .mine b{color:var(--accent);font-weight:800;margin-right:4px}
 
 /* ---------- SHERLOG storage ---------- */
-.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;flex:1;min-height:0;border-top:2px solid var(--ink)}
-.three>.cell{padding:24px 30px 0;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:16px;min-width:0}
 .big{font-family:var(--f-display);font-weight:800;font-stretch:112%;font-size:46px;line-height:1.05;letter-spacing:-.01em}
 .big .arrow{color:var(--muted);font-weight:500}
-.slots{display:flex;flex-direction:column;gap:8px}
-.slot-row{display:grid;grid-template-columns:64px 1fr;gap:10px;align-items:center;font-family:var(--f-text);font-size:13px;color:var(--muted)}
-.lane{display:flex;gap:8px;min-height:40px;align-items:center;flex-wrap:wrap}
-.job{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 12px;border-radius:7px;font-family:var(--f-text);font-weight:500;font-size:15px;border:1px solid var(--line);background:var(--sheet);transition:all .3s}
-.job.run{border-color:var(--accent);background:var(--accent-soft);color:var(--ink)}
-.job.run::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 1.2s ease-in-out infinite}
-.job.wait{border-style:dashed;color:var(--muted)}
-.job.cancel{border-color:var(--signal);color:var(--signal);text-decoration:line-through}
-.job.done{border-color:var(--ok);color:var(--ok)}
-@keyframes pulse{50%{opacity:.35}}
-.slot-ctl{display:flex;gap:8px;flex-wrap:wrap}
-.slot-ctl .btn{height:38px;font-size:14px;padding:0 14px}
-.pair{display:flex;flex-direction:column;gap:10px}
-.pair .r{display:grid;grid-template-columns:60px 1fr;align-items:center;gap:12px;font-family:var(--f-text);font-size:13px;color:var(--muted)}
-.pair .b{height:26px;border-radius:4px;background:var(--line);position:relative}
-.pair .b.after{background:var(--ok)}
-.pair .b span{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);color:var(--ink);font-size:14px;white-space:nowrap}
-ol.flow{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0;counter-reset:f}
-ol.flow li{counter-increment:f;position:relative;padding:10px 0 10px 40px;font-size:17px;line-height:1.5;border-bottom:1px solid var(--line-soft)}
-ol.flow li::before{content:counter(f);position:absolute;left:0;top:10px;width:26px;height:26px;border-radius:50%;border:1px solid var(--accent);color:var(--accent);font-family:var(--f-mono);font-size:13px;display:grid;place-items:center}
-ol.flow li.fail::before{content:"!";border-color:var(--signal);color:var(--signal)}
+.kc2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,auto) 1fr;gap:0 24px;flex:1;min-height:0}
+.kc{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:12px;align-content:start;min-width:0;padding:20px 26px;border-radius:22px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.kc-top{display:flex;flex-direction:column;gap:2px}
+.kc-num{margin:0;display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 16px}
+.kc-num .big{font-size:44px}
+.kc-sub{font-size:15px;font-weight:700;color:var(--muted)}
+.kc-why,.kc-check{margin:0;font-size:15.5px;line-height:1.55}
+.kc-why b,.kc-check b{display:inline-block;margin-right:8px;padding:1px 8px;border-radius:7px;font-size:13px;font-weight:800;vertical-align:1px}
+.kc-why b{background:var(--signal-soft);color:var(--signal)}
+.kc-check{align-self:end;font-size:14px;color:var(--muted)}
+.kc-check b{background:var(--ok-soft);color:var(--ok)}
+.kc-how{gap:4px}
+.kc-how li{font-size:15.5px;line-height:1.5}
+.kc-fig{margin:0;display:flex;flex-direction:column;gap:8px;padding:12px 16px;border-radius:16px;background:var(--panel)}
+.kc-fig figcaption{font-size:13.5px;font-weight:700;color:var(--muted)}
+.g-note{margin:0;font-size:13.5px;line-height:1.5;color:var(--muted)}
+.gantt{position:relative;display:flex;flex-direction:column;gap:6px}
+.g-row{display:grid;grid-template-columns:50px minmax(0,1fr);gap:10px;align-items:center}
+.g-k{font-size:13px;font-weight:700;color:var(--muted);white-space:nowrap}
+.g-track{position:relative;height:25px;border-radius:8px;background:var(--line-soft)}
+.g-bar{position:absolute;top:0;bottom:0;box-sizing:border-box;display:flex;align-items:center;justify-content:flex-start;gap:0;padding:0 10px;border-radius:8px;border:1px solid var(--accent);background:var(--accent-soft);color:var(--ink);font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden}
+.g-bar em{font-style:normal;font-size:12px;font-weight:800;color:var(--ok)}
+.g-bar em{margin-left:auto;padding-left:6px}
+.g-w{margin-right:4px}
+.g-bar.cancel{border-color:var(--signal);background:var(--signal-soft);color:var(--signal)}
+.g-bar.cancel em{color:var(--signal)}
+.g-bar.wait{border:1.5px dashed var(--muted);background:transparent;color:var(--muted)}
+.g-mark{position:absolute;top:-4px;bottom:-4px;left:calc(60px + (100% - 60px) * .34);border-left:2px dashed var(--signal)}
+.s2{display:flex;flex-direction:column;gap:8px}
+.s2-row{display:grid;grid-template-columns:50px minmax(0,1fr) 16px minmax(0,1fr) 64px;gap:8px;align-items:center}
+.s2-chip{display:flex;flex-direction:column;padding:6px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:14px;font-weight:700;line-height:1.3}
+.s2-chip small{font-size:12.5px;font-weight:600;color:var(--muted)}
+.s2-chip.bad{border-color:var(--signal);background:var(--signal-soft);color:var(--signal)}
+.s2-chip.bad small{color:var(--signal)}
+.s2-chip.ok{border-color:var(--ok);background:var(--ok-soft);color:var(--ok)}
+.s2-chip.ok small{color:var(--ok)}
+.s2-arr{color:var(--muted);text-align:center}
+.s2-t{font-family:var(--f-display);font-size:19px;font-weight:800;text-align:right;color:var(--signal)}
+.s2-t.ok{color:var(--ok)}
 
 /* ---------- CallMeBaby overview ---------- */
 .arch{background:var(--panel);border-radius:14px;padding:20px 22px 14px;display:flex;flex-direction:column;gap:8px}
@@ -596,19 +612,8 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .steps .st p{font-size:17px}
 .viz{background:var(--card);border:1px solid var(--line-soft);border-radius:24px;box-shadow:var(--shadow-md)}
 .timing .bar{border-radius:999px}
-.three{gap:18px;border-top:0}
-.three.cols2{grid-template-columns:repeat(2,minmax(0,1fr))}
-.three.cols2{align-items:start;gap:24px}
-.three.cols2>.cell{padding:28px 32px;gap:18px}
-.three.cols2 .big{font-size:56px}
-.three.cols2 .small{font-size:19px;line-height:1.65}
-.three.cols2 .note{font-size:15.5px}
-.three>.cell{padding:22px 24px;border:1px solid var(--line-soft);border-radius:22px;background:var(--card);box-shadow:var(--shadow-sm);gap:14px}
 .big{font-size:42px}
 .job{border-radius:999px}
-.pair .b{border-radius:999px}
-ol.flow li{padding:8px 0 8px 40px;font-size:16px}
-ol.flow li::before{top:8px}
 
 /* CallMeBaby */
 .arch{border-radius:24px}
@@ -804,8 +809,7 @@ ol.flow li::before{top:8px}
 @media screen and (max-width:1100px){
   .app[data-mode="read"] .cover,.app[data-mode="read"] .prin,.app[data-mode="read"] .proj,.app[data-mode="read"] .case,.app[data-mode="read"] .rc,.app[data-mode="read"] .ck,.app[data-mode="read"] .wc,.app[data-mode="read"] .ms,.app[data-mode="read"] .tx,.app[data-mode="read"] .closing{grid-template-columns:minmax(0,1fr);gap:32px}
   .app[data-mode="read"] .cover .portrait{max-width:340px;order:-1}
-  .app[data-mode="read"] .three,.app[data-mode="read"] .cards3,.app[data-mode="read"] .sk,.app[data-mode="read"] .two{grid-template-columns:minmax(0,1fr)}
-  .app[data-mode="read"] .three>.cell{padding:22px}
+  .app[data-mode="read"] .kc2,.app[data-mode="read"] .cards3,.app[data-mode="read"] .sk,.app[data-mode="read"] .two{grid-template-columns:minmax(0,1fr)}
   .app[data-mode="read"] .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
   .app[data-mode="read"] .split{grid-template-columns:repeat(2,minmax(0,1fr))}
   .app[data-mode="read"] .split div{min-width:0}
@@ -866,6 +870,18 @@ ol.flow li::before{top:8px}
   .tech{font-size:13px;height:36px}
   .shot-b{width:62%;margin-top:-40px}
   .fr{grid-template-columns:32px minmax(0,1fr);gap:10px}
+  .kc{padding:18px 16px}
+  .kc-num .big{font-size:32px}
+  .g-row{grid-template-columns:40px minmax(0,1fr)}
+  .g-mark{left:calc(50px + (100% - 50px) * .34)}
+  .g-w{display:none}
+  .g-bar{padding:0 6px;font-size:12px}
+  .s2-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"k t" "c1 c2";row-gap:6px}
+  .s2-row>:nth-child(1){grid-area:k}
+  .s2-row>:nth-child(2){grid-area:c1}
+  .s2-row>:nth-child(3){display:none}
+  .s2-row>:nth-child(4){grid-area:c2}
+  .s2-row>:nth-child(5){grid-area:t}
   .fr-n{width:32px;height:32px;font-size:15px}
   .frows::before{left:15px}
   .fr-card{padding:14px 16px}
@@ -1142,32 +1158,52 @@ ol.flow li::before{top:8px}
     <p class="eyebrow rise" style="--d:0"><b>SHERLOG</b> 저장 · 실행 계층</p>
     <h2 class="s-title rise" style="--d:1">분석은 3건까지 동시에,<br>큰 결과 DB도 빠르게 다시 엽니다</h2>
   </header>
-  <div class="three cols2 rise" style="--d:2">
-    <div class="cell">
-      <p class="label with-ic"><span class="tile sm"><svg class="ic"><use href="#i-layers"/></svg></span>동시 분석</p>
-      <p class="big num">1 <span class="arrow">→</span> 3건</p>
-      <p class="small">빈 실행 슬롯을 접수 순으로 채우고, 작업마다 취소 신호·작업자·결과를 따로 둡니다. SQLite 쓰기는 단일 writer에서 짧은 배치로 직렬화했습니다.</p>
-      <div class="slots" aria-live="polite">
-        <div class="slot-row"><span>실행 중</span><div class="lane" id="laneRun"></div></div>
-        <div class="slot-row"><span>대기</span><div class="lane" id="laneWait"></div></div>
-        <div class="slot-row"><span>끝남</span><div class="lane" id="laneDone"></div></div>
+  <div class="kc2 rise" style="--d:2">
+    <article class="kc">
+      <div class="kc-top">
+        <p class="label with-ic"><span class="tile sm"><svg class="ic"><use href="#i-layers"/></svg></span>동시 분석</p>
+        <p class="kc-num"><span class="big num">1 <span class="arrow">→</span> 3건</span><span class="kc-sub">동시에 실행할 수 있는 분석 수</span></p>
       </div>
-      <div class="slot-ctl">
-        <button class="btn danger" type="button" id="jobCancel">실행 중인 작업 B 취소</button>
-        <button class="btn ghost" type="button" id="jobReset">처음으로</button>
+      <p class="kc-why"><b>문제</b>다른 모듈·날짜의 분석을 여러 개 접수해도 한 번에 하나씩만 돌았고, 동시에 돌릴 때는 진행 막대가 한동안 0%에 머물렀습니다.</p>
+      <figure class="kc-fig">
+        <figcaption>작업 4개를 접수하고, 실행 중인 B를 취소했을 때</figcaption>
+        <div class="gantt">
+          <div class="g-row"><span class="g-k">슬롯 1</span><div class="g-track"><span class="g-bar" style="left:0;width:78%"><span class="g-w">작업 </span>A<em>저장</em></span></div></div>
+          <div class="g-row"><span class="g-k">슬롯 2</span><div class="g-track"><span class="g-bar cancel" style="left:0;width:33%"><span class="g-w">작업 </span>B<em>취소</em></span><span class="g-bar" style="left:35%;width:62%"><span class="g-w">작업 </span>D<em>저장</em></span></div></div>
+          <div class="g-row"><span class="g-k">슬롯 3</span><div class="g-track"><span class="g-bar" style="left:0;width:68%"><span class="g-w">작업 </span>C<em>저장</em></span></div></div>
+          <div class="g-row"><span class="g-k">대기</span><div class="g-track"><span class="g-bar wait" style="left:0;width:33%"><span class="g-w">작업 </span>D 대기</span></div></div>
+          <span class="g-mark" aria-hidden="true"></span>
+        </div>
+        <p class="g-note">B를 취소하자 기다리던 D가 그 슬롯에서 시작했고, A·C·D는 각자 결과를 저장했습니다.</p>
+      </figure>
+      <ul class="ticks small kc-how">
+        <li>빈 슬롯을 접수 순으로 채우고, 시작 기록 전에 작업 ID와 슬롯부터 예약해 중복 시작을 막았습니다.</li>
+        <li>작업마다 취소 신호·작업자·결과를 따로 두어, 하나를 취소해도 다른 작업은 영향받지 않습니다.</li>
+        <li>파싱·계산은 동시에, SQLite 쓰기는 단일 writer가 짧은 배치로 차례대로 하고, 진행률은 실제 저장량으로 갱신합니다.</li>
+      </ul>
+      <p class="kc-check"><b>검증</b>격리한 Electron 앱에서 합성 작업 4개로 확인했습니다. 동시 실행 상한이며 처리 속도 3배라는 뜻은 아닙니다.</p>
+    </article>
+    <article class="kc">
+      <div class="kc-top">
+        <p class="label with-ic"><span class="tile sm t-mint"><svg class="ic"><use href="#i-clock"/></svg></span>재시작 준비</p>
+        <p class="kc-num"><span class="big num">7.97 <span class="arrow">→</span> 4.20초</span><span class="kc-sub">결과 DB 저장 준비 시간 · 47.3% 단축</span></p>
       </div>
-      <p class="note">동시 실행 상한 기준이며 처리 속도 3배를 뜻하지 않습니다. 격리 Electron에서 합성 작업 4개로 확인.</p>
-    </div>
-    <div class="cell">
-      <p class="label with-ic"><span class="tile sm t-mint"><svg class="ic"><use href="#i-clock"/></svg></span>재시작 준비</p>
-      <p class="big num">7.97 <span class="arrow">→</span> 4.20초</p>
-      <p class="small">강제 종료 뒤 대용량 결과 DB를 다시 열 때 시작 제한을 넘겼습니다. SQL별로 재 보니 같은 소유 잠금 안에서 외래 키 전체 검사가 두 번 돌고 있었습니다. 읽기 전용 검증 한 번만 남기고, 손상 DB를 거부하는 검증은 유지했습니다.</p>
-      <div class="pair">
-        <div class="r"><span>수정 전</span><div class="b" style="width:70%"><span class="num">7.9714s</span></div></div>
-        <div class="r"><span>수정 후</span><div class="b after" style="width:36.9%"><span class="num">4.2014s · 47.3% 단축</span></div></div>
-      </div>
-      <p class="note">같은 1.94GB 합성 DB의 저장 런타임 준비 구간. 전체 앱 시작 시간은 별도입니다. 강제 종료 후 재연결, 12개 테이블 행 수·대표 원문 위치를 전후 대조했습니다.</p>
-    </div>
+      <p class="kc-why"><b>문제</b>분석 엔진을 강제 종료한 뒤 큰 결과 DB를 다시 열 때, 앱이 엔진을 기다리는 시작 제한(20초)을 넘겨 연결에 실패했습니다.</p>
+      <figure class="kc-fig">
+        <figcaption>기존 결과 DB를 다시 열 때의 저장 준비 단계</figcaption>
+        <div class="s2">
+          <div class="s2-row"><span class="g-k">수정 전</span><span class="s2-chip">읽기 전용 검증<small>외래 키 전체 검사</small></span><span class="s2-arr" aria-hidden="true">→</span><span class="s2-chip bad">쓰기 연결 준비<small>같은 검사를 한 번 더</small></span><span class="s2-t num">7.97초</span></div>
+          <div class="s2-row"><span class="g-k">수정 후</span><span class="s2-chip">읽기 전용 검증<small>외래 키 전체 검사</small></span><span class="s2-arr" aria-hidden="true">→</span><span class="s2-chip ok">쓰기 연결 준비<small>검사 없이 바로 연결</small></span><span class="s2-t ok num">4.20초</span></div>
+        </div>
+        <p class="g-note">1.94GB 결과 DB 기준. 전체 검사는 한 번이면 충분했는데 같은 잠금 안에서 두 번 돌고 있었습니다.</p>
+      </figure>
+      <ul class="ticks small kc-how">
+        <li>짐작하지 않고 저장 준비를 SQL별로 재서, 외래 키 전체 검사가 두 번 도는 구간을 찾았습니다.</li>
+        <li>기존 DB는 버전·구조·외래 키를 읽기 전용으로 한 번만 확인한 뒤 쓰기 연결을 엽니다.</li>
+        <li>손상된 DB를 거부하는 검증과 새 DB·백업 검증은 그대로 두었습니다.</li>
+      </ul>
+      <p class="kc-check"><b>검증</b>실행 파일로 강제 종료 후 재연결하고 12개 테이블 행 수·대표 원문 위치를 전후 대조했습니다. 전체 앱 시작 시간은 별도입니다.</p>
+    </article>
   </div>
 </section>
 
@@ -1875,29 +1911,6 @@ ol.flow li::before{top:8px}
     });
   }
   onEnter['sherlog-503'] = replayTrees;
-
-  /* ---------- job queue ---------- */
-  let jobs;
-  function resetJobs(){ jobs = [{id:'A',s:'run'},{id:'B',s:'run'},{id:'C',s:'run'},{id:'D',s:'wait'}]; renderJobs(); document.getElementById('jobCancel').disabled = false; }
-  function renderJobs(){
-    const lanes = {run:'laneRun', wait:'laneWait', done:'laneDone', cancel:'laneDone'};
-    ['laneRun','laneWait','laneDone'].forEach(id => document.getElementById(id).innerHTML = '');
-    jobs.forEach(j => {
-      const el = document.createElement('span'); el.className = 'job ' + j.s;
-      el.textContent = '작업 ' + j.id + (j.s === 'cancel' ? ' 취소' : j.s === 'done' ? ' 저장' : '');
-      document.getElementById(lanes[j.s]).appendChild(el);
-    });
-  }
-  let jobTimer;
-  document.getElementById('jobCancel').addEventListener('click', e => {
-    clearTimeout(jobTimer);
-    jobs.find(j => j.id === 'B').s = 'cancel';
-    renderJobs(); e.currentTarget.disabled = true;
-    jobTimer = setTimeout(() => { jobs.find(j => j.id === 'D').s = 'run'; renderJobs();
-      jobTimer = setTimeout(() => { jobs.forEach(j => { if (j.s === 'run') j.s = 'done'; }); renderJobs(); }, 1600); }, 700);
-  });
-  document.getElementById('jobReset').addEventListener('click', () => { clearTimeout(jobTimer); resetJobs(); });
-  resetJobs();
 
   /* ---------- CallMeBaby architecture ---------- */
   (function(){
