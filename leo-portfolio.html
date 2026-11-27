@@ -441,17 +441,11 @@ details.star>summary:hover{border-color:var(--accent)}
 .ck-pass .ic{flex:none;width:18px;height:18px}
 
 /* musuimsa */
-.ms{display:grid;grid-template-columns:1fr 600px;gap:48px;flex:1;min-height:0}
 .sync-table{width:100%;border-collapse:collapse;font-size:16px}
 .sync-table th{font-family:var(--f-text);font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
 .sync-table td{padding:11px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top}
 .sync-table td.res{font-weight:600}
 .res.save{color:var(--accent)}.res.keep{color:var(--ok)}.res.skip{color:var(--muted)}.res.halt{color:var(--signal)}
-.mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
-.mini>div{padding:14px 20px 0 0;display:flex;flex-direction:column;gap:6px}
-.mini h4{font-size:18px}
-.mini.stack{grid-template-columns:minmax(0,1fr)}
-.mini p{font-size:15.5px;line-height:1.55;color:var(--muted)}
 
 /* gift */
 .tx{display:grid;grid-template-columns:1fr 680px;gap:48px;flex:1;min-height:0}
@@ -657,6 +651,24 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .st-pill.keep{background:var(--ok-soft);color:var(--ok)}
 .st-pill.skip{background:var(--panel);color:var(--muted)}
 .st-pill.halt{background:var(--signal-soft);color:var(--signal)}
+.msx{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.msx li{position:relative;display:flex;flex-direction:column;gap:6px;padding:16px 20px;border-radius:18px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.msx li:not(:last-child)::after{content:"";position:absolute;right:-13px;top:50%;width:10px;height:10px;margin-top:-5px;border-top:2px solid var(--muted);border-right:2px solid var(--muted);transform:rotate(45deg);opacity:.6}
+.msx-k{align-self:flex-start;padding:2px 10px;border-radius:8px;background:var(--panel);color:var(--muted);font-size:13px;font-weight:800}
+.msx li.think .msx-k{background:var(--violet-soft);color:var(--violet)}
+.msx li.keep{border-color:var(--ok)}
+.msx li.keep .msx-k{background:var(--ok-soft);color:var(--ok)}
+.msx p{margin:0;font-size:16.5px;line-height:1.55}
+.msx b{color:var(--ok);font-weight:800}
+.pr-c.fire{border-color:var(--signal)}
+.pr-c.fire p b{color:var(--signal);font-weight:800}
+.msy{display:grid;grid-template-columns:560px minmax(0,1fr);gap:18px;flex:1;min-height:0}
+.msy-how{gap:8px}
+.msy-how li{font-size:15px;line-height:1.55}
+.msy-how b{display:block;font-size:16px;font-weight:800}
+.msy-tbl{display:flex;flex-direction:column;gap:8px;min-width:0}
+.msy-tbl .table-card{flex:1;display:flex}
+.msy-tbl .ms-matrix{height:100%}
 .ms-matrix{font-size:15px;table-layout:fixed}
 .ms-matrix th:nth-child(1){width:18%}
 .ms-matrix th:nth-child(2),.ms-matrix th:nth-child(3){width:25.5%}
@@ -673,9 +685,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .ms-matrix .st-pill{white-space:normal;font-size:13px;line-height:1.35;padding:4px 10px}
 .ms-matrix td.halt-all{vertical-align:middle;background:color-mix(in srgb,var(--signal-soft) 45%,transparent);border-left:1px solid var(--line-soft)}
 .halt-note{display:block;margin-top:8px;font-size:13px;line-height:1.5;color:var(--muted)}
-.mini.stack{gap:10px;border-top:0}
-.mini.stack .mcard{flex-direction:row;align-items:flex-start;gap:14px;padding:14px 16px;border:1px solid var(--line-soft);border-radius:18px;background:var(--card);box-shadow:var(--shadow-sm)}
-.mcard>div{display:flex;flex-direction:column;gap:4px;min-width:0}
 .pub{border-radius:20px;background:var(--card);border-color:var(--line-soft);box-shadow:var(--shadow-sm)}
 
 /* 선물하기 */
@@ -797,7 +806,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 }
 
 @media screen and (max-width:1100px){
-  .app[data-mode="read"] .cover,.app[data-mode="read"] .prin,.app[data-mode="read"] .proj,.app[data-mode="read"] .case,.app[data-mode="read"] .rc,.app[data-mode="read"] .ck2,.app[data-mode="read"] .ms,.app[data-mode="read"] .tx,.app[data-mode="read"] .closing{grid-template-columns:minmax(0,1fr);gap:32px}
+  .app[data-mode="read"] .cover,.app[data-mode="read"] .prin,.app[data-mode="read"] .proj,.app[data-mode="read"] .case,.app[data-mode="read"] .rc,.app[data-mode="read"] .ck2,.app[data-mode="read"] .msy,.app[data-mode="read"] .tx,.app[data-mode="read"] .closing{grid-template-columns:minmax(0,1fr);gap:32px}
   .app[data-mode="read"] .cover .portrait{max-width:340px;order:-1}
   .app[data-mode="read"] .kc2,.app[data-mode="read"] .cards3,.app[data-mode="read"] .sk,.app[data-mode="read"] .two{grid-template-columns:minmax(0,1fr)}
   .app[data-mode="read"] .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -809,6 +818,8 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   .app[data-mode="read"] .pov{grid-template-columns:minmax(0,1fr);gap:28px}
   .app[data-mode="read"] .shot-b{margin-right:0}
   .app[data-mode="read"] .fr-card{grid-template-columns:minmax(0,1fr);gap:12px}
+  .app[data-mode="read"] .msx{grid-template-columns:minmax(0,1fr)}
+  .app[data-mode="read"] .msx li::after{display:none}
   .app[data-mode="read"] .lane{grid-template-columns:repeat(2,minmax(0,1fr))}
   .app[data-mode="read"] .lane li::after{display:none}
   .app[data-mode="read"] .fr-m{padding-left:0;border-left:0}
@@ -1405,42 +1416,44 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 </section>
 
 <!-- 12 MUSUIMSA -->
-<section class="slide" data-id="musuimsa" data-title="공공데이터 동기화" data-section="무쉼사">
+<section class="slide" data-id="musuimsa" data-title="실제 장애와 공공데이터 동기화" data-section="무쉼사">
   <header class="s-head2">
     <div class="s-head">
-      <p class="eyebrow rise" style="--d:0"><b>무쉼사</b> 트러블슈팅 · 공공데이터 동기화</p>
-      <h2 class="s-title rise" style="--d:1">공공 API가 멈춰도<br>6만여 개 쉼터 데이터는 그대로</h2>
+      <p class="eyebrow rise" style="--d:0"><b>무쉼사</b> 트러블슈팅 · 실제로 겪은 장애</p>
+      <h2 class="s-title rise" style="--d:1">화재로 공공 API가 멈춘 날,<br>마지막 정상 데이터를 지켰습니다</h2>
     </div>
-    <div class="pr-c why rise" style="--d:2"><span class="tile sm t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><p class="k">문제</p><p>전국 6만여 개 쉼터를 매일 전부 갱신하면 DB 락과 메모리 부하가 생길 수 있었습니다. 처음엔 공공 API 응답을 그대로 믿고 저장했는데, 프로젝트 중 데이터센터 화재로 API가 실제로 멈췄습니다.</p></div></div>
+    <div class="pr-c why fire rise" style="--d:2"><span class="tile sm t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><p class="k">실제로 겪은 일</p><p>프로젝트 기간 중 <b>데이터센터 화재로 공공데이터 API가 실제로 멈췄습니다.</b> 매일 03:45 전국 6만여 개 쉼터를 동기화하는 배치가 바로 이 API에 기대고 있었습니다.</p></div></div>
   </header>
-  <div class="ms">
-    <div class="col">
-      <p class="small rise" style="--d:2">매일 03:45 Spring Batch가 공공 API(page-size 1000)와 기존 DB를 chunk 100 단위로 비교합니다.</p>
-      <div class="scroll-x table-card rise" style="--d:3">
+  <ol class="msx rise" style="--d:3">
+    <li><span class="msx-k">원래는</span><p>공공 API 응답을 정상 데이터로 믿고, 받은 결과를 그대로 저장했습니다.</p></li>
+    <li class="think"><span class="msx-k">그때 든 생각</span><p>오류 응답이나 빠진 데이터까지 믿으면, 멀쩡한 쉼터 정보가 지워지거나 잘못된 값으로 덮일 수 있었습니다.</p></li>
+    <li class="keep"><span class="msx-k">지키기로 한 것</span><p>사용자가 보는 쉼터 정보는 외부 API가 흔들려도 <b>마지막 정상 데이터</b>여야 한다.</p></li>
+  </ol>
+  <div class="msy rise" style="--d:4">
+    <div class="ck-card">
+      <p class="label with-ic"><span class="tile sm t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span>그래서 바꾼 것</p>
+      <ul class="ticks small msy-how">
+        <li><b>오류는 드러내고 멈춘다</b> HTTP 오류는 ExternalApiException으로 드러내, 오류 응답을 정상 결과로 저장하지 않고 그 회차 갱신을 멈춥니다.</li>
+        <li><b>빠진 쉼터는 지우지 않는다</b> 응답에 없는 쉼터를 폐쇄로 단정하지 않고 기존 값을 그대로 둡니다.</li>
+        <li><b>바뀐 것만 저장한다</b> Spring Batch가 기존 DB와 chunk 100 단위로 비교해 바뀐 쉼터만 저장하고, 위치가 바뀐 곳만 사진·지도 캐시를 갱신합니다.</li>
+        <li><b>개발은 API 없이도</b> 개발 환경은 저장해 둔 응답으로 도는 mock 클라이언트를 쓰도록 설정으로 분리했습니다.</li>
+      </ul>
+    </div>
+    <div class="msy-tbl">
+      <p class="label">API 상태별 처리 · 예시 쉼터 4곳</p>
+      <div class="scroll-x table-card">
         <table class="sync-table ms-matrix">
           <thead><tr><th>쉼터 (예시)</th>
             <th><span class="mh ok">API 정상</span><small>바뀐 쉼터만 저장</small></th>
             <th><span class="mh keep">일부 쉼터 누락</span><small>빠진 쉼터는 지우지 않음</small></th>
             <th><span class="mh bad">API 오류</span><small>예외로 멈추고 기존 값 유지</small></th></tr></thead>
           <tbody>
-            <tr><td class="nm">대전 ○○ 경로당</td><td><span class="resp">운영시간 변경</span><span class="st-pill save">저장</span></td><td><span class="resp">운영시간 변경</span><span class="st-pill save">저장</span></td><td class="halt-all" rowspan="4"><span class="resp">오류 응답 (HTTP 오류)</span><span class="st-pill halt">갱신 중단</span><span class="halt-note">예외로 드러내 갱신을 멈추고, 네 곳 모두 마지막 정상 데이터를 그대로 둡니다.</span></td></tr>
+            <tr><td class="nm">대전 ○○ 경로당</td><td><span class="resp">운영시간 변경</span><span class="st-pill save">저장</span></td><td><span class="resp">운영시간 변경</span><span class="st-pill save">저장</span></td><td class="halt-all" rowspan="4"><span class="resp">오류 응답 (HTTP 오류)</span><span class="st-pill halt">갱신 중단</span><span class="halt-note">네 곳 모두 마지막 정상 데이터를 그대로 둡니다.</span></td></tr>
             <tr><td class="nm">서울 △△ 주민센터</td><td><span class="resp">위치 변경</span><span class="st-pill save">저장 + 사진·지도 캐시 갱신</span></td><td><span class="resp">응답에 없음</span><span class="st-pill keep">삭제 안 함 · 기존 값 유지</span></td></tr>
             <tr><td class="nm">부산 □□ 도서관</td><td><span class="resp">변경 없음</span><span class="st-pill skip">건너뜀</span></td><td><span class="resp">변경 없음</span><span class="st-pill skip">건너뜀</span></td></tr>
             <tr><td class="nm">광주 ◇◇ 복지관</td><td><span class="resp">변경 없음</span><span class="st-pill skip">건너뜀</span></td><td><span class="resp">응답에 없음</span><span class="st-pill keep">삭제 안 함 · 기존 값 유지</span></td></tr>
           </tbody>
         </table>
-      </div>
-      <div class="pr-c ok rise" style="--d:4"><span class="tile sm t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span><div><p class="k">결과</p><p>바뀐 쉼터만 저장하고, 위치가 바뀐 쉼터만 사진 갱신·지도 캐시 무효화 대상으로 모았습니다. HTTP 오류는 예외로 드러내고, 응답에 없는 쉼터는 지우지 않습니다.</p></div></div>
-    </div>
-    <div class="col">
-      <div class="mini stack rise" style="--d:3">
-        <div class="mcard"><span class="tile sm"><svg class="ic"><use href="#i-branch"/></svg></span><div><h4>CI/CD</h4><p>PR과 main·develop push마다 Java 21 Gradle build/test. main push 시 Docker 이미지 → ECR → EC2 컨테이너 교체.</p></div></div>
-        <div class="mcard"><span class="tile sm t-peach"><svg class="ic"><use href="#i-bell"/></svg></span><div><h4>FCM 알림</h4><p>35.0°C 이상일 때만 폭염 알림, 마지막 발송 후 50분 쿨다운. 쉼터 도착 10분 뒤 리뷰 리마인더.</p></div></div>
-        <div class="mcard"><span class="tile sm t-violet"><svg class="ic"><use href="#i-lock"/></svg></span><div><h4>JWT 인증</h4><p>Access 60분 · Refresh 7일, stateless 세션, OncePerRequestFilter로 SecurityContext 주입.</p></div></div>
-      </div>
-      <div class="pub rise" style="--d:4">
-        <p class="label">협업에서 정한 기준</p>
-        <p class="small">파이프라인 오류가 반복될 때, 원인을 찾는 동안에는 PR마다 전원 리뷰를 잠시 보류하고 로그 기준으로 빠르게 고쳤습니다. 오류를 모두 해결한 뒤 변경분 전체를 모든 팀원이 리뷰하고 머지했습니다. 규칙을 보류할 때와 지킬 때를 나눈 경험입니다.</p>
       </div>
     </div>
   </div>
