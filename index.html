@@ -686,9 +686,6 @@ ol.flow li::before{top:8px}
 .lv-meter{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
 .lv-meter i{height:12px;border-radius:6px;background:var(--line)}
 .lv-meter.l1 i:nth-child(-n+1),.lv-meter.l2 i:nth-child(-n+2),.lv-meter.l3 i:nth-child(-n+3),.lv-meter.l4 i:nth-child(-n+4),.lv-meter.l5 i{background:linear-gradient(90deg,var(--accent),var(--accent-2))}
-.lv-legend{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:8px;font-size:15px;color:var(--muted)}
-.lv-legend span{display:inline-flex;align-items:center;gap:8px}
-.lv-legend b{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800}
 
 /* ---------- reader mode (narrow screens or chosen) — screen only, so printing always uses the slide layout ---------- */
 @media screen{
@@ -767,7 +764,6 @@ ol.flow li::before{top:8px}
   .logo img{width:32px;height:32px}
   .lv-score b{font-size:30px}
   .lv-card h3{font-size:19px}
-  .lv-legend{font-size:13px;gap:8px 14px}
 }
 .scroll-x{overflow-x:auto;max-width:100%}
 
@@ -855,33 +851,32 @@ ol.flow li::before{top:8px}
         <h3>MySQL</h3>
         <span class="lv-meter l4" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
       </article>
+      <article class="lv-card" aria-label="Docker, 5단계 중 3단계">
+        <div class="lv-top"><span class="logo"><img src="assets/logos/docker.svg" alt="Docker 로고" width="46" height="46"></span><span class="lv-score"><b>3</b>/ 5</span></div>
+        <h3>Docker</h3>
+        <span class="lv-meter l3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+      </article>
       <article class="lv-card" aria-label="Python, 5단계 중 3단계">
         <div class="lv-top"><span class="logo"><img src="assets/logos/python.svg" alt="Python 로고" width="46" height="46"></span><span class="lv-score"><b>3</b>/ 5</span></div>
         <h3>Python</h3>
         <span class="lv-meter l3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
       </article>
-      <article class="lv-card" aria-label="FastAPI, 5단계 중 3단계">
-        <div class="lv-top"><span class="logo"><img src="assets/logos/fastapi.svg" alt="FastAPI 로고" width="46" height="46"></span><span class="lv-score"><b>3</b>/ 5</span></div>
+      <article class="lv-card" aria-label="FastAPI, 5단계 중 2단계">
+        <div class="lv-top"><span class="logo"><img src="assets/logos/fastapi.svg" alt="FastAPI 로고" width="46" height="46"></span><span class="lv-score"><b>2</b>/ 5</span></div>
         <h3>FastAPI</h3>
-        <span class="lv-meter l3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="lv-meter l2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
       </article>
-      <article class="lv-card" aria-label="Redis, 5단계 중 3단계">
-        <div class="lv-top"><span class="logo"><img src="assets/logos/redis.svg" alt="Redis 로고" width="46" height="46"></span><span class="lv-score"><b>3</b>/ 5</span></div>
+      <article class="lv-card" aria-label="Redis, 5단계 중 2단계">
+        <div class="lv-top"><span class="logo"><img src="assets/logos/redis.svg" alt="Redis 로고" width="46" height="46"></span><span class="lv-score"><b>2</b>/ 5</span></div>
         <h3>Redis</h3>
-        <span class="lv-meter l3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="lv-meter l2" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
       </article>
       <article class="lv-card" aria-label="AWS, 5단계 중 3단계">
         <div class="lv-top"><span class="logo"><img src="assets/logos/aws.svg" alt="AWS 로고" width="46" height="46"></span><span class="lv-score"><b>3</b>/ 5</span></div>
         <h3>AWS</h3>
         <span class="lv-meter l3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
       </article>
-      <article class="lv-card" aria-label="Docker, 5단계 중 3단계">
-        <div class="lv-top"><span class="logo"><img src="assets/logos/docker.svg" alt="Docker 로고" width="46" height="46"></span><span class="lv-score"><b>3</b>/ 5</span></div>
-        <h3>Docker</h3>
-        <span class="lv-meter l3" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-      </article>
   </div>
-  <p class="lv-legend rise" style="--d:3"><span><b>1</b>들어 봄</span><span><b>2</b>따라 만들어 봄</span><span><b>3</b>혼자 기능 구현</span><span><b>4</b>설계와 문제 해결</span><span><b>5</b>다른 사람을 이끄는 수준</span></p>
 </section>
 
 <!-- 2 PRINCIPLES -->
