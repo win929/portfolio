@@ -360,27 +360,25 @@ details.star>summary:hover{border-color:var(--accent)}
 /* ---------- reconnect ---------- */
 .rc{display:grid;grid-template-columns:1fr 560px;gap:48px;flex:1;min-height:0}
 .rc-sim{background:var(--panel);border-radius:14px;padding:28px 30px;display:flex;flex-direction:column;gap:20px}
-.rc-ctl{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.rc-ctl label{font-size:19px;font-weight:600}
-.rc-ctl output{font-family:var(--f-display);font-weight:800;font-stretch:112%;font-size:44px;color:var(--accent);min-width:110px}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:28px;background:transparent;cursor:pointer}
-input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:var(--line)}
-input[type=range]::-moz-range-track{height:6px;border-radius:3px;background:var(--line)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:var(--accent);margin-top:-9px;border:3px solid var(--sheet);box-shadow:0 0 0 1px var(--accent)}
-input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);border:3px solid var(--sheet)}
-.rc-track{position:relative;height:96px;margin:0 2px}
-.rc-zone{position:absolute;top:22px;height:40px;border-radius:6px;display:flex;align-items:center;padding:0 12px;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden}
+.rc-cap{margin:0;font-size:15px;font-weight:700;color:var(--muted)}
+.rc-track{position:relative;height:108px;margin:0 10px}
+.rc-pin{position:absolute;top:0;transform:translateX(-50%);padding:3px 10px;border-radius:999px;font-size:13px;font-weight:800;white-space:nowrap;color:var(--sheet)}
+.rc-pin::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:20px;margin-left:-1px;background:inherit}
+.rc-pin.ok{background:var(--ok)}
+.rc-pin.bad{background:var(--signal)}
+.ev-list .ab{display:inline-grid;place-items:center;width:20px;height:20px;margin-right:8px;border-radius:6px;font-size:12px;font-weight:800;color:var(--sheet);vertical-align:1px}
+.ev-list .ab.ok{background:var(--ok)}
+.ev-list .ab.bad{background:var(--signal)}
+.rc-zone{position:absolute;top:46px;height:38px;border-radius:6px;display:flex;align-items:center;padding:0 12px;font-size:14px;font-weight:600;white-space:nowrap;overflow:hidden}
 .rc-zone.grace{left:0;background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok)}
 .rc-zone.end{right:0;background:var(--signal-soft);color:var(--signal);border:1px solid var(--signal)}
-.rc-mark{position:absolute;top:0;bottom:22px;width:2px;background:var(--ink);transition:left .15s}
-.rc-mark::before{content:"";position:absolute;top:-2px;left:-5px;width:12px;height:12px;border-radius:50%;background:var(--ink)}
 .rc-ticks{position:absolute;left:0;right:0;bottom:0;height:20px}
 .rc-ticks span{position:absolute;transform:translateX(-50%);font-family:var(--f-mono);font-size:13px;color:var(--muted)}
-.outcome{border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;border:1px solid var(--ok);background:var(--ok-soft);transition:background .25s,border-color .25s}
+.outcome{border-radius:12px;padding:16px 20px;display:flex;flex-direction:column;gap:8px;border:1px solid var(--ok);background:var(--ok-soft);transition:background .25s,border-color .25s}
 .outcome.ended{border-color:var(--signal);background:var(--signal-soft)}
-.outcome .h{font-size:22px;font-weight:700;color:var(--ok)}
+.outcome .h{font-size:19px;font-weight:800;color:var(--ok)}
 .outcome.ended .h{color:var(--signal)}
-.outcome p{font-size:17px;line-height:1.6;color:var(--ink)}
+.outcome p{font-size:16px;line-height:1.55;color:var(--ink)}
 .ev-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--line)}
 .ev-list li{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px;line-height:1.55;transition:opacity .25s,color .25s}
 .ev-list li .n{font-family:var(--f-mono);font-size:13px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--muted);transition:all .25s}
@@ -856,8 +854,13 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   .timing{grid-template-columns:minmax(0,1fr)}
   .timing .bar span{position:static;transform:none;display:block;margin-top:26px}
   .star-body{grid-template-columns:minmax(0,1fr)}
-  .rc-ctl output{font-size:34px}
   .rc-zone{font-size:12px}
+  .rz-x{display:none}
+  .rc-track{height:136px;margin:0 4px}
+  .rc-zone{top:74px}
+  .rc-pin{font-size:12px;padding:3px 8px}
+  .rc-pin.ok::after{height:50px}
+  .rc-pin.bad{top:30px}
   .controls .kbd-hint,.controls .section-name{display:none}
   .json{font-size:13px}
   .lv-grid{gap:10px}
@@ -1213,7 +1216,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
       <p class="pov-what rise" style="--d:3">부모와 아이의 영상통화에 STT, 대화 주제 추천, 공동 그림판, AI 그림일기를 연결한 가족 소통 서비스입니다.</p>
       <div class="pov-role rise" style="--d:4">
         <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 백엔드 테크 리더</p>
-        <ul class="ticks small"><li>백엔드 API 계약·통화방 상태 흐름 조율 (Jira 88건)</li><li>Webhook·Redis로 이탈과 종료를 구분하는 재접속 복구</li><li>그림일기 AI를 비동기·검증 파이프라인으로 분리</li></ul>
+        <ul class="ticks small"><li>백엔드 API 계약·통화방 상태 흐름 조율</li><li>Webhook·Redis로 이탈과 종료를 구분하는 재접속 복구</li><li>그림일기 AI를 비동기·검증 파이프라인으로 분리</li></ul>
       </div>
       <div class="pov-stack rise" style="--d:5">
         <p class="label">기술 스택</p>
@@ -1223,7 +1226,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
     <div class="pov-shots rise" style="--d:3">
       <figure class="sframe shot-a"><div class="win-bar"><i></i><i></i><i></i><span>콜미베이비 · AI 그림일기</span></div><img src="assets/projects/cmb-diary.jpg" alt="콜미베이비 AI 그림일기 화면"></figure>
       <figure class="sframe shot-b"><img src="assets/projects/cmb-topic.jpg" alt="콜미베이비 대화 주제 추천 화면"></figure>
-      <p class="pov-cap">실제 화면 · AI 그림일기와 대화 주제 추천</p>
     </div>
   </div>
 </section>
@@ -1239,28 +1241,30 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   </header>
   <div class="rc">
     <div class="rc-sim rise" style="--d:2">
-      <div class="rc-ctl">
-        <label for="rcRange">연결이 끊긴 뒤 다시 들어오기까지</label>
-        <output id="rcOut" for="rcRange" class="num">20초</output>
-      </div>
-      <input type="range" id="rcRange" min="0" max="75" step="1" value="20" aria-describedby="rcOutcomeH">
+      <p class="rc-cap">마지막 참가자의 연결이 끊긴 뒤 · 두 가지 경우</p>
       <div class="rc-track" aria-hidden="true">
-        <div class="rc-zone grace" style="width:60%">재접속 유예 · Redis pending, 45초</div>
-        <div class="rc-zone end" style="width:calc(40% - 6px)">finalizer → ENDED</div>
-        <div class="rc-mark" id="rcMark"></div>
+        <span class="rc-pin ok" style="left:26.67%">A · 20초 만에 재접속</span>
+        <span class="rc-pin bad" style="left:60%">B · 45초 동안 안 돌아옴</span>
+        <div class="rc-zone grace" style="width:60%">재접속 유예 45초<span class="rz-x"> · Redis pending</span></div>
+        <div class="rc-zone end" style="width:calc(40% - 6px)">종료 확정</div>
         <div class="rc-ticks"><span style="left:0">0s</span><span style="left:20%">15s</span><span style="left:40%">30s</span><span style="left:60%">45s</span><span style="left:80%">60s</span><span style="left:100%">75s</span></div>
       </div>
-      <div class="outcome" id="rcOutcome" aria-live="polite">
-        <span class="tile oc-ic"><svg class="ic"><use id="rcIcon" href="#i-check-circle"/></svg></span>
-        <div class="oc-t"><p class="h" id="rcOutcomeH">같은 통화방으로 돌아옵니다</p>
-        <p id="rcOutcomeP"></p></div>
+      <div class="outcome">
+        <span class="tile oc-ic"><svg class="ic"><use href="#i-check-circle"/></svg></span>
+        <div class="oc-t"><p class="h">A · 유예 안에 돌아오면 같은 통화방으로</p>
+        <p>재접속 요청이 Redis Lua로 종료 예약(pending key·index)을 한 번에 지워, 오래된 예약이 이 방을 다시 닫지 못합니다. 통화와 그림일기 흐름이 그대로 이어집니다.</p></div>
+      </div>
+      <div class="outcome ended">
+        <span class="tile oc-ic"><svg class="ic"><use href="#i-x-circle"/></svg></span>
+        <div class="oc-t"><p class="h">B · 아무도 돌아오지 않으면 통화 종료로 확정</p>
+        <p>1초 주기 finalizer가 DB row lock을 잡고 WAITING·ACTIVE 상태를 ENDED로 바꿉니다.</p></div>
       </div>
     </div>
     <ol class="ev-list rise" style="--d:3" id="rcSteps">
       <li data-s="1"><span class="n">1</span><span>LiveKit <code>participant_left</code> Webhook으로 Redis 참여자 집합을 보정합니다.</span></li>
       <li data-s="2"><span class="n">2</span><span>마지막 참가자가 나가도 바로 ENDED로 바꾸지 않고, Redis pending key와 index에 만료 시각을 기록합니다.</span></li>
-      <li data-s="3"><span class="n">3</span><span>재접속 요청은 아이 lock 소유권과 LiveKit·Redis 참여 상태를 확인한 뒤 토큰을 발급하고, Redis Lua로 종료 예약을 한 번에 취소합니다.</span></li>
-      <li data-s="4"><span class="n">4</span><span>유예가 끝나면 1초 주기 finalizer가 DB row lock을 잡고 WAITING·ACTIVE를 ENDED로 확정합니다.</span></li>
+      <li data-s="3"><span class="n">3</span><span><b class="ab ok">A</b>재접속 요청은 아이 lock 소유권과 LiveKit·Redis 참여 상태를 확인한 뒤 토큰을 발급하고, Redis Lua로 종료 예약을 한 번에 취소합니다.</span></li>
+      <li data-s="4"><span class="n">4</span><span><b class="ab bad">B</b>유예가 끝나면 1초 주기 finalizer가 DB row lock을 잡고 WAITING·ACTIVE를 ENDED로 확정합니다.</span></li>
       <li data-s="5"><span class="n">5</span><span>Webhook이 누락될 때를 대비해 30초마다 90초 넘은 ACTIVE 방을 확인하고, LiveKit 조회가 성공했고 참가자가 없을 때만 같은 유예를 시작합니다.</span></li>
     </ol>
   </div>
@@ -1943,26 +1947,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
     const archEl = document.getElementById('cmbArch'); if (archEl) archEl.innerHTML = s;
   })();
 
-  /* ---------- reconnect slider ---------- */
-  const rcRange = document.getElementById('rcRange');
-  function renderRc(){
-    const v = +rcRange.value, ok = v < 45;
-    document.getElementById('rcOut').textContent = v + '초';
-    document.getElementById('rcMark').style.left = (v / 75 * 100) + '%';
-    const oc = document.getElementById('rcOutcome'); oc.classList.toggle('ended', !ok);
-    document.getElementById('rcIcon').setAttribute('href', ok ? '#i-check-circle' : '#i-x-circle');
-    document.getElementById('rcOutcomeH').textContent = ok ? '같은 통화방으로 돌아옵니다' : '통화가 끝난 것으로 확정합니다';
-    document.getElementById('rcOutcomeP').textContent = ok
-      ? (v === 0 ? '연결이 끊기자마자 돌아오면 종료 예약이 생기기 전이거나 곧바로 취소됩니다. 통화와 그림일기 흐름이 그대로 이어집니다.' : '유예 ' + (45 - v) + '초를 남기고 재접속했습니다. Lua 스크립트가 pending key와 index를 한 번에 지워, 오래된 종료 예약이 이 방을 다시 닫지 못합니다.')
-      : '45초 안에 아무도 돌아오지 않았습니다. 1초 주기 finalizer가 DB row lock을 잡고 WAITING·ACTIVE를 ENDED로 바꿉니다.';
-    document.querySelectorAll('#rcSteps li').forEach(li => {
-      const s = +li.dataset.s;
-      const lit = ok ? [1,2,3].includes(s) : [1,2,4].includes(s);
-      li.classList.toggle('lit', lit); li.classList.toggle('dim', !lit && s !== 5);
-      li.classList.toggle('bad', !ok && s === 4);
-    });
-  }
-  rcRange.addEventListener('input', renderRc); renderRc();
 
 
   /* ---------- chaekchu cost ---------- */
