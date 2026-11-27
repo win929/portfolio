@@ -674,7 +674,8 @@ ol.flow li::before{top:8px}
 .bars .val{background:var(--card);padding:1px 9px;border-radius:999px;right:5px;font-size:13px}
 .closing .big-q::before{content:"\201C";display:block;font-size:150px;line-height:.7;height:66px;color:var(--accent);opacity:.25}
 
-/* ---------- reader mode (narrow screens or chosen) ---------- */
+/* ---------- reader mode (narrow screens or chosen) — screen only, so printing always uses the slide layout ---------- */
+@media screen{
 .app[data-mode="read"]{position:static;display:block;padding:0}
 .app[data-mode="read"] .viewport{overflow:visible}
 .app[data-mode="read"] .stage{position:static;width:auto;height:auto;transform:none!important;box-shadow:none;border-radius:0;background:transparent;max-width:1100px;margin:0 auto}
@@ -693,8 +694,9 @@ ol.flow li::before{top:8px}
 .app[data-mode="read"] .fc-b{right:-6px}
 .app[data-mode="read"] .portrait::after{display:none}
 .app[data-mode="read"] .portrait::before{inset:14px -12px -12px 14px}
+}
 
-@media (max-width:1100px){
+@media screen and (max-width:1100px){
   .app[data-mode="read"] .cover,.app[data-mode="read"] .prin,.app[data-mode="read"] .proj,.app[data-mode="read"] .case,.app[data-mode="read"] .rc,.app[data-mode="read"] .ck,.app[data-mode="read"] .wc,.app[data-mode="read"] .ms,.app[data-mode="read"] .tx,.app[data-mode="read"] .closing{grid-template-columns:minmax(0,1fr);gap:32px}
   .app[data-mode="read"] .cover .portrait{max-width:340px;order:-1}
   .app[data-mode="read"] .three,.app[data-mode="read"] .cards3,.app[data-mode="read"] .sk,.app[data-mode="read"] .two{grid-template-columns:minmax(0,1fr)}
@@ -705,7 +707,7 @@ ol.flow li::before{top:8px}
   .app[data-mode="read"] .pipe{flex-wrap:wrap}
   .app[data-mode="read"] .pipe button{flex:1 1 45%}
 }
-@media (max-width:640px){
+@media screen and (max-width:640px){
   :root{--t-display:52px; --t-h1:28px; --t-h2:21px; --t-body:16px; --t-small:15px; --t-label:12px}
   .cover .hello{font-size:54px}
   .display[style]{font-size:46px!important}
@@ -757,7 +759,7 @@ ol.flow li::before{top:8px}
   .controls,.overview{display:none!important}
   .viewport{overflow:visible}
   .stage{position:static;transform:none!important;width:1600px;height:auto;box-shadow:none;border-radius:0}
-  .slide{position:relative;box-sizing:border-box;width:1600px;height:900px;overflow:hidden;opacity:1;visibility:visible;transform:none;break-after:page;page-break-after:always}
+  .slide,.slide.is-before,.slide.is-active{position:relative;box-sizing:border-box;width:1600px;height:900px;overflow:hidden;opacity:1!important;visibility:visible!important;transform:none!important;transition:none!important;break-after:page;page-break-after:always}
   .rise{animation:none!important}
   details.star{display:none}
   .prin{grid-template-columns:minmax(0,1fr)!important}
@@ -1448,7 +1450,7 @@ ol.flow li::before{top:8px}
   };
 
   /* ---------- mode & scaling ---------- */
-  const narrow = window.matchMedia('(max-width: 899px)');
+  const narrow = window.matchMedia('screen and (max-width: 899px)');
   function mode(){ return app.dataset.mode; }
   function applyMode(){
     const pref = store.get('leo-mode');
