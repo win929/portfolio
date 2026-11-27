@@ -516,6 +516,9 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .proof-item .p{padding:5px 12px;border-radius:999px;background:var(--accent-soft);white-space:nowrap;font-size:14px}
 .jump{padding:6px 14px;border-radius:999px;border:1px solid var(--line-soft);background:var(--sheet)}
 .jump:hover{border-color:var(--accent)}
+.ev-print{display:none;grid-column:2;flex-direction:column;gap:7px;margin-top:10px;padding-top:11px;border-top:1px dashed var(--line)}
+.evp{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline;font-size:14px;line-height:1.45;color:var(--ink);text-align:left}
+.evp .p{padding:2px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12.5px;white-space:nowrap}
 
 /* timeline */
 .tl-row{border-radius:12px}
@@ -757,6 +760,14 @@ ol.flow li::before{top:8px}
   .slide{position:relative;box-sizing:border-box;width:1600px;height:900px;overflow:hidden;opacity:1;visibility:visible;transform:none;break-after:page;page-break-after:always}
   .rise{animation:none!important}
   details.star{display:none}
+  .prin{grid-template-columns:minmax(0,1fr)!important}
+  .proof{display:none!important}
+  .prin-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-content:start}
+  .evp{font-size:15px}
+  .prin-btn,.prin-btn[aria-pressed="true"]{border-color:var(--line-soft);box-shadow:var(--shadow-sm);transform:none;align-content:start;padding-block:20px}
+  .prin-btn .n,.prin-btn[aria-pressed="true"] .n{background:var(--accent);color:var(--accent-ink)}
+  .prin-btn[aria-pressed="true"] .t{color:var(--ink)}
+  .ev-print{display:flex!important}
 }
 </style>
 
@@ -1568,6 +1579,17 @@ ol.flow li::before{top:8px}
   }
   prinBtns.forEach((b, k) => b.addEventListener('click', () => renderPrin(k)));
   renderPrin(0);
+  // PDF/print shows every principle's evidence inside its own card (the click panel is hidden in print)
+  prinBtns.forEach((b, k) => {
+    const box = document.createElement('span'); box.className = 'ev-print';
+    PRIN[k].items.forEach(([p, w]) => {
+      const it = document.createElement('span'); it.className = 'evp';
+      it.innerHTML = '<span class="p"></span><span class="w"></span>';
+      it.children[0].textContent = p; it.children[1].textContent = w;
+      box.appendChild(it);
+    });
+    b.appendChild(box);
+  });
 
   /* ---------- timeline ---------- */
   const T0 = Date.UTC(2024,6,1), T1 = Date.UTC(2026,11,31);
