@@ -248,6 +248,51 @@ details.star>summary:hover{border-color:var(--accent)}
 .timing .bar.ok{background:var(--ok)}
 .timing .bar span{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);white-space:nowrap;font-family:var(--f-text);font-size:15px;font-weight:500;color:var(--ink)}
 .timing .tk{font-family:var(--f-text);font-size:13px;color:var(--muted)}
+.case .steps .st p{font-size:17px;line-height:1.55}
+.tv{display:flex;flex-direction:column;gap:6px}
+.tv+.tv{padding-top:14px;border-top:1px dashed var(--line)}
+.tv-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:16px;font-weight:700}
+.tv-tag{display:inline-flex;align-items:center;height:28px;padding:0 12px;border-radius:999px;font-size:13px;font-weight:800;background:var(--signal-soft);color:var(--signal)}
+.tv-tag.ok{background:var(--ok-soft);color:var(--ok)}
+.tv-head .visit{margin-left:auto;font-weight:500}
+.tv .tree svg{max-height:178px}
+.tv-res{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--muted)}
+.tv-res b{color:var(--signal);font-weight:800}
+.tv-res.ok b{color:var(--ok)}
+.tv-res .ic{width:18px;height:18px;color:var(--signal)}
+.tv-res.ok .ic{color:var(--ok)}
+
+/* ---------- SHERLOG process ---------- */
+.proc-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
+.proc-stats{display:flex;gap:12px}
+.proc-stats .ps{display:flex;flex-direction:column;gap:2px;min-width:128px;padding:12px 20px 14px;border-radius:18px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.proc-stats .v{font-family:var(--f-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-.01em}
+.proc-stats .k{font-size:14px;font-weight:600;color:var(--muted)}
+.proc-src{margin:8px 0 0;font-size:13px;color:var(--muted);text-align:right}
+.proc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;position:relative;flex:1;min-height:0}
+.proc::before{content:"";position:absolute;left:16px;right:16px;top:15px;height:2px;background:linear-gradient(90deg,var(--accent),var(--violet));opacity:.45}
+.pc{display:flex;flex-direction:column;gap:12px;min-width:0}
+.pc-top{position:relative;display:flex;align-items:center;gap:0}
+.pc-n{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:14px;font-weight:800;box-shadow:0 0 0 5px var(--panel)}
+.pc-date{padding:0 10px;background:var(--panel);font-size:14px;font-weight:700;color:var(--muted);white-space:nowrap}
+.pc-card{flex:1;display:flex;flex-direction:column;gap:10px;padding:18px 18px 16px;border-radius:20px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.pc-t{margin:0;display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;line-height:1.25}
+.pc-m{margin:2px 0 0;font-family:var(--f-display);font-size:27px;font-weight:800;line-height:1.15;letter-spacing:-.02em;color:var(--accent)}
+.pc-m small{font-size:15px;font-weight:700;color:var(--muted);letter-spacing:0;margin-left:4px}
+.pc-d{margin:0;flex:1;font-size:16.5px;line-height:1.65}
+.pc-d b{color:var(--accent);font-weight:800}
+.mine{align-self:flex-start;padding:6px 10px;border-radius:10px;background:var(--accent-soft);color:var(--ink);font-size:13px;font-weight:600;line-height:1.4}
+.mine b{color:var(--accent);font-weight:800;margin-right:4px}
+.proc-out{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px}
+.po-main{display:flex;align-items:center;gap:18px;padding:16px 24px;border-radius:20px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-md)}
+.po-main .k{margin:0;font-size:15px;font-weight:600;color:var(--muted)}
+.po-v{margin:0;font-size:25px;font-weight:800;line-height:1.35}
+.po-v s{color:var(--muted);font-weight:600;text-decoration-thickness:2px}
+.po-v b{color:var(--ok)}
+.po-v small{margin-left:10px;font-size:15px;font-weight:600;color:var(--muted)}
+.po-award{display:flex;align-items:center;gap:12px;padding:16px 26px;border-radius:20px;background:var(--ink);color:var(--sheet);font-size:18px;font-weight:800;line-height:1.4;box-shadow:var(--shadow-md)}
+.po-award .ic{width:26px;height:26px;color:#F5B83D}
+.po-award small{display:block;font-size:14px;font-weight:600;opacity:.75}
 
 /* ---------- SHERLOG storage ---------- */
 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;flex:1;min-height:0;border-top:2px solid var(--ink)}
@@ -720,6 +765,10 @@ ol.flow li::before{top:8px}
 .sframe .win-bar span{font-family:var(--f-text);font-size:13px;font-weight:600}
 .shot-b{position:relative;z-index:1;width:48%;align-self:flex-end;margin:-84px -16px 0 0}
 .pov-cap{margin:14px 0 0;font-size:13px;color:var(--muted)}
+.pov.pov-wide{grid-template-columns:540px minmax(0,1fr);gap:48px;align-items:center}
+.pov-shots.stack2{gap:22px;padding-top:0}
+.pov-shots.stack2::before{inset:36px -22px 28px 64px}
+.pov-shots.stack2 .sframe{border-radius:14px}
 
 /* ---------- reader mode (narrow screens or chosen) — screen only, so printing always uses the slide layout ---------- */
 @media screen{
@@ -756,6 +805,10 @@ ol.flow li::before{top:8px}
   .app[data-mode="read"] .lv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .app[data-mode="read"] .pov{grid-template-columns:minmax(0,1fr);gap:28px}
   .app[data-mode="read"] .shot-b{margin-right:0}
+  .app[data-mode="read"] .proc-head,.app[data-mode="read"] .proc-out{grid-template-columns:minmax(0,1fr);gap:20px}
+  .app[data-mode="read"] .proc-src{text-align:left}
+  .app[data-mode="read"] .proc{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .app[data-mode="read"] .proc::before{display:none}
 }
 @media screen and (max-width:640px){
   :root{--t-display:52px; --t-h1:28px; --t-h2:21px; --t-body:16px; --t-small:15px; --t-label:12px}
@@ -801,6 +854,12 @@ ol.flow li::before{top:8px}
   .ptag.hl{font-size:15px;min-height:40px;height:auto}
   .tech{font-size:13px;height:36px}
   .shot-b{width:62%;margin-top:-40px}
+  .proc-stats{flex-wrap:wrap}
+  .proc-stats .ps{min-width:0;flex:1 1 30%;padding:10px 14px}
+  .proc-stats .v{font-size:26px}
+  .app[data-mode="read"] .proc{grid-template-columns:minmax(0,1fr)}
+  .po-v{font-size:21px}
+  .po-v small{display:block;margin-left:0}
   .lv-card{padding:16px;gap:10px;border-radius:18px}
   .logo{width:52px;height:52px;border-radius:15px}
   .logo img{width:32px;height:32px}
@@ -963,80 +1022,149 @@ ol.flow li::before{top:8px}
 
 <!-- 4 SHERLOG -->
 <section class="slide" data-id="sherlog" data-title="SHERLOG 소개" data-section="SHERLOG">
-  <div class="pov">
+  <div class="pov pov-wide">
     <div class="pov-main">
-      <p class="eyebrow rise" style="--d:0"><b>Project 1 · SEMES 기업연계</b> 2026.10 – 2026.11 · 6명 · 팀장</p>
+      <p class="eyebrow rise" style="--d:0"><b>Project 1 · SEMES 기업연계</b> 2026.10 – 2026.11 · 6명 · 팀장 / 백엔드</p>
       <div class="pov-brand rise" style="--d:1"><span class="pov-plate"><img src="assets/projects/sherlog-logo.png" alt="SHERLOG" width="192" height="64"></span></div>
       <div class="pov-tags rise" style="--d:2"><span class="ptag hl"><svg class="ic"><use href="#i-brief"/></svg>SEMES 기업연계 프로젝트</span><span class="ptag">SSAFY 2학기 자율 프로젝트</span><span class="ptag award"><svg class="ic"><use href="#i-trophy"/></svg>우수상 · 대전1반 2등</span></div>
       <p class="pov-what rise" style="--d:3">흩어진 반도체 설비 로그를 하나의 실행 흐름으로 복원하고, 정상 패턴과 비교해 핵심 오류와 근거 원문을 찾아 주는 Windows 사후 분석 프로그램입니다.</p>
       <div class="pov-role rise" style="--d:4">
-        <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 팀장 / BE 1 (실행 · API · 저장 · 조회)</p>
-        <ul class="ticks small"><li>FastAPI·SQLite 분석 실행·취소·조회 API 설계</li><li>Electron ↔ Python 연동과 Windows 배포 패키징</li><li>결과 DB 백업·버전 이전·재시작 시간 단축</li></ul>
-        <p class="note">로그 파싱(DATA)·실행 복원(BE 2)·핵심 오류 선별(AI)은 팀원 담당</p>
+        <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 팀장 / 백엔드</p>
+        <ul class="ticks small"><li>멘토링 정리, 브랜치 전략과 Jira 규칙·자동화</li><li>FastAPI·SQLite 분석 실행·취소·조회 API</li><li>Electron ↔ Python 연동과 Windows 설치 패키지</li><li>결과 DB 보존·버전 이전, 동시 분석 3건</li></ul>
       </div>
       <div class="pov-stack rise" style="--d:5">
         <p class="label">기술 스택</p>
         <div class="techs"><span class="tech"><img src="assets/logos/python.svg" alt="" width="28" height="28">Python</span><span class="tech"><img src="assets/logos/fastapi.svg" alt="" width="28" height="28">FastAPI</span><span class="tech"><img src="assets/logos/sqlite.svg" alt="" width="28" height="28">SQLite</span><span class="tech"><img src="assets/logos/electron.svg" alt="" width="28" height="28">Electron</span><span class="tech"><img src="assets/logos/react.svg" alt="" width="28" height="28">React</span><span class="tech"><img src="assets/logos/typescript.svg" alt="" width="28" height="28">TypeScript</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-sparkles"/></svg></span>LLM 구조화 출력</span></div>
       </div>
     </div>
-    <div class="pov-shots rise" style="--d:3">
-      <figure class="sframe shot-a"><div class="win-bar"><i></i><i></i><i></i><span>SHERLOG · 공정 분석 결과</span></div><img src="assets/sherlog-results.jpg" alt="SHERLOG 공정 분석 결과 화면"></figure>
-      <figure class="sframe shot-b"><img src="assets/projects/sherlog-evidence.jpg" alt="SHERLOG 근거 원문 추적 화면"></figure>
-      <p class="pov-cap">실제 화면 · 공정 분석 결과와 근거 원문 추적 (더미 로그)</p>
+    <div class="pov-shots stack2 rise" style="--d:3">
+      <figure class="sframe"><img src="assets/projects/sherlog-process.jpg" alt="SHERLOG 공정 분석 결과 화면" width="1680" height="772"></figure>
+      <figure class="sframe"><img src="assets/projects/sherlog-ai.jpg" alt="SHERLOG AI 원인 분석 화면" width="1680" height="641"></figure>
     </div>
+  </div>
+</section>
+
+<!-- 5 SHERLOG PROCESS -->
+<section class="slide alt" data-id="sherlog-process" data-title="SHERLOG 개발 과정" data-section="SHERLOG">
+  <header class="proc-head">
+    <div class="s-head">
+      <p class="eyebrow rise" style="--d:0"><b>SHERLOG</b> 개발 과정 · 6명 · 6주</p>
+      <h2 class="s-title rise" style="--d:1">실제 로그 한 줄 없이 시작해,<br>현업 엔지니어가 직접 써 본 도구까지</h2>
+    </div>
+    <div class="rise" style="--d:2">
+      <div class="proc-stats">
+        <div class="ps"><span class="v num">1,493</span><span class="k">커밋</span></div>
+        <div class="ps"><span class="v num">496</span><span class="k">병합한 MR</span></div>
+        <div class="ps"><span class="v num">442</span><span class="k">작업 이슈</span></div>
+      </div>
+      <p class="proc-src">팀 저장소 기록 · 2026.10.12 – 11.18</p>
+    </div>
+  </header>
+  <ol class="proc rise" style="--d:3">
+    <li class="pc">
+      <div class="pc-top"><span class="pc-n num">1</span><span class="pc-date num">10.07 – 10.14</span></div>
+      <div class="pc-card">
+        <p class="pc-t"><span class="tile sm"><svg class="ic"><use href="#i-users"/></svg></span>요구사항</p>
+        <p class="pc-m">핵심 문제 3가지</p>
+        <p class="pc-d">SEMES 멘토링에서 로그 구조를 익히고 필요한 로그 찾기, 정상 종료 속 이상, 여러 사건의 관계를 풀 문제로 정했습니다. 보안상 <b>실제 로그는 가져올 수 없었습니다.</b></p>
+        <span class="mine"><b>내 몫</b>팀장 · 멘토링 일지</span>
+      </div>
+    </li>
+    <li class="pc">
+      <div class="pc-top"><span class="pc-n num">2</span><span class="pc-date num">10.15</span></div>
+      <div class="pc-card">
+        <p class="pc-t"><span class="tile sm t-violet"><svg class="ic"><use href="#i-branch"/></svg></span>협업 체계</p>
+        <p class="pc-m">자동화 규칙 8개</p>
+        <p class="pc-d">개발 전에 브랜치 전략과 Jira 규칙을 정하고, MR이 열리고 병합되면 <b>이슈 상태가 따라 바뀌도록</b> 자동화했습니다.</p>
+        <span class="mine"><b>내 몫</b>브랜치 전략 · Jira 자동화</span>
+      </div>
+    </li>
+    <li class="pc">
+      <div class="pc-top"><span class="pc-n num">3</span><span class="pc-date num">10.15 – 10.24</span></div>
+      <div class="pc-card">
+        <p class="pc-t"><span class="tile sm t-peach"><svg class="ic"><use href="#i-file"/></svg></span>데이터 만들기</p>
+        <p class="pc-m">205만 줄<small>/ 하루</small></p>
+        <p class="pc-d">실제 로그 대신 Python 합성 로그 생성기를 만들었습니다. 이상·노이즈·패치 줄마다 <b>정답을 표시</b>하고, 같은 조건이면 같은 로그가 나와 반복 시험이 됩니다.</p>
+      </div>
+    </li>
+    <li class="pc">
+      <div class="pc-top"><span class="pc-n num">4</span><span class="pc-date num">10.26 – 11.02</span></div>
+      <div class="pc-card">
+        <p class="pc-t"><span class="tile sm"><svg class="ic"><use href="#i-layers"/></svg></span>설계와 구현</p>
+        <p class="pc-m">AI 조회 도구 6종</p>
+        <p class="pc-d">ERD와 API 계약을 먼저 맞추고 BE·AI·FE가 동시에 개발했습니다. AI는 로그 읽기 규칙 초안을 만들고, <b>필요한 로그만 조회해</b> 원인 후보를 냅니다.</p>
+        <span class="mine"><b>내 몫</b>ERD·API 계약 · 실행·저장 API</span>
+      </div>
+    </li>
+    <li class="pc">
+      <div class="pc-top"><span class="pc-n num">5</span><span class="pc-date num">11.02 – 11.10</span></div>
+      <div class="pc-card">
+        <p class="pc-t"><span class="tile sm t-mint"><svg class="ic"><use href="#i-zap"/></svg></span>현업 기능 · 성능</p>
+        <p class="pc-m">7.5분 → 3.6분</p>
+        <p class="pc-d">이상 발견만으로는 부족해 <b>기준·패치·모듈 비교</b>를 더했습니다. 합성 하루치 로그 분석 시간도 멘토님 목표(10분) 안으로 줄였습니다.</p>
+        <span class="mine"><b>내 몫</b>동시 분석 · 503 해결</span>
+      </div>
+    </li>
+    <li class="pc">
+      <div class="pc-top"><span class="pc-n num">6</span><span class="pc-date num">11.10 – 11.18</span></div>
+      <div class="pc-card">
+        <p class="pc-t"><span class="tile sm t-violet"><svg class="ic"><use href="#i-monitor"/></svg></span>현업 검증</p>
+        <p class="pc-m">실제 설비 데이터</p>
+        <p class="pc-d">멘토님의 실제 PC에서 시험하며 <b>공정 누락·ABORTED 오탐</b>을 찾아 고치고, 사용자 매뉴얼과 인수인계 자료를 전달했습니다.</p>
+        <span class="mine"><b>내 몫</b>인수인계 자료 정리</span>
+      </div>
+    </li>
+  </ol>
+  <div class="proc-out rise" style="--d:4">
+    <div class="po-main">
+      <span class="tile t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span>
+      <div>
+        <p class="k">SEMES 멘토님이 실제 설비의 웨이퍼 10매 공정 데이터로 직접 시험</p>
+        <p class="po-v">이슈 로그 분석 <s>약 30분</s> → <b>약 10분</b><small>최초 프로파일 생성 제외 시 약 5분</small></p>
+      </div>
+    </div>
+    <div class="po-award"><svg class="ic"><use href="#i-trophy"/></svg><span>자율 프로젝트 우수상<small>11.19 최종 발표 · 대전1반 2등</small></span></div>
   </div>
 </section>
 
 <!-- 5 SHERLOG 503 -->
-<section class="slide alt" data-id="sherlog-503" data-title="공정 목록 503 해결" data-section="SHERLOG">
-  <details class="star deck-float">
-    <summary>상세 보기 (STAR)</summary>
-    <dl class="star-body">
-      <dt>SITUATION</dt><dd>하루치 분석은 끝났지만 결과 보기·모듈 비교의 공정 선택 단계에서 목록 API가 약 2초 뒤 503으로 실패했습니다. 팀원이 점검 중 발견해 Jira -473으로 등록했고, 병목 계측과 수정·검증을 제가 맡았습니다.</dd>
-      <dt>TASK</dt><dd>공정별 사건 후보 수의 의미, 필터·양방향 페이지, 기존 결과 DB 호환을 유지한 채 조회 예산 2초·응답 1MiB 한도 안에서 복구해야 했습니다. 스키마는 바꾸지 않았습니다.</dd>
-      <dt>ACTION</dt><dd>SQL별 실행 구간을 계측해 후보 수 집계가 예산을 소진함을 확인했습니다. 사건을 귀속 실행별로 먼저 세고 부모를 재귀 추적하도록 방향을 바꾸고, 같은 소유 실행의 부모 경로는 한 번만 탐색했습니다. 최초 화면은 목록을 먼저 띄운 뒤 요약을 요청하게 바꾸고, 초기화 번호로 늦은 응답이 화면을 덮지 않게 했습니다.</dd>
-      <dt>RESULT</dt><dd>세 목록 조건 모두 HTTP 200(190·171·170ms). 독립 Python 부모 순회 결과와 HTTP 응답을 대조했고, 사건 없는 자손 12,000개·집계 SQL 5만 VM 명령 예산 회귀 테스트와 화면 초기화 회귀 테스트를 추가했습니다.</dd>
-      <dt class="warn">범위</dt><dd class="muted">Windows 개발 PC warm 캐시의 합성 입력 검증입니다. 실제 설비 PC 성능은 측정 범위 밖입니다. 최초 발견·등록은 팀원, 실행 구조 복원은 BE 2의 작업입니다.</dd>
-    </dl>
-  </details>
+<section class="slide" data-id="sherlog-503" data-title="공정 목록 503 해결" data-section="SHERLOG">
   <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>SHERLOG</b> 문제 해결 · Jira -473</p>
+    <p class="eyebrow rise" style="--d:0"><b>SHERLOG</b> 문제 해결 · 백엔드 조회 성능</p>
     <h2 class="s-title rise" style="--d:1">2초 만에 503으로 끊기던 공정 목록,<br>집계 방향을 뒤집어 해결했습니다</h2>
   </header>
   <div class="case">
     <div class="steps rise" style="--d:2">
-      <div class="st"><span class="tile t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><span class="k">증상</span><p>하루치 결과의 공정 목록이 약 2초 뒤 503. 20건으로 줄여도, 레시피로 걸러도 똑같이 실패했습니다.</p></div></div>
-      <div class="st"><span class="tile"><svg class="ic"><use href="#i-activity"/></svg></span><div><span class="k">계측</span><p>503 하나에 시간·응답 크기·스캔 한도 초과가 함께 묶여 있어 코드만 보고 단정하지 않았습니다. SQL별 구간을 재 보니 <b>모든 하위 실행을 펼친 뒤 사건을 조인하는 후보 수 집계</b>가 2초를 다 쓰고 있었습니다.</p></div></div>
-      <div class="st"><span class="tile t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span><div><span class="k">해결</span><p>실행 약 56만 건에 사건은 155건뿐인 희소한 분포였습니다. 사건이 있는 실행에서 출발해 부모로 거슬러 올라가며 세도록 바꾸고, 기존 복합 PK와 인덱스를 그대로 썼습니다.</p></div></div>
+      <div class="st"><span class="tile t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><span class="k">증상</span><p>결과 보기·모듈 비교에서 공정을 고르는 목록 API가 약 2초 뒤 503. 20건으로 줄여도, 레시피로 걸러도 똑같았습니다. 팀원이 점검 중 발견했고, <b>계측부터 수정·검증까지 제가 맡았습니다.</b></p></div></div>
+      <div class="st"><span class="tile"><svg class="ic"><use href="#i-activity"/></svg></span><div><span class="k">계측</span><p>503 하나에 시간·응답 크기·스캔 한도 초과가 묶여 있어 코드만 보고 단정하지 않았습니다. SQL별 구간을 재 보니 <b>모든 하위 실행을 펼친 뒤 사건을 조인하는 후보 수 집계</b>가 2초 예산을 다 쓰고 있었습니다.</p></div></div>
+      <div class="st"><span class="tile t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span><div><span class="k">해결</span><p>실행 약 56만 건에 사건은 155건뿐이었습니다. <b>사건이 있는 실행에서 부모로 거슬러 세고</b>, 같은 부모 경로는 한 번만 탐색했습니다. 스키마는 그대로 두고, 화면은 목록부터 띄운 뒤 요약을 불러옵니다.</p></div></div>
+      <div class="st"><span class="tile t-violet"><svg class="ic"><use href="#i-shield"/></svg></span><div><span class="k">검증</span><p>별도 Python 순회 결과와 HTTP 응답을 대조하고, 사건 없는 자손 12,000개·집계 SQL 실행 예산·화면 초기화 회귀 테스트를 추가했습니다.</p></div></div>
     </div>
     <div class="viz rise" style="--d:3">
-      <div class="viz-top">
-        <div class="seg" role="group" aria-label="집계 방식">
-          <button type="button" data-tree="down" aria-pressed="true">기존 · 위에서 펼치기</button>
-          <button type="button" data-tree="up" aria-pressed="false">수정 · 사건에서 부모로</button>
-        </div>
-        <span class="visit" id="treeVisit" aria-live="polite"></span>
+      <div class="tv">
+        <div class="tv-head"><span class="tv-tag">기존</span>위에서부터 모든 하위 실행을 펼침<span class="visit">방문 <b>29</b> / 29</span></div>
+        <div class="tree" data-tree-mode="down" role="img" aria-label="기존 방식: 선택한 공정 아래 29개 실행을 모두 방문"></div>
+        <p class="tv-res"><svg class="ic"><use href="#i-x-circle"/></svg><span><b>503</b> · 약 2초 조회 예산을 다 쓰고 중단</span></p>
       </div>
-      <div class="tree" id="tree"></div>
-      <div class="tree-legend"><span><i></i>실행</span><span><i class="ev"></i>사건이 있는 실행</span><span><i class="on"></i>집계 때 방문</span><span>도식 · 실제 규모는 아래</span></div>
-      <div class="timing">
-        <span class="tk">기존 집계</span><div class="bar" style="width:58%"><span class="num">≈ 2.001초 · 예산 초과로 중단</span></div>
-        <span class="tk">수정 후 HTTP 200</span><div class="bar ok" style="width:5.5%"><span class="num">190 · 171 · 170 ms (기본 · 20건 · 필터)</span></div>
+      <div class="tv">
+        <div class="tv-head"><span class="tv-tag ok">수정</span>사건이 있는 실행에서 부모로만<span class="visit">방문 <b>6</b> / 29</span></div>
+        <div class="tree" data-tree-mode="up" role="img" aria-label="수정 방식: 사건 3건과 그 부모만 방문해 6개 실행만 확인"></div>
+        <p class="tv-res ok"><svg class="ic"><use href="#i-check-circle"/></svg><span><b>HTTP 200</b> · 170–190 ms (기본 · 20건 · 필터 세 조건)</span></p>
       </div>
+      <div class="tree-legend"><span><i></i>실행</span><span><i class="ev"></i>사건이 있는 실행</span><span><i class="on"></i>집계 때 방문</span><span>도식 · 개발 PC의 합성 하루치 결과로 측정</span></div>
     </div>
   </div>
-  <p class="evidence rise" style="--d:4">같은 합성 하루 결과 DB(이벤트 <b>2,048,906</b> · 실행 <b>558,752</b> · 사건 <b>155</b>) · 두 값은 측정 경계가 달라 배수로 비교하지 않음 · 구현 <b>7c6e76aa</b> · dev 병합 <b>99326a57</b> (2026-11-09)</p>
 </section>
 
 <!-- 6 SHERLOG STORAGE -->
-<section class="slide" data-id="sherlog-storage" data-title="분석 결과를 지키는 저장 계층" data-section="SHERLOG">
+<section class="slide alt" data-id="sherlog-storage" data-title="분석 결과를 지키는 저장 계층" data-section="SHERLOG">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0"><b>SHERLOG</b> 저장 · 실행 계층</p>
     <h2 class="s-title rise" style="--d:1">분석 결과를 잃지 않는 저장 계층</h2>
   </header>
   <div class="three rise" style="--d:2">
     <div class="cell">
-      <p class="label with-ic"><span class="tile sm"><svg class="ic"><use href="#i-layers"/></svg></span>동시 분석 · Jira -529</p>
+      <p class="label with-ic"><span class="tile sm"><svg class="ic"><use href="#i-layers"/></svg></span>동시 분석</p>
       <p class="big num">1 <span class="arrow">→</span> 3건</p>
       <p class="small">빈 실행 슬롯을 접수 순으로 채우고, 작업마다 취소 신호·작업자·결과를 따로 둡니다. SQLite 쓰기는 단일 writer에서 짧은 배치로 직렬화했습니다.</p>
       <div class="slots" aria-live="polite">
@@ -1051,7 +1179,7 @@ ol.flow li::before{top:8px}
       <p class="note">동시 실행 상한 기준이며 처리 속도 3배를 뜻하지 않습니다. 격리 Electron에서 합성 작업 4개로 확인.</p>
     </div>
     <div class="cell">
-      <p class="label with-ic"><span class="tile sm t-mint"><svg class="ic"><use href="#i-clock"/></svg></span>재시작 준비 · Jira -485</p>
+      <p class="label with-ic"><span class="tile sm t-mint"><svg class="ic"><use href="#i-clock"/></svg></span>재시작 준비</p>
       <p class="big num">7.97 <span class="arrow">→</span> 4.20초</p>
       <p class="small">강제 종료 뒤 대용량 결과 DB를 다시 열 때 시작 제한을 넘겼습니다. SQL별로 재 보니 같은 소유 잠금 안에서 외래 키 전체 검사가 두 번 돌고 있었습니다. 읽기 전용 검증 한 번만 남기고, 손상 DB를 거부하는 검증은 유지했습니다.</p>
       <div class="pair">
@@ -1076,7 +1204,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 7 CALLMEBABY -->
-<section class="slide alt" data-id="callmebaby" data-title="콜미베이비 소개" data-section="콜미베이비">
+<section class="slide" data-id="callmebaby" data-title="콜미베이비 소개" data-section="콜미베이비">
   <div class="pov">
     <div class="pov-main">
       <p class="eyebrow rise" style="--d:0"><b>Project 2</b> 2026.07 – 2026.08 · 6명 · 백엔드 테크 리더</p>
@@ -1101,7 +1229,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 8 RECONNECT -->
-<section class="slide" data-id="cmb-reconnect" data-title="재접속 유예 45초" data-section="콜미베이비">
+<section class="slide alt" data-id="cmb-reconnect" data-title="재접속 유예 45초" data-section="콜미베이비">
   <details class="star">
     <summary>상세 보기 (STAR)</summary>
     <dl class="star-body">
@@ -1143,11 +1271,11 @@ ol.flow li::before{top:8px}
       <li data-s="5"><span class="n">5</span><span>Webhook이 누락될 때를 대비해 30초마다 90초 넘은 ACTIVE 방을 확인하고, LiveKit 조회가 성공했고 참가자가 없을 때만 같은 유예를 시작합니다.</span></li>
     </ol>
   </div>
-  <p class="evidence rise" style="--d:4">근거 · Jira <b>S15P11B101-384 · 385 · 388 · 389 · 395 · 407 · 415 · 417</b> · CallRoomRedisService · CallRoomReconnectionGraceScheduler · CallRoomOrphanReconciliationScheduler</p>
+  <p class="evidence rise" style="--d:4">근거 · CallRoomRedisService · CallRoomReconnectionGraceScheduler · CallRoomOrphanReconciliationScheduler</p>
 </section>
 
 <!-- 9 DIARY -->
-<section class="slide alt" data-id="cmb-diary" data-title="AI 그림일기 파이프라인" data-section="콜미베이비">
+<section class="slide" data-id="cmb-diary" data-title="AI 그림일기 파이프라인" data-section="콜미베이비">
   <details class="star">
     <summary>상세 보기 (STAR)</summary>
     <dl class="star-body">
@@ -1177,11 +1305,11 @@ ol.flow li::before{top:8px}
     <div><span class="v num">100%</span><span class="k">선택 토픽 포함률</span></div>
     <div><span class="v num">0%</span><span class="k">fallback 발생률</span></div>
   </div>
-  <p class="evidence rise" style="--d:5">로컬 RTX 4050 · 합성 데이터 15회 측정 · 운영 수치 아님 · Jira <b>S15P11B101-200 · 204 · 205 · 277–280 · 342 · 348 · 363 · 377 · 426</b></p>
+  <p class="evidence rise" style="--d:5">로컬 RTX 4050 · 합성 데이터 15회 측정 · 운영 수치 아님</p>
 </section>
 
 <!-- 10a CHAEKCHU OVERVIEW -->
-<section class="slide" data-id="chaekchu-overview" data-title="책추책책추 소개" data-section="책추책책추">
+<section class="slide alt" data-id="chaekchu-overview" data-title="책추책책추 소개" data-section="책추책책추">
   <div class="pov">
     <div class="pov-main">
       <p class="eyebrow rise" style="--d:0"><b>Project 3</b> 2026.08 – 2026.09 · 6명 · AI 담당 · 백엔드 일부</p>
@@ -1206,7 +1334,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 10 CHAEKCHU -->
-<section class="slide alt" data-id="chaekchu" data-title="추천 파이프라인" data-section="책추책책추">
+<section class="slide" data-id="chaekchu" data-title="추천 파이프라인" data-section="책추책책추">
   <details class="star">
     <summary>상세 보기 (STAR)</summary>
     <dl class="star-body">
@@ -1251,7 +1379,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 11 WORLDCUP -->
-<section class="slide" data-id="chaekchu-worldcup" data-title="익명 책 월드컵 · 배포 검증" data-section="책추책책추">
+<section class="slide alt" data-id="chaekchu-worldcup" data-title="익명 책 월드컵 · 배포 검증" data-section="책추책책추">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0"><b>책추책책추</b> 익명 책 월드컵 · 배포 검증</p>
     <h2 class="s-title rise" style="--d:1">우승 전까지 책 정체를 숨기는<br>서버 권위형 월드컵</h2>
@@ -1287,7 +1415,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 12a MUSUIMSA OVERVIEW -->
-<section class="slide alt" data-id="musuimsa-overview" data-title="무쉼사 소개" data-section="무쉼사">
+<section class="slide" data-id="musuimsa-overview" data-title="무쉼사 소개" data-section="무쉼사">
   <div class="pov">
     <div class="pov-main">
       <p class="eyebrow rise" style="--d:0"><b>Project 4</b> 2025.08 – 2025.11 · 5명 · 백엔드 테크 리더</p>
@@ -1311,7 +1439,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 12 MUSUIMSA -->
-<section class="slide" data-id="musuimsa" data-title="공공데이터 동기화" data-section="무쉼사">
+<section class="slide alt" data-id="musuimsa" data-title="공공데이터 동기화" data-section="무쉼사">
   <details class="star">
     <summary>상세 보기 (STAR)</summary>
     <dl class="star-body">
@@ -1357,7 +1485,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 13a GIFT OVERVIEW -->
-<section class="slide alt" data-id="gift-overview" data-title="선물하기 클론 소개" data-section="선물하기 클론">
+<section class="slide" data-id="gift-overview" data-title="선물하기 클론 소개" data-section="선물하기 클론">
   <div class="pov">
     <div class="pov-main">
       <p class="eyebrow rise" style="--d:0"><b>Project 5</b> 2025.06 – 2025.08 · 1인 풀스택</p>
@@ -1382,7 +1510,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 13 GIFT -->
-<section class="slide" data-id="gift" data-title="트랜잭션 경계" data-section="선물하기 클론">
+<section class="slide alt" data-id="gift" data-title="트랜잭션 경계" data-section="선물하기 클론">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0"><b>선물하기 클론</b> 트러블슈팅 · 트랜잭션 경계</p>
     <h2 class="s-title rise" style="--d:1">알림 API가 실패해도<br>주문은 남아야 합니다</h2>
@@ -1411,7 +1539,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 14 EARLIER -->
-<section class="slide alt" data-id="earlier" data-title="그 전의 프로젝트" data-section="그 전의 프로젝트">
+<section class="slide" data-id="earlier" data-title="그 전의 프로젝트" data-section="그 전의 프로젝트">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">2024.10 – 2025.12</p>
     <h2 class="s-title rise" style="--d:1">그 전의 프로젝트</h2>
@@ -1460,7 +1588,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 16 EDUCATION -->
-<section class="slide" data-id="education" data-title="교육과 활동" data-section="역량">
+<section class="slide alt" data-id="education" data-title="교육과 활동" data-section="역량">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">Education & Activities</p>
     <h2 class="s-title rise" style="--d:1">배우고, 가르치며 쌓은 기본기</h2>
@@ -1486,7 +1614,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 17 AWARDS -->
-<section class="slide alt" data-id="awards" data-title="수상 · 자격 · 논문" data-section="역량">
+<section class="slide" data-id="awards" data-title="수상 · 자격 · 논문" data-section="역량">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">Awards · Certifications · Publication</p>
     <h2 class="s-title rise" style="--d:1">수상, 자격, 논문</h2>
@@ -1522,7 +1650,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 18 CONTACT -->
-<section class="slide" data-id="contact" data-title="연락처" data-section="마무리">
+<section class="slide alt" data-id="contact" data-title="연락처" data-section="마무리">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">Thank you</p>
   </header>
@@ -1759,28 +1887,25 @@ ol.flow li::before{top:8px}
     rows.appendChild(row);
   });
 
-  /* ---------- SHERLOG tree ---------- */
-  const W = 820, H = 286;
-  const tree = { root:{x:W/2,y:34}, mids:[], leaves:[] };
+  /* ---------- SHERLOG tree (two static trees: before / after) ---------- */
+  const W = 820, H = 196;
+  const tree = { root:{x:W/2,y:20}, mids:[], leaves:[] };
   const EV = new Set([3, 14, 15]);
   for (let i = 0; i < 4; i++) {
-    const mx = 110 + i * 200; tree.mids.push({x:mx, y:128});
-    for (let j = 0; j < 6; j++) tree.leaves.push({x:mx - 75 + j * 30, y:244, p:i});
+    const mx = 110 + i * 200; tree.mids.push({x:mx, y:92});
+    for (let j = 0; j < 6; j++) tree.leaves.push({x:mx - 75 + j * 30, y:172, p:i});
   }
-  let svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="공정 아래 실행 트리. 4개 하위 실행과 24개 손자 실행 중 3개에 사건이 있습니다.">';
-  tree.mids.forEach((m, i) => { svg += '<path class="edge" data-e="m' + i + '" d="M' + tree.root.x + ' ' + (tree.root.y + 14) + ' C ' + tree.root.x + ' 90, ' + m.x + ' 80, ' + m.x + ' ' + (m.y - 12) + '"/>'; });
-  tree.leaves.forEach((l, i) => { const m = tree.mids[l.p]; svg += '<path class="edge" data-e="l' + i + '" d="M' + m.x + ' ' + (m.y + 12) + ' L ' + l.x + ' ' + (l.y - 9) + '"/>'; });
-  svg += '<circle class="node" data-n="root" cx="' + tree.root.x + '" cy="' + tree.root.y + '" r="15"/>';
-  svg += '<text x="' + (tree.root.x + 24) + '" y="' + (tree.root.y + 5) + '">선택한 공정</text>';
-  tree.mids.forEach((m, i) => { svg += '<circle class="node" data-n="m' + i + '" cx="' + m.x + '" cy="' + m.y + '" r="12"/>'; });
-  tree.leaves.forEach((l, i) => { svg += '<circle class="node' + (EV.has(i) ? ' ev' : '') + '" data-n="l' + i + '" cx="' + l.x + '" cy="' + l.y + '" r="9"/>'; });
-  svg += '<text x="12" y="' + (H - 6) + '">하위 실행</text></svg>';
-  document.getElementById('tree').innerHTML = svg;
-  let treeTimers = [];
-  function runTree(modeName){
-    treeTimers.forEach(clearTimeout); treeTimers = [];
-    const all = document.querySelectorAll('#tree .node, #tree .edge'); all.forEach(n => n.classList.remove('on'));
-    const q = s => document.querySelector('#tree [' + s + ']');
+  function treeSvg(){
+    let svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" aria-hidden="true">';
+    tree.mids.forEach((m, i) => { svg += '<path class="edge" data-e="m' + i + '" d="M' + tree.root.x + ' ' + (tree.root.y + 13) + ' C ' + tree.root.x + ' 60, ' + m.x + ' 52, ' + m.x + ' ' + (m.y - 11) + '"/>'; });
+    tree.leaves.forEach((l, i) => { const m = tree.mids[l.p]; svg += '<path class="edge" data-e="l' + i + '" d="M' + m.x + ' ' + (m.y + 11) + ' L ' + l.x + ' ' + (l.y - 9) + '"/>'; });
+    svg += '<circle class="node" data-n="root" cx="' + tree.root.x + '" cy="' + tree.root.y + '" r="13"/>';
+    svg += '<text x="' + (tree.root.x + 22) + '" y="' + (tree.root.y + 5) + '">선택한 공정</text>';
+    tree.mids.forEach((m, i) => { svg += '<circle class="node" data-n="m' + i + '" cx="' + m.x + '" cy="' + m.y + '" r="11"/>'; });
+    tree.leaves.forEach((l, i) => { svg += '<circle class="node' + (EV.has(i) ? ' ev' : '') + '" data-n="l' + i + '" cx="' + l.x + '" cy="' + l.y + '" r="9"/>'; });
+    return svg + '</svg>';
+  }
+  function treeSeq(modeName){
     const seq = [];
     if (modeName === 'down') {
       seq.push(['data-n="root"']);
@@ -1792,20 +1917,23 @@ ol.flow li::before{top:8px}
       seq.push(Array.from(EV).flatMap(i => ['data-e="l' + i + '"']).concat(parents.map(p => 'data-n="m' + p + '"')));
       seq.push(parents.map(p => 'data-e="m' + p + '"').concat(['data-n="root"']));
     }
-    const visitedTotal = modeName === 'down' ? 1 + tree.mids.length + tree.leaves.length : EV.size + new Set(Array.from(EV).map(i => tree.leaves[i].p)).size + 1;
-    const label = document.getElementById('treeVisit');
-    label.innerHTML = modeName === 'down'
-      ? '방문 <b>' + visitedTotal + '</b> / 29 · 사건 없는 실행까지 전부 펼침'
-      : '방문 <b>' + visitedTotal + '</b> / 29 · 사건 3건에서 부모로만';
-    const step = modeName === 'down' ? 140 : 380;
-    seq.forEach((sels, k) => treeTimers.push(setTimeout(() => sels.forEach(s => { const el = q(s); if (el) el.classList.add('on'); }), 200 + k * step)));
+    return seq;
   }
-  document.querySelectorAll('[data-tree]').forEach(b => b.addEventListener('click', () => {
-    document.querySelectorAll('[data-tree]').forEach(x => x.setAttribute('aria-pressed', x === b ? 'true' : 'false'));
-    runTree(b.dataset.tree);
-  }));
-  onEnter['sherlog-503'] = () => { const b = document.querySelector('[data-tree][aria-pressed="true"]'); runTree(b ? b.dataset.tree : 'down'); };
-  runTree('down');
+  const treeBoxes = Array.from(document.querySelectorAll('[data-tree-mode]'));
+  treeBoxes.forEach(box => {
+    box.innerHTML = treeSvg();
+    treeSeq(box.dataset.treeMode).flat().forEach(sel => { const el = box.querySelector('[' + sel + ']'); if (el) el.classList.add('on'); });
+  });
+  let treeTimers = [];
+  function replayTrees(){
+    treeTimers.forEach(clearTimeout); treeTimers = [];
+    treeBoxes.forEach(box => {
+      box.querySelectorAll('.on').forEach(n => n.classList.remove('on'));
+      const mode = box.dataset.treeMode, step = mode === 'down' ? 110 : 380;
+      treeSeq(mode).forEach((sels, k) => treeTimers.push(setTimeout(() => sels.forEach(sel => { const el = box.querySelector('[' + sel + ']'); if (el) el.classList.add('on'); }), 250 + k * step)));
+    });
+  }
+  onEnter['sherlog-503'] = replayTrees;
 
   /* ---------- job queue ---------- */
   let jobs;
