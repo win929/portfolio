@@ -447,24 +447,6 @@ details.star>summary:hover{border-color:var(--accent)}
 .sync-table td.res{font-weight:600}
 .res.save{color:var(--accent)}.res.keep{color:var(--ok)}.res.skip{color:var(--muted)}.res.halt{color:var(--signal)}
 
-/* gift */
-.tx{display:grid;grid-template-columns:1fr 680px;gap:48px;flex:1;min-height:0}
-.tx-sim{align-self:start;background:var(--panel);border-radius:14px;padding:26px 28px;display:flex;flex-direction:column;gap:18px}
-.tx-box{border:2px solid var(--ink);border-radius:12px;padding:12px 16px 14px;display:flex;flex-direction:column;gap:8px;transition:border-color .3s,background .3s;position:relative}
-.tx-box .cap{font-family:var(--f-text);font-weight:500;font-size:13px;color:var(--muted)}
-.tx-box.fail{border-color:var(--signal);background:var(--signal-soft)}
-.tx-box.safe{border-color:var(--ok)}
-.tx-op{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:8px 12px;border-radius:8px;background:var(--sheet);border:1px solid var(--line);font-size:16.5px;transition:all .3s}
-.tx-op .st{font-family:var(--f-text);font-weight:500;font-size:13px;color:var(--muted);white-space:nowrap}
-.tx-op.err{border-color:var(--signal);color:var(--signal)}
-.tx-op.err .st{color:var(--signal)}
-.tx-op.rolled{text-decoration:line-through;color:var(--muted)}
-.tx-op.rolled .st{color:var(--signal);text-decoration:none}
-.tx-op.kept .st{color:var(--ok)}
-.tx-after{display:flex;flex-direction:column;gap:10px}
-.tx-verdict{font-size:19px;font-weight:700;min-height:1.6em}
-.tx-verdict.bad{color:var(--signal)}.tx-verdict.good{color:var(--ok)}
-
 /* earlier */
 .cards3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;flex:1;min-height:0;align-items:start}
 .pcard{border:1px solid var(--line);border-radius:14px;background:var(--sheet);padding:24px 26px;display:flex;flex-direction:column;gap:12px;min-width:0}
@@ -687,17 +669,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .halt-note{display:block;margin-top:8px;font-size:13px;line-height:1.5;color:var(--muted)}
 .pub{border-radius:20px;background:var(--card);border-color:var(--line-soft);box-shadow:var(--shadow-sm)}
 
-/* 선물하기 */
-.tx-sim{background:var(--card);border:1px solid var(--line-soft);border-radius:24px;box-shadow:var(--shadow-md)}
-.tx-box{border:1.5px solid var(--line);border-radius:18px;background:var(--sheet)}
-.tx-box.fail{border-color:var(--signal);background:var(--signal-soft)}
-.tx-box.safe{border-color:var(--ok)}
-.tx-box .cap{align-self:flex-start;padding:3px 10px;border-radius:999px;background:var(--panel);font-size:13px}
-.tx-op{border-radius:12px;background:var(--card);border-color:var(--line-soft)}
-.tx-op .st{padding:3px 10px;border-radius:999px;background:var(--panel)}
-.tx-op.err .st,.tx-op.rolled .st{background:var(--signal-soft)}
-.tx-op.kept .st{background:var(--ok-soft)}
-
 /* earlier, skills, lists, contact */
 .pcard{border-radius:22px;background:var(--card);border-color:var(--line-soft);box-shadow:var(--shadow-md)}
 .pc-head{display:flex;gap:14px;align-items:center}
@@ -728,7 +699,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .proj.cmb .stat .v{font-size:30px}
 .rc-sim{align-self:start}
 .stage-detail{min-height:160px}
-.tx-sim{align-self:start}
 .list{align-self:start}
 .closing .big-q::before{content:"\201C";display:block;font-size:150px;line-height:.7;height:66px;color:var(--accent);opacity:.25}
 
@@ -752,8 +722,25 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .pov-plate{display:inline-flex;align-items:center;padding:14px 22px;border-radius:20px;background:#FFFFFF;border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
 .pov-plate img{display:block;height:64px;width:auto;max-width:100%}
 .pov-icon{display:block;width:84px;height:auto;border-radius:22px;box-shadow:var(--shadow-md)}
-.pov-gift{width:84px;height:84px;border-radius:24px}
-.pov-gift .ic{width:40px;height:40px}
+.pov-mark{width:84px;height:84px;border-radius:24px;background:var(--violet-soft);color:var(--violet)}
+.pov-mark .ic{width:40px;height:40px}
+.sueo-ui{display:grid;grid-template-columns:minmax(0,1fr) 28px minmax(0,1fr);gap:10px;align-items:center}
+.sueo-ui .sframe{border-radius:14px}
+.sueo-arrow{text-align:center;font-size:22px;font-weight:800;color:var(--accent)}
+.sp4{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.sp4 li{position:relative;display:flex;flex-direction:column;gap:6px;padding:14px 18px;border-radius:18px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.sp4 li:not(:last-child)::after{content:"";position:absolute;right:-12px;top:50%;width:9px;height:9px;margin-top:-5px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:rotate(45deg);opacity:.6}
+.sp-n{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:14px;font-weight:800}
+.sp-t{margin:0;display:flex;flex-direction:column;gap:3px;font-size:18px;font-weight:800;line-height:1.3}
+.sp-t code{align-self:flex-start;font-family:var(--f-mono);font-size:12px;font-weight:600;padding:1px 7px;border-radius:6px;background:var(--panel);color:var(--muted)}
+.sp-d{margin:0;flex:1;font-size:14.5px;line-height:1.55}
+.sp-m{align-self:flex-start;padding:3px 10px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-size:12.5px;font-weight:800}
+.sq-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:10px;flex:1}
+.sq-stats>div{justify-content:center}
+.sq-stats>div{display:flex;flex-direction:column;gap:2px;padding:12px 16px;border-radius:14px;background:var(--panel)}
+.sq-stats .v{font-family:var(--f-display);font-size:30px;font-weight:800;line-height:1.1;letter-spacing:-.02em;color:var(--accent)}
+.sq-stats>div:first-child .v{color:var(--ok)}
+.sq-stats .k{font-size:13.5px;font-weight:600;color:var(--muted)}
 .pov-name{margin:0;font-size:54px;font-weight:800;line-height:1.05;letter-spacing:-.03em}
 .pov-name small{display:block;margin-top:8px;font-size:18px;font-weight:600;letter-spacing:0;color:var(--muted)}
 .pov-tags{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -806,7 +793,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 }
 
 @media screen and (max-width:1100px){
-  .app[data-mode="read"] .cover,.app[data-mode="read"] .prin,.app[data-mode="read"] .proj,.app[data-mode="read"] .case,.app[data-mode="read"] .rc,.app[data-mode="read"] .ck2,.app[data-mode="read"] .msy,.app[data-mode="read"] .tx,.app[data-mode="read"] .closing{grid-template-columns:minmax(0,1fr);gap:32px}
+  .app[data-mode="read"] .cover,.app[data-mode="read"] .prin,.app[data-mode="read"] .proj,.app[data-mode="read"] .case,.app[data-mode="read"] .rc,.app[data-mode="read"] .ck2,.app[data-mode="read"] .msy,.app[data-mode="read"] .closing{grid-template-columns:minmax(0,1fr);gap:32px}
   .app[data-mode="read"] .cover .portrait{max-width:340px;order:-1}
   .app[data-mode="read"] .kc2,.app[data-mode="read"] .cards3,.app[data-mode="read"] .sk,.app[data-mode="read"] .two{grid-template-columns:minmax(0,1fr)}
   .app[data-mode="read"] .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -818,6 +805,8 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   .app[data-mode="read"] .pov{grid-template-columns:minmax(0,1fr);gap:28px}
   .app[data-mode="read"] .shot-b{margin-right:0}
   .app[data-mode="read"] .fr-card{grid-template-columns:minmax(0,1fr);gap:12px}
+  .app[data-mode="read"] .sp4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .app[data-mode="read"] .sp4 li::after{display:none}
   .app[data-mode="read"] .msx{grid-template-columns:minmax(0,1fr)}
   .app[data-mode="read"] .msx li::after{display:none}
   .app[data-mode="read"] .lane{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -876,6 +865,8 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   .tech{font-size:13px;height:36px}
   .shot-b{width:62%;margin-top:-40px}
   .fr{grid-template-columns:32px minmax(0,1fr);gap:10px}
+  .app[data-mode="read"] .sp4{grid-template-columns:minmax(0,1fr)}
+  .sq-stats .v{font-size:24px}
   .ms-matrix{font-size:12.5px}
   .ms-matrix th,.ms-matrix td{padding:8px 6px!important}
   .ms-matrix th:nth-child(1){width:19%}
@@ -1459,56 +1450,63 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   </div>
 </section>
 
-<!-- 13a GIFT OVERVIEW -->
-<section class="slide alt" data-id="gift-overview" data-title="선물하기 클론 소개" data-section="선물하기 클론">
+<!-- 13a SUEOPRIZE OVERVIEW -->
+<section class="slide alt" data-id="sueo-overview" data-title="수어프라이즈 소개" data-section="수어프라이즈">
   <div class="pov">
     <div class="pov-main">
-      <p class="eyebrow rise" style="--d:0"><b>Project 5</b> 2025.06 – 2025.08 · 1인 풀스택</p>
-      <div class="pov-brand rise" style="--d:1"><span class="tile pov-gift"><svg class="ic"><use href="#i-gift"/></svg></span><h2 class="pov-name">선물하기 클론<small>카카오톡 선물하기 흐름 구현</small></h2></div>
-      <div class="pov-tags rise" style="--d:2"><span class="ptag">카카오테크 캠퍼스 3기 개인 과제</span><span class="ptag">커머스 · 주문</span></div>
-      <p class="pov-what rise" style="--d:3">카카오톡 선물하기 흐름을 따라 상품 선택부터 주문, 카카오 메시지 알림까지 직접 설계하고 구현한 커머스 서비스입니다.</p>
+      <p class="eyebrow rise" style="--d:0"><b>Project 5</b> 2025.03 – 2025.12 · 3명 · 팀장</p>
+      <div class="pov-brand rise" style="--d:1"><span class="tile pov-mark"><svg class="ic"><use href="#i-hand"/></svg></span><h2 class="pov-name">수어프라이즈<small>드라이브스루를 위한 온디바이스 수어 통역 앱</small></h2></div>
+      <div class="pov-tags rise" style="--d:2"><span class="ptag hl"><svg class="ic"><use href="#i-file"/></svg>학사 학위 논문</span><span class="ptag">청각장애인 접근성</span><span class="ptag">Android 온디바이스 AI</span></div>
+      <p class="pov-what rise" style="--d:3">음성으로만 주문받는 드라이브스루에서 청각장애인도 주문할 수 있도록, 스마트폰 하나로 수어는 글자로, 점원의 말도 글자로 바꿔 주는 앱입니다. 인터넷 없이 단말 안에서 모두 처리합니다.</p>
       <div class="pov-role rise" style="--d:4">
-        <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 1인 풀스택</p>
-        <ul class="ticks small"><li>상품·옵션·회원·주문·위시리스트 API 구현</li><li>JWT 인증, Kakao OAuth 로그인·메시지 연동</li><li>주문 커밋 뒤 알림 실행으로 트랜잭션 분리</li></ul>
+        <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 팀장 / AI 모델 · Android</p>
+        <ul class="ticks small"><li>수어 데이터 수집 앱(Android)과 JSON → NumPy 변환 도구(Python) 개발</li><li>LSTM 지문자 분류 모델 학습, TFLite 변환과 앱 탑재</li><li>수어 인식·한글 조합, 오프라인 음성 인식(Sherpa-ONNX) 구현</li></ul>
       </div>
       <div class="pov-stack rise" style="--d:5">
         <p class="label">기술 스택</p>
-        <div class="techs"><span class="tech"><img src="assets/logos/java.svg" alt="" width="28" height="28">Java</span><span class="tech"><img src="assets/logos/spring-boot.svg" alt="" width="28" height="28">Spring Boot</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-db"/></svg></span>Spring Data JPA</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-db"/></svg></span>H2</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-file"/></svg></span>Thymeleaf</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-lock"/></svg></span>JWT</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-link"/></svg></span>Kakao API</span></div>
+        <div class="techs"><span class="tech"><img src="assets/logos/kotlin.svg" alt="" width="28" height="28">Kotlin</span><span class="tech"><img src="assets/logos/android.svg" alt="" width="28" height="28">Android</span><span class="tech"><img src="assets/logos/python.svg" alt="" width="28" height="28">Python</span><span class="tech"><img src="assets/logos/tensorflow.svg" alt="" width="28" height="28">TensorFlow Lite</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-hand"/></svg></span>MediaPipe</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-mic"/></svg></span>Sherpa-ONNX</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-sparkles"/></svg></span>ML Kit 번역</span></div>
       </div>
     </div>
-    <div class="pov-shots rise" style="--d:3">
-      <figure class="sframe shot-a"><div class="win-bar"><i></i><i></i><i></i><span>선물하기 · 상품 목록</span></div><img src="assets/projects/gift-list.jpg" alt="선물하기 클론 상품 목록 화면"></figure>
-      <figure class="sframe shot-b"><img src="assets/projects/gift-detail.jpg" alt="선물하기 클론 상품 상세 화면"></figure>
-      <p class="pov-cap">실제 화면 · 상품 목록과 상품 상세</p>
+    <div class="pov-shots stack2 rise" style="--d:3">
+      <figure class="sframe"><div class="win-bar"><i></i><i></i><i></i><span>수어프라이즈 · 시스템 구조</span></div><img src="assets/projects/sueo-arch.jpg" alt="수어프라이즈 시스템 구조: 수어 입력은 MediaPipe 특징 추출과 LSTM 분류를 거쳐 TFLite 모델로, 점원 음성은 Sherpa-ONNX로, 번역은 ML Kit로 안드로이드 앱에 모입니다" width="1400" height="768"></figure>
+      <div class="sueo-ui"><figure class="sframe"><img src="assets/projects/sueo-ko.jpg" alt="수어 인식 결과 카드: 감자" width="900" height="251"></figure><span class="sueo-arrow" aria-hidden="true">→</span><figure class="sframe"><img src="assets/projects/sueo-en.jpg" alt="번역 버튼을 누른 뒤의 카드: Potato" width="900" height="251"></figure></div>
     </div>
   </div>
 </section>
 
-<!-- 13 GIFT -->
-<section class="slide" data-id="gift" data-title="트랜잭션 경계" data-section="선물하기 클론">
-  <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>선물하기 클론</b> 트러블슈팅 · 트랜잭션 경계</p>
-    <h2 class="s-title rise" style="--d:1">알림 API가 실패해도<br>주문은 남아야 합니다</h2>
-  </header>
-  <div class="tx">
-    <div class="col">
-      <p class="small rise" style="--d:2">주문 생성, 위시리스트 삭제, 카카오 메시지 알림을 하나의 @Transactional로 묶었습니다. 기능 테스트는 통과했지만, 현업 멘토의 질문을 받고서야 알림 API 장애가 정상 주문까지 롤백시키는 구조라는 걸 알았습니다.</p>
-      <ul class="ticks small rise" style="--d:3">
-        <li>주문 저장 후 <b>OrderCompletedEvent</b> 발행, <b>@TransactionalEventListener</b>로 커밋 뒤에 알림 실행</li>
-        <li>위시리스트 삭제는 <b>REQUIRES_NEW</b> 독립 트랜잭션으로 격리</li>
-      </ul>
-      <p class="small muted rise" style="--d:4">이 피드백 이후로 "평소에 도는가"보다 "장애가 났을 때 무엇이 남는가"를 먼저 묻게 됐습니다.</p>
+<!-- 13 SUEOPRIZE · DATA TO MODEL -->
+<section class="slide" data-id="sueo" data-title="데이터부터 모델까지" data-section="수어프라이즈">
+  <header class="s-head2">
+    <div class="s-head">
+      <p class="eyebrow rise" style="--d:0"><b>수어프라이즈</b> 내 역할 · 데이터 → 모델 → 앱</p>
+      <h2 class="s-title rise" style="--d:1">학습 데이터가 없어서,<br>수집 앱부터 직접 만들었습니다</h2>
     </div>
-    <div class="tx-sim rise" style="--d:3">
-      <div class="viz-top">
-        <div class="seg" role="group" aria-label="트랜잭션 구조">
-          <button type="button" data-tx="before" aria-pressed="true">처음 구조</button>
-          <button type="button" data-tx="after" aria-pressed="false">개선 구조</button>
-        </div>
-        <button class="btn danger" type="button" id="txFail">알림 API 장애 일으키기</button>
+    <div class="pr-c why rise" style="--d:2"><span class="tile sm t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><p class="k">문제</p><p>스마트폰 카메라로 찍은 한국 수어 학습 데이터가 없었습니다. 드라이브스루 메뉴는 외래어·브랜드명이 많아 표준 수어 단어로 표현하기 어려워, 자음·모음 31개 지문자를 인식하기로 했습니다.</p></div></div>
+  </header>
+  <ol class="sp4 rise" style="--d:3">
+    <li><span class="sp-n num">1</span><p class="sp-t">수집 앱<code>Make_Dataset_By_Phone</code></p><p class="sp-d">Android 앱이 자모 31개를 차례로 10초씩 자동 녹화하고, 손 관절 21개를 55차원 특징으로 바꿔 JSON으로 저장합니다.</p><span class="sp-m">Kotlin · MediaPipe</span></li>
+    <li><span class="sp-n num">2</span><p class="sp-t">변환<code>Json_To_Numpy</code></p><p class="sp-d">프레임마다 라벨을 붙이고 10프레임 슬라이딩 윈도우로 잘라 학습용 NumPy 배열을 만듭니다.</p><span class="sp-m num">Python · (N, 10, 56)</span></li>
+    <li><span class="sp-n num">3</span><p class="sp-t">학습<code>Train_Hand_Gesture</code></p><p class="sp-d">팀원 3명이 모은 20,595개 시퀀스로 LSTM(64) → Dense(32) → 31개 softmax를 학습하고, 79 epoch에서 조기 종료했습니다.</p><span class="sp-m num">Keras · 파라미터 33.8K</span></li>
+    <li><span class="sp-n num">4</span><p class="sp-t">앱 탑재<code>SueoPrize</code></p><p class="sp-d">TFLite로 변환해 앱에 넣고, 1초 동안 모은 동작으로 자모를 예측해 한글 오토마타로 글자를 조합합니다.</p><span class="sp-m num">TFLite · 146KB</span></li>
+  </ol>
+  <div class="ck2 rise" style="--d:4">
+    <div class="ck-card">
+      <p class="label with-ic"><span class="tile sm t-violet"><svg class="ic"><use href="#i-sparkles"/></svg></span>고민한 점</p>
+      <ul class="dec">
+        <li><b>좌표 대신 방향과 각도로</b><span>절대 좌표는 손 위치와 카메라 거리에 따라 달라집니다. 손목 기준 단위 벡터 20개(40차원)와 관절 각도 15개로 55차원 특징을 만들어, 손 크기·위치가 달라도 같은 손 모양은 같은 값이 되게 했습니다.</span></li>
+        <li><b>학습과 실제 앱이 같은 입력을 보도록</b><span>수집 앱에도 실제 앱과 같은 회전·반전·특징 추출 코드를 넣어, 학습 데이터와 추론 입력이 어긋나지 않게 했습니다.</span></li>
+        <li><b>인터넷 없이도 점원의 말을 글자로</b><span>네트워크가 필요한 음성 인식 대신 오프라인 스트리밍 Sherpa-ONNX(한국어 Zipformer int8)로 바꿔, 지하 주차장 같은 곳에서도 동작하게 했습니다.</span></li>
+      </ul>
+    </div>
+    <div class="ck-card">
+      <p class="label with-ic"><span class="tile sm t-mint"><svg class="ic"><use href="#i-chart"/></svg></span>결과</p>
+      <div class="sq-stats">
+        <div><span class="v num">99.29%</span><span class="k">지문자 31개 테스트 정확도</span></div>
+        <div><span class="v num">0.9927</span><span class="k">Macro F1</span></div>
+        <div><span class="v num">20,595</span><span class="k">직접 모은 시퀀스 (3명)</span></div>
+        <div><span class="v num">146KB</span><span class="k">앱에 넣은 TFLite 모델</span></div>
       </div>
-      <div id="txView"></div>
-      <p class="tx-verdict" id="txVerdict" aria-live="polite"></p>
+      <p class="ck-pass"><svg class="ic"><use href="#i-check-circle"/></svg>수어 인식 · 음성 인식 · 한영 번역을 인터넷 없이 앱 하나에서</p>
     </div>
   </div>
 </section>
@@ -1516,20 +1514,20 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 <!-- 14 EARLIER -->
 <section class="slide alt" data-id="earlier" data-title="그 전의 프로젝트" data-section="그 전의 프로젝트">
   <header class="s-head">
-    <p class="eyebrow rise" style="--d:0">2024.10 – 2025.12</p>
+    <p class="eyebrow rise" style="--d:0">2024.10 – 2025.08</p>
     <h2 class="s-title rise" style="--d:1">그 전의 프로젝트</h2>
   </header>
   <div class="cards3">
     <article class="pcard rise" style="--d:2">
-      <div class="pc-head"><span class="tile t-violet"><svg class="ic"><use href="#i-hand"/></svg></span><p class="meta">2025.03 – 2025.12 · 3명 · 팀장<br>Android · Kotlin · TFLite</p></div>
-      <h3>수어프라이즈</h3>
-      <p>드라이브 스루에서 청각장애인의 주문 소통을 돕는 온디바이스 AI 수어 통역 앱. 서버 없이 단말 안에서 수어 인식, 한국어 음성 인식, 한영 번역을 이었습니다.</p>
+      <div class="pc-head"><span class="tile t-violet"><svg class="ic"><use href="#i-gift"/></svg></span><p class="meta">2025.06 – 2025.08 · 카카오테크 캠퍼스 · 1인<br>Spring Boot · JPA · Kakao API</p></div>
+      <h3>카카오톡 선물하기 클론</h3>
+      <p>상품 선택부터 주문, 카카오 메시지 알림까지 혼자 설계하고 구현했습니다. 멘토의 질문으로 알림 API 장애가 정상 주문까지 롤백시키는 구조임을 알고 트랜잭션 경계를 다시 나눴습니다.</p>
       <details open><summary>자세히</summary>
         <ul class="ticks">
-          <li>학습 데이터가 없어 수집 도구를 직접 만듦: MediaPipe 21개 손 랜드마크 → 정규화 좌표 + 15개 관절 각도의 55차원 특징 벡터</li>
-          <li>31개 자모 라벨, 10프레임 시퀀스 데이터 (20595, 10, 56)</li>
-          <li>CameraX 입력과 추론 분리, 1초 시퀀스·최소 2초 예측 간격으로 연속 추론 부하 제한</li>
-          <li>Sherpa-ONNX 16kHz 스트리밍 ASR, ML Kit 번역 모델 사전 다운로드</li>
+          <li>상품·옵션·회원·주문·위시리스트 API, JWT 인증과 Kakao OAuth</li>
+          <li>주문 저장 후 이벤트를 발행해 커밋된 뒤에만 알림 실행</li>
+          <li>위시리스트 삭제는 REQUIRES_NEW 독립 트랜잭션으로 격리</li>
+          <li>알림이 실패해도 주문은 남는 구조로 변경</li>
         </ul>
       </details>
     </article>
@@ -1780,7 +1778,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   /* ---------- principles ---------- */
   const PRIN = [
     {k:'A', items:[
-      ['선물하기 클론','주문이 커밋된 뒤에 알림을 보내고, 위시리스트 삭제는 REQUIRES_NEW로 떼어 냈습니다.','gift'],
+      ['선물하기 클론','주문이 커밋된 뒤에 알림을 보내고, 위시리스트 삭제는 REQUIRES_NEW로 떼어 냈습니다.','earlier'],
       ['SHERLOG','분석 작업마다 취소 신호와 결과를 따로 두어, 하나를 취소해도 다른 분석 결과는 그대로 남게 했습니다.','sherlog-storage'],
       ['무쉼사','외부 응답에 없는 쉼터는 지우지 않고 건너뛰어 마지막 정상 데이터를 지켰습니다.','musuimsa']]},
     {k:'B', items:[
@@ -1789,7 +1787,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
       ['책추책책추','추천 요청 경로에서 외부 AI 호출을 없애, GMS가 느리거나 멈춰도 추천은 미리 만든 벡터로 나가게 했습니다.','chaekchu']]},
     {k:'C', items:[
       ['콜미베이비','MVP에 없던 재접속을, 아이가 브라우저를 닫는 상황을 보고 45초 유예로 추가했습니다.','cmb-reconnect'],
-      ['수어프라이즈','드라이브 스루의 불안정한 네트워크를 보고 서버 없이 단말에서 도는 구조를 택했습니다.','earlier'],
+      ['수어프라이즈','드라이브스루의 불안정한 네트워크를 보고 수어·음성 인식을 모두 단말 안에서 돌렸습니다.','sueo'],
       ['책추책책추','이미 서재에 있는 책은 추천에서 빼고, 비슷한 책만 몰리지 않게 다양성 보정을 넣었습니다.','chaekchu']]},
     {k:'D', items:[
       ['SHERLOG','503의 원인을 가설로 정하지 않고 SQL 구간을 재서 후보 수 집계로 좁혔습니다.','sherlog-503'],
@@ -1830,8 +1828,8 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   const PROJ = [
     ['SSACTHREE Book Store','7명 · 정책·쿠폰 시스템','2024-10-14','2024-12-13',false,'earlier'],
     ['UCSD QI AI Project','5명 · 데이터 수집·전처리','2025-01-14','2025-02-14',false,'earlier'],
-    ['수어프라이즈','3명 · 팀장','2025-03-07','2025-12-11',true,'earlier'],
-    ['카카오톡 선물하기 클론','1인 · 풀스택','2025-06-23','2025-08-01',false,'gift-overview'],
+    ['수어프라이즈','3명 · 팀장','2025-03-07','2025-12-11',true,'sueo-overview'],
+    ['카카오톡 선물하기 클론','1인 · 풀스택','2025-06-23','2025-08-01',false,'earlier'],
     ['무쉼사','5명 · 백엔드 테크 리더','2025-08-04','2025-11-07',true,'musuimsa-overview'],
     ['콜미베이비','6명 · 백엔드 테크 리더','2026-07-13','2026-08-09',true,'callmebaby'],
     ['책추책책추','6명 · AI 담당','2026-08-18','2026-09-28',false,'chaekchu-overview'],
@@ -1946,35 +1944,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   })();
 
 
-
-  /* ---------- gift transaction ---------- */
-  let txMode = 'before', txBroken = false;
-  function renderTx(){
-    document.querySelectorAll('[data-tx]').forEach(b => b.setAttribute('aria-pressed', b.dataset.tx === txMode ? 'true' : 'false'));
-    const v = document.getElementById('txView'), verdict = document.getElementById('txVerdict');
-    const op = (name, st, cls) => '<div class="tx-op ' + (cls || '') + '"><span>' + name + '</span><span class="st">' + st + '</span></div>';
-    if (txMode === 'before') {
-      v.innerHTML = '<div class="tx-box ' + (txBroken ? 'fail' : '') + '"><span class="cap">@Transactional · 주문 생성 하나로 묶음</span>' +
-        op('주문 저장', txBroken ? '롤백' : '커밋 대기', txBroken ? 'rolled' : '') +
-        op('위시리스트 삭제', txBroken ? '롤백' : '커밋 대기', txBroken ? 'rolled' : '') +
-        op('카카오 메시지 알림', txBroken ? '외부 API 오류' : '호출', txBroken ? 'err' : '') + '</div>';
-      verdict.className = 'tx-verdict' + (txBroken ? ' bad' : '');
-      verdict.textContent = txBroken ? '알림 하나가 실패해 정상 주문까지 사라집니다.' : '정상일 때는 문제없어 보입니다. 장애를 일으켜 보세요.';
-    } else {
-      v.innerHTML = '<div class="tx-after">' +
-        '<div class="tx-box safe"><span class="cap">주문 트랜잭션</span>' + op('주문 저장 → 커밋', '커밋 완료', 'kept') + op('OrderCompletedEvent 발행', '발행', 'kept') + '</div>' +
-        '<div class="tx-box safe"><span class="cap">REQUIRES_NEW · 독립 트랜잭션</span>' + op('위시리스트 삭제', '별도 커밋', 'kept') + '</div>' +
-        '<div class="tx-box ' + (txBroken ? 'fail' : '') + '"><span class="cap">@TransactionalEventListener · AFTER_COMMIT</span>' + op('카카오 메시지 알림', txBroken ? '외부 API 오류' : '커밋 뒤 호출', txBroken ? 'err' : '') + '</div></div>';
-      verdict.className = 'tx-verdict' + (txBroken ? ' good' : '');
-      verdict.textContent = txBroken ? '알림만 실패하고, 주문은 커밋된 채로 남습니다.' : '알림은 주문이 커밋된 뒤에만 실행됩니다.';
-    }
-    const fb = document.getElementById('txFail');
-    fb.textContent = txBroken ? '장애 되돌리기' : '알림 API 장애 일으키기';
-    fb.classList.toggle('danger', !txBroken); fb.classList.toggle('ghost', txBroken);
-  }
-  document.querySelectorAll('[data-tx]').forEach(b => b.addEventListener('click', () => { txMode = b.dataset.tx; renderTx(); }));
-  document.getElementById('txFail').addEventListener('click', () => { txBroken = !txBroken; renderTx(); });
-  renderTx();
 
   /* ---------- boot ---------- */
   const startId = location.hash.slice(1);
