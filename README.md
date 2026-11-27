@@ -4,6 +4,8 @@
 
 **바로 보기:** https://win929.github.io/portfolio/
 
+**PDF:** [leo-portfolio.pdf](leo-portfolio.pdf) (21쪽, 슬라이드 한 장이 한 페이지)
+
 ## 보는 방법
 
 - `←` `→` 키 또는 아래 버튼으로 슬라이드를 넘깁니다. `G` 키를 누르면 전체 목차가 열립니다.
@@ -33,6 +35,7 @@
 | `assets/` | 프로필 사진, 기술 로고(`assets/logos/`), 프로젝트 로고·실제 화면(`assets/projects/`) |
 | `fonts/` | Paperlogy 웹폰트 4종과 라이선스 |
 | `leo-portfolio.html` | 이미지와 폰트를 모두 담은 단일 파일. 내려받아 더블클릭하면 브라우저에서 열리고, 크롬 인쇄 → PDF로 저장하면 슬라이드 한 장이 한 페이지가 됩니다. |
+| `leo-portfolio.pdf` | 21장 전체를 담은 PDF. 슬라이드 한 장이 1600×900 한 페이지이며 폰트가 포함되어 있습니다. |
 
 ## 폰트와 로고
 
