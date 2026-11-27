@@ -409,13 +409,19 @@ details.star>summary:hover{border-color:var(--accent)}
 .metrics .k{font-size:15px;color:var(--muted)}
 
 /* ---------- chaekchu ---------- */
-.ckp{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.ckp li{position:relative;display:flex;flex-direction:column;gap:6px;padding:16px 18px;border-radius:18px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
-.ckp li:not(:last-child)::after{content:"";position:absolute;right:-12px;top:24px;width:10px;height:10px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:rotate(45deg);opacity:.6}
-.ckp-n{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:14px;font-weight:800}
-.ckp-t{margin:0;font-size:19px;font-weight:800}
-.ckp-d{margin:0;flex:1;font-size:15px;line-height:1.55}
-.ckp-m{align-self:flex-start;padding:3px 10px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:800}
+.lanes{display:flex;flex-direction:column;gap:10px}
+.lane-row{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px}
+.lane-k{margin:0;display:flex;flex-direction:column;justify-content:center;gap:2px;padding:0 14px;border-radius:16px;background:var(--accent-soft);color:var(--accent);font-size:13px;font-weight:700;line-height:1.3}
+.lane-k b{font-size:17px;font-weight:800}
+.lane-row.on .lane-k{background:var(--ok-soft);color:var(--ok)}
+.lane{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.lane li{position:relative;display:flex;flex-direction:column;gap:4px;padding:12px 16px;border-radius:16px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.lane li:not(:last-child)::after{content:"";position:absolute;right:-12px;top:50%;width:9px;height:9px;margin-top:-5px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:rotate(45deg);opacity:.6}
+.lane-row.on .lane li:not(:last-child)::after{border-color:var(--ok)}
+.lt{margin:0;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:17px;font-weight:800;line-height:1.3}
+.lm{flex:none;padding:2px 8px;border-radius:7px;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:800}
+.lane-row.on .lm{background:var(--ok-soft);color:var(--ok)}
+.ld{margin:0;font-size:14.5px;line-height:1.5}
 .ck2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;flex:1;min-height:0}
 .ck-card{display:flex;flex-direction:column;gap:10px;min-width:0;padding:16px 20px;border-radius:18px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
 .dec{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
@@ -430,27 +436,7 @@ details.star>summary:hover{border-color:var(--accent)}
 .ck-tbl tr.base td{color:var(--muted)}
 .ck-tbl tr.base td:nth-child(2){color:var(--signal)}
 .ck-note{margin:0;font-size:13.5px;color:var(--muted)}
-.cks{display:grid;grid-template-columns:minmax(0,1fr) 500px;gap:24px;flex:1;min-height:0}
-.ckf{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-.ckf li{flex:1;display:grid;grid-template-columns:30px minmax(0,1fr);gap:14px;align-items:center;padding:12px 20px;border-radius:16px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
-.ckf .n{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:14px;font-weight:800}
-.ckf p{margin:0;font-size:16px;line-height:1.6}
-.ckf b{margin-right:8px;font-size:17px;font-weight:800}
-.wbar{display:flex;height:28px;margin-top:10px;border-radius:999px;overflow:hidden}
-.wbar span{display:flex;align-items:center;padding:0 8px;font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;color:var(--accent-ink)}
-.wbar span:nth-child(1){background:var(--accent)}
-.wbar span:nth-child(2){background:var(--accent-2)}
-.wbar span:nth-child(3){background:var(--violet)}
-.wbar span:nth-child(4){background:var(--ok)}
-.wbar span:nth-child(5){background:var(--signal)}
-.wbar-k{margin-top:4px!important;font-size:12.5px!important;color:var(--muted)}
-.wk-full{display:none}
-.cks-side{display:flex;flex-direction:column;gap:12px;min-width:0}
-.ck-p{margin:0;font-size:16px;line-height:1.65}
-.ck-card code,.ckf code{font-family:var(--f-mono);font-size:.88em;padding:1px 5px;border-radius:4px;background:var(--panel)}
-.ck-card .ticks li{font-size:15.5px;line-height:1.55}
-.cks-side .ck-card{padding:20px 22px;gap:12px}
-.cks-side .ck-card:last-child{flex:1}
+.ck-card code{font-family:var(--f-mono);font-size:.88em;padding:1px 5px;border-radius:4px;background:var(--panel)}
 .ck-pass{margin:auto 0 0;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:var(--ok-soft);color:var(--ok);font-size:14px;font-weight:800;line-height:1.4}
 .ck-pass .ic{flex:none;width:18px;height:18px}
 
@@ -798,7 +784,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 }
 
 @media screen and (max-width:1100px){
-  .app[data-mode="read"] .cover,.app[data-mode="read"] .prin,.app[data-mode="read"] .proj,.app[data-mode="read"] .case,.app[data-mode="read"] .rc,.app[data-mode="read"] .cks,.app[data-mode="read"] .ck2,.app[data-mode="read"] .ms,.app[data-mode="read"] .tx,.app[data-mode="read"] .closing{grid-template-columns:minmax(0,1fr);gap:32px}
+  .app[data-mode="read"] .cover,.app[data-mode="read"] .prin,.app[data-mode="read"] .proj,.app[data-mode="read"] .case,.app[data-mode="read"] .rc,.app[data-mode="read"] .ck2,.app[data-mode="read"] .ms,.app[data-mode="read"] .tx,.app[data-mode="read"] .closing{grid-template-columns:minmax(0,1fr);gap:32px}
   .app[data-mode="read"] .cover .portrait{max-width:340px;order:-1}
   .app[data-mode="read"] .kc2,.app[data-mode="read"] .cards3,.app[data-mode="read"] .sk,.app[data-mode="read"] .two{grid-template-columns:minmax(0,1fr)}
   .app[data-mode="read"] .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -810,8 +796,8 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   .app[data-mode="read"] .pov{grid-template-columns:minmax(0,1fr);gap:28px}
   .app[data-mode="read"] .shot-b{margin-right:0}
   .app[data-mode="read"] .fr-card{grid-template-columns:minmax(0,1fr);gap:12px}
-  .app[data-mode="read"] .ckp{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .app[data-mode="read"] .ckp li::after{display:none}
+  .app[data-mode="read"] .lane{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .app[data-mode="read"] .lane li::after{display:none}
   .app[data-mode="read"] .fr-m{padding-left:0;border-left:0}
   .app[data-mode="read"] .fr{align-items:start}
   .app[data-mode="read"] .s-head2{grid-template-columns:minmax(0,1fr);gap:20px}
@@ -866,12 +852,11 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   .tech{font-size:13px;height:36px}
   .shot-b{width:62%;margin-top:-40px}
   .fr{grid-template-columns:32px minmax(0,1fr);gap:10px}
-  .app[data-mode="read"] .ckp{grid-template-columns:minmax(0,1fr)}
+  .lane-row{grid-template-columns:minmax(0,1fr)}
+  .lane-k{flex-direction:row;align-items:baseline;gap:8px;padding:8px 14px}
+  .app[data-mode="read"] .lane{grid-template-columns:minmax(0,1fr)}
   .ck-tbl{font-size:13px}
   .ck-tbl th,.ck-tbl td{padding:6px 5px}
-  .wbar span{font-size:0;padding:0}
-  .wk-short{display:none}
-  .wk-full{display:block}
   .kc{padding:18px 16px}
   .kc-num .big{font-size:32px}
   .g-row{grid-template-columns:40px minmax(0,1fr)}
@@ -1322,28 +1307,42 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   </div>
 </section>
 
-<!-- 10 CHAEKCHU · OFFLINE -->
-<section class="slide" data-id="chaekchu" data-title="AI 파이프라인 · 오프라인 색인" data-section="책추책책추">
+<!-- 10 CHAEKCHU · AI PIPELINE -->
+<section class="slide" data-id="chaekchu" data-title="AI 추천 파이프라인" data-section="책추책책추">
   <header class="s-head2">
     <div class="s-head">
-      <p class="eyebrow rise" style="--d:0"><b>책추책책추</b> AI 파이프라인 ① 오프라인 색인</p>
-      <h2 class="s-title rise" style="--d:1">44만 권을 추천할 수 있는 색인으로,<br>GMS는 꼭 필요한 책에만</h2>
+      <p class="eyebrow rise" style="--d:0"><b>책추책책추</b> 내 역할 · AI 추천 파이프라인</p>
+      <h2 class="s-title rise" style="--d:1">44만 권은 미리 색인해 두고,<br>추천 요청에는 AI를 부르지 않습니다</h2>
     </div>
-    <div class="pr-c why rise" style="--d:2"><span class="tile sm t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><p class="k">문제</p><p>처음 1만 권으로 기준선을 재 보니 GMS 태깅을 한 권마다 호출해 2시간 48분이 걸렸습니다. 같은 방식이면 100만 권에 약 11.5일(선형 추정)이라, 후보 44만 권을 처리하려면 구조부터 바꿔야 했습니다.</p></div></div>
+    <div class="pr-c why rise" style="--d:2"><span class="tile sm t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><p class="k">문제</p><p>1만 권 기준선에서 GMS 태깅을 한 권마다 호출해 2시간 48분이 걸렸습니다. 이대로면 100만 권에 약 11.5일(선형 추정)이었고, 추천 요청마다 AI를 부르면 비용·지연·장애가 사용자에게 그대로 전해졌습니다.</p></div></div>
   </header>
-  <ol class="ckp rise" style="--d:3">
-    <li><span class="ckp-n num">1</span><p class="ckp-t">검증 · 정규화</p><p class="ckp-d">입력 계약을 검사하고 입력 해시를 남긴 뒤, isbn13 하나만 병합 기준으로 써서 중복 판본을 정리했습니다.</p><span class="ckp-m num">440,377권</span></li>
-    <li><span class="ckp-n num">2</span><p class="ckp-t">태그</p><p class="ckp-d">KDC·키워드 규칙 태거를 먼저 돌려 신뢰도 0.85 이상이면 GMS를 건너뛰고, 남은 책만 gpt-4o-mini에 16권씩 보냅니다.</p><span class="ckp-m">캐시 · 예산 상한</span></li>
-    <li><span class="ckp-n num">3</span><p class="ckp-t">임베딩</p><p class="ckp-d">text-embedding-3-small로 서지 정보 6개 필드만 32권씩 임베딩하고, 태그는 벡터가 아닌 payload로 붙였습니다.</p><span class="ckp-m num">1,536차원</span></li>
-    <li><span class="ckp-n num">4</span><p class="ckp-t">색인 교체</p><p class="ckp-d">버전마다 새 Qdrant 컬렉션에 쓰고, 모든 행이 성공했을 때만 서비스용 alias를 한 번에 새 색인으로 옮깁니다.</p><span class="ckp-m">books_active alias</span></li>
-  </ol>
+  <div class="lanes rise" style="--d:3">
+    <div class="lane-row">
+      <p class="lane-k"><b>오프라인</b>미리 만들기</p>
+      <ol class="lane">
+        <li><p class="lt">검증 · 정규화<span class="lm num">440,377권</span></p><p class="ld">입력 계약을 검사하고 isbn13 하나로 중복 판본을 정리합니다.</p></li>
+        <li><p class="lt">태그<span class="lm">캐시 · 예산 상한</span></p><p class="ld">규칙 태거 먼저, 신뢰도 0.85 이상 태그가 없는 책만 gpt-4o-mini에 16권씩 보냅니다.</p></li>
+        <li><p class="lt">임베딩<span class="lm num">1,536차원</span></p><p class="ld">text-embedding-3-small로 서지 6개 필드만 임베딩하고, 태그는 payload로 붙입니다.</p></li>
+        <li><p class="lt">색인 교체<span class="lm">Qdrant alias</span></p><p class="ld">버전별 새 컬렉션에 쓰고, 모두 성공했을 때만 alias를 새 색인으로 옮깁니다.</p></li>
+      </ol>
+    </div>
+    <div class="lane-row on">
+      <p class="lane-k"><b>온라인</b>요청마다</p>
+      <ol class="lane">
+        <li><p class="lt">요청 만들기</p><p class="ld">Spring Boot가 최근 읽은 책·관심 태그로 요청하고 서재에 있는 책은 뺍니다. 둘 다 없으면 인기 도서로 대신합니다.</p></li>
+        <li><p class="lt">후보 검색<span class="lm">GMS 0회</span></p><p class="ld">미리 만든 벡터로 의미 검색과 태그 검색을 합쳐 후보 100권을 뽑습니다.</p></li>
+        <li><p class="lt">재정렬</p><p class="ld">의미 유사도·태그 일치·함께 대출·최근 인기·꾸준한 인기, 5개 신호를 가중합합니다.</p></li>
+        <li><p class="lt">상위 5권<span class="lm">EC2 5권</span></p><p class="ld">같은 저자·작품은 감점해 다양하게 고르고, ISBN을 서비스 도서 정보에 연결합니다.</p></li>
+      </ol>
+    </div>
+  </div>
   <div class="ck2 rise" style="--d:4">
     <div class="ck-card">
       <p class="label with-ic"><span class="tile sm t-violet"><svg class="ic"><use href="#i-sparkles"/></svg></span>고민한 점</p>
       <ul class="dec">
-        <li><b>임베딩은 요청마다가 아니라 오프라인에서</b><span>요청마다 만들면 추천 응답이 외부 API의 지연·비용에 묶입니다. GMS에는 Batch API가 없어 체크포인트를 두고 일반 API로 나눠 돌렸습니다.</span></li>
-        <li><b>태그는 규칙 먼저, 실패해도 멈추지 않게</b><span>16권 묶음 요청이 실패하면 1권씩 다시 보내고, 그래도 실패하면 규칙 태그만 씁니다. 메타데이터 해시로 캐시해 재실행 때는 다시 부르지 않습니다.</span></li>
-        <li><b>덜 만들어진 색인은 서비스에 올리지 않게</b><span>일부만 성공하면 PARTIAL_FAILURE로 남기고 기존 alias를 유지합니다. 되돌릴 때는 이전 버전 컬렉션을 다시 연결하면 됩니다.</span></li>
+        <li><b>임베딩은 요청마다가 아니라 오프라인에서</b><span>요청마다 만들면 추천이 외부 API의 지연·비용에 묶입니다. GMS에는 Batch API가 없어 체크포인트를 두고 나눠 돌렸습니다.</span></li>
+        <li><b>태그는 규칙 먼저, 실패해도 멈추지 않게</b><span>묶음 요청이 실패하면 1권씩, 그래도 실패하면 규칙 태그만 씁니다. 메타데이터 해시로 캐시해 재실행 때는 다시 부르지 않습니다.</span></li>
+        <li><b>덜 만들어진 색인은 서비스에 올리지 않게</b><span>일부만 성공하면 기존 alias를 그대로 두고, 되돌릴 때는 이전 버전 컬렉션을 다시 연결합니다.</span></li>
       </ul>
     </div>
     <div class="ck-card">
@@ -1351,57 +1350,19 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
       <table class="ck-tbl">
         <thead><tr><th>배치</th><th>GMS 요청</th><th>규칙으로 생략</th><th>캐시 적중</th></tr></thead>
         <tbody>
-          <tr class="base"><td>1만 권 · 기준선</td><td class="num">10,000회</td><td>—</td><td>—</td></tr>
-          <tr><td>1,000권 · 첫 실행</td><td class="num">4회</td><td>—</td><td>—</td></tr>
-          <tr><td>1,000권 · 재실행</td><td class="num">0회</td><td>—</td><td class="num">1,000</td></tr>
+          <tr class="base"><td>1만 권 · 규칙 태거 전</td><td class="num">10,000회</td><td>—</td><td>—</td></tr>
           <tr><td>1만 권</td><td class="num">126회</td><td class="num">9,848</td><td class="num">1,000</td></tr>
           <tr><td>10만 권</td><td class="num">3,038회</td><td>—</td><td class="num">71,341</td></tr>
+          <tr><td>1,000권 · 재실행</td><td class="num">0회</td><td>—</td><td class="num">1,000</td></tr>
         </tbody>
       </table>
-      <p class="ck-note">기준선은 규칙 태거를 넣기 전, 한 권마다 GMS를 부르던 방식입니다.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 11 CHAEKCHU · ONLINE -->
-<section class="slide alt" data-id="chaekchu-serve" data-title="AI 파이프라인 · 온라인 추천" data-section="책추책책추">
-  <header class="s-head2">
-    <div class="s-head">
-      <p class="eyebrow rise" style="--d:0"><b>책추책책추</b> AI 파이프라인 ② 온라인 추천 · 배포 검증</p>
-      <h2 class="s-title rise" style="--d:1">추천 요청에는 AI를 부르지 않고,<br>미리 만든 벡터로 찾아 다시 줄 세웁니다</h2>
-    </div>
-    <div class="pr-c why rise" style="--d:2"><span class="tile sm t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><p class="k">문제</p><p>추천은 화면에 들어올 때마다 바로 떠야 합니다. 요청마다 외부 AI를 부르면 비용·지연·장애가 그대로 사용자에게 전해지고, AI가 고른 책은 서비스의 도서 정보와도 맞아야 했습니다.</p></div></div>
-  </header>
-  <div class="cks">
-    <ol class="ckf rise" style="--d:3">
-      <li><span class="n num">1</span><p><b>요청 만들기 (Spring Boot)</b> 최근 평점을 남긴 읽은 책 최대 20권을 기준(seed)으로, 서재 전체를 제외 목록으로 보냅니다. 기준 책도 관심 태그도 없으면 세그먼트 인기 도서로 대신합니다.</p></li>
-      <li><span class="n num">2</span><p><b>질의 벡터</b> 기준 책 벡터의 평균과 관심 태그의 프로토타입 벡터를 가중해 합칩니다. 모두 미리 만든 벡터라 GMS를 부르지 않습니다.</p></li>
-      <li><span class="n num">3</span><p><b>후보 검색</b> 의미 검색과 태그 필터 검색 결과를 RRF(k=60)로 합쳐 후보 100권을 뽑고, 기준 책과 서재 책은 처음부터 거릅니다.</p></li>
-      <li><span class="n num">4</span><div><p><b>다시 줄 세우기</b> 다섯 신호를 0~100점으로 매겨 가중합합니다. 대출 기록이 없는 새 책처럼 값이 없는 신호는 0점이 아니라 계산에서 뺍니다.</p>
-        <div class="wbar" aria-label="신호 가중치"><span style="width:45%">semantic .45</span><span style="width:25%">tagMatch .25</span><span style="width:15%">coLoan .15</span><span style="width:10%">.10</span><span style="width:5%"></span></div>
-        <p class="wbar-k wk-short">trending .10 · steady .05</p><p class="wbar-k wk-full">semantic .45 · tagMatch .25 · coLoan .15 · trending .10 · steady .05</p></div></li>
-      <li><span class="n num">5</span><p><b>상위 5권</b> 같은 저자는 −12점, 같은 작품은 −15점 감점해 한쪽에 몰리지 않게 고르고, Spring Boot가 돌려받은 ISBN을 서비스 도서 정보에 연결합니다.</p></li>
-    </ol>
-    <div class="cks-side">
-      <div class="ck-card">
-        <p class="label with-ic"><span class="tile sm t-violet"><svg class="ic"><use href="#i-link"/></svg></span>부딪힌 문제</p>
-        <p class="ck-p">AI는 <code>FIC</code>, 백엔드는 <code>FICTION</code>처럼 태그 코드가 달라 사용자가 고른 관심 태그가 추천에 반영되지 않을 수 있었습니다. 백엔드에 AI 태그 코드 매퍼를 두어 명시적으로 바꿔 보냈습니다.</p>
-      </div>
-      <div class="ck-card">
-        <p class="label with-ic"><span class="tile sm t-mint"><svg class="ic"><use href="#i-shield"/></svg></span>배포 환경 검증</p>
-        <ul class="ticks small">
-          <li>감사 도구가 alias를 잘못된 경로로 조회해 '리소스 없음'이 났고, Qdrant API로 확인해 <code>/aliases</code>로 고쳤습니다.</li>
-          <li>일부 태그 포인트의 버전이 달랐는데, 증분 동기화로 바뀌지 않은 포인트가 이전 버전을 유지한 것이라 감사가 버전 계보를 인정하게 고쳤습니다.</li>
-          <li>current-release와 Docker 이미지 태그를 대조해 수정 코드가 실제 컨테이너에 반영됐는지 확인했습니다.</li>
-        </ul>
-        <p class="ck-pass"><svg class="ic"><use href="#i-check-circle"/></svg>인덱스 감사 PASS · 실패 0건 · EC2 추천 5권, 요청 태그와 결과 태그 일치</p>
-      </div>
+      <p class="ck-pass"><svg class="ic"><use href="#i-check-circle"/></svg>AI <code>FIC</code> ↔ 백엔드 <code>FICTION</code> 태그 코드를 매퍼로 맞추고, 배포 후 인덱스 감사 PASS까지 확인</p>
     </div>
   </div>
 </section>
 
 <!-- 12a MUSUIMSA OVERVIEW -->
-<section class="slide" data-id="musuimsa-overview" data-title="무쉼사 소개" data-section="무쉼사">
+<section class="slide alt" data-id="musuimsa-overview" data-title="무쉼사 소개" data-section="무쉼사">
   <div class="pov">
     <div class="pov-main">
       <p class="eyebrow rise" style="--d:0"><b>Project 4</b> 2025.08 – 2025.11 · 5명 · 백엔드 테크 리더</p>
@@ -1425,7 +1386,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 </section>
 
 <!-- 12 MUSUIMSA -->
-<section class="slide alt" data-id="musuimsa" data-title="공공데이터 동기화" data-section="무쉼사">
+<section class="slide" data-id="musuimsa" data-title="공공데이터 동기화" data-section="무쉼사">
   <header class="s-head2">
     <div class="s-head">
       <p class="eyebrow rise" style="--d:0"><b>무쉼사</b> 트러블슈팅 · 공공데이터 동기화</p>
@@ -1465,7 +1426,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 </section>
 
 <!-- 13a GIFT OVERVIEW -->
-<section class="slide" data-id="gift-overview" data-title="선물하기 클론 소개" data-section="선물하기 클론">
+<section class="slide alt" data-id="gift-overview" data-title="선물하기 클론 소개" data-section="선물하기 클론">
   <div class="pov">
     <div class="pov-main">
       <p class="eyebrow rise" style="--d:0"><b>Project 5</b> 2025.06 – 2025.08 · 1인 풀스택</p>
@@ -1490,7 +1451,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 </section>
 
 <!-- 13 GIFT -->
-<section class="slide alt" data-id="gift" data-title="트랜잭션 경계" data-section="선물하기 클론">
+<section class="slide" data-id="gift" data-title="트랜잭션 경계" data-section="선물하기 클론">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0"><b>선물하기 클론</b> 트러블슈팅 · 트랜잭션 경계</p>
     <h2 class="s-title rise" style="--d:1">알림 API가 실패해도<br>주문은 남아야 합니다</h2>
@@ -1519,7 +1480,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 </section>
 
 <!-- 14 EARLIER -->
-<section class="slide" data-id="earlier" data-title="그 전의 프로젝트" data-section="그 전의 프로젝트">
+<section class="slide alt" data-id="earlier" data-title="그 전의 프로젝트" data-section="그 전의 프로젝트">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">2024.10 – 2025.12</p>
     <h2 class="s-title rise" style="--d:1">그 전의 프로젝트</h2>
@@ -1568,7 +1529,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 </section>
 
 <!-- 16 EDUCATION -->
-<section class="slide alt" data-id="education" data-title="교육과 활동" data-section="역량">
+<section class="slide" data-id="education" data-title="교육과 활동" data-section="역량">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">Education & Activities</p>
     <h2 class="s-title rise" style="--d:1">배우고, 가르치며 쌓은 기본기</h2>
@@ -1594,7 +1555,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 </section>
 
 <!-- 17 AWARDS -->
-<section class="slide" data-id="awards" data-title="수상 · 자격 · 논문" data-section="역량">
+<section class="slide alt" data-id="awards" data-title="수상 · 자격 · 논문" data-section="역량">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">Awards · Certifications · Publication</p>
     <h2 class="s-title rise" style="--d:1">수상, 자격, 논문</h2>
@@ -1630,7 +1591,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 </section>
 
 <!-- 18 CONTACT -->
-<section class="slide alt" data-id="contact" data-title="연락처" data-section="마무리">
+<section class="slide" data-id="contact" data-title="연락처" data-section="마무리">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">Thank you</p>
   </header>
@@ -1791,15 +1752,15 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
     {k:'B', items:[
       ['무쉼사','공공 API 오류를 ExternalApiException으로 드러내고 갱신을 멈춰 기존 DB를 보존했습니다.','musuimsa'],
       ['콜미베이비','그림일기 생성을 통화 트랜잭션 밖 비동기 작업으로 분리하고 실패를 재시도 상태로 격리했습니다.','cmb-diary'],
-      ['책추책책추','추천 요청 경로에서 외부 AI 호출을 없애, GMS가 느리거나 멈춰도 추천은 미리 만든 벡터로 나가게 했습니다.','chaekchu-serve']]},
+      ['책추책책추','추천 요청 경로에서 외부 AI 호출을 없애, GMS가 느리거나 멈춰도 추천은 미리 만든 벡터로 나가게 했습니다.','chaekchu']]},
     {k:'C', items:[
       ['콜미베이비','MVP에 없던 재접속을, 아이가 브라우저를 닫는 상황을 보고 45초 유예로 추가했습니다.','cmb-reconnect'],
       ['수어프라이즈','드라이브 스루의 불안정한 네트워크를 보고 서버 없이 단말에서 도는 구조를 택했습니다.','earlier'],
-      ['책추책책추','이미 서재에 있는 책은 추천에서 빼고, 비슷한 책만 몰리지 않게 다양성 보정을 넣었습니다.','chaekchu-serve']]},
+      ['책추책책추','이미 서재에 있는 책은 추천에서 빼고, 비슷한 책만 몰리지 않게 다양성 보정을 넣었습니다.','chaekchu']]},
     {k:'D', items:[
       ['SHERLOG','503의 원인을 가설로 정하지 않고 SQL 구간을 재서 후보 수 집계로 좁혔습니다.','sherlog-503'],
       ['SHERLOG','재시작 준비를 SQL별로 재서 같은 잠금 안의 중복 외래 키 검사를 찾았습니다.','sherlog-storage'],
-      ['책추책책추','정상 응답만 보지 않고 Qdrant alias·태그 버전·배포 이미지를 대조해 감사 PASS를 확인했습니다.','chaekchu-serve']]}
+      ['책추책책추','정상 응답만 보지 않고 Qdrant alias·태그 버전·배포 이미지를 대조해 감사 PASS를 확인했습니다.','chaekchu']]}
   ];
   const prinBtns = Array.from(document.querySelectorAll('.prin-btn'));
   function renderPrin(i){
