@@ -447,8 +447,6 @@ details.star>summary:hover{border-color:var(--accent)}
 .sync-table td{padding:11px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top}
 .sync-table td.res{font-weight:600}
 .res.save{color:var(--accent)}.res.keep{color:var(--ok)}.res.skip{color:var(--muted)}.res.halt{color:var(--signal)}
-.banner{border-radius:10px;padding:12px 16px;font-size:16px;font-weight:600;border:1px solid var(--ok);background:var(--ok-soft);color:var(--ok)}
-.banner.bad{border-color:var(--signal);background:var(--signal-soft);color:var(--signal)}
 .mini{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
 .mini>div{padding:14px 20px 0 0;display:flex;flex-direction:column;gap:6px}
 .mini h4{font-size:18px}
@@ -649,7 +647,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .win-bar span{margin-left:10px;font-family:var(--f-mono)}
 
 /* 무쉼사 */
-.banner{display:flex;align-items:center;gap:10px;border-radius:14px}
 .table-card{border:1px solid var(--line-soft);border-radius:18px;background:var(--card);box-shadow:var(--shadow-sm)}
 .sync-table th{background:var(--panel);padding:11px 16px;border-bottom:1px solid var(--line-soft)}
 .sync-table td{padding:10px 16px;border-bottom:1px solid var(--line-soft)}
@@ -660,6 +657,22 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .st-pill.keep{background:var(--ok-soft);color:var(--ok)}
 .st-pill.skip{background:var(--panel);color:var(--muted)}
 .st-pill.halt{background:var(--signal-soft);color:var(--signal)}
+.ms-matrix{font-size:15px;table-layout:fixed}
+.ms-matrix th:nth-child(1){width:18%}
+.ms-matrix th:nth-child(2),.ms-matrix th:nth-child(3){width:25.5%}
+.ms-matrix th{vertical-align:bottom;padding:12px 14px!important}
+.ms-matrix th small{display:block;margin-top:4px;font-size:12.5px;font-weight:600;letter-spacing:0;color:var(--muted)}
+.mh{display:inline-flex;align-items:center;gap:6px;font-size:14.5px;font-weight:800;letter-spacing:0}
+.mh::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.mh.ok{color:var(--accent)}
+.mh.keep{color:var(--ok)}
+.mh.bad{color:var(--signal)}
+.ms-matrix td{padding:10px 14px!important;vertical-align:top}
+.ms-matrix td.nm{font-weight:700;white-space:nowrap}
+.ms-matrix .resp{display:block;margin-bottom:5px;font-size:13px;color:var(--muted)}
+.ms-matrix .st-pill{white-space:normal;font-size:13px;line-height:1.35;padding:4px 10px}
+.ms-matrix td.halt-all{vertical-align:middle;background:color-mix(in srgb,var(--signal-soft) 45%,transparent);border-left:1px solid var(--line-soft)}
+.halt-note{display:block;margin-top:8px;font-size:13px;line-height:1.5;color:var(--muted)}
 .mini.stack{gap:10px;border-top:0}
 .mini.stack .mcard{flex-direction:row;align-items:flex-start;gap:14px;padding:14px 16px;border:1px solid var(--line-soft);border-radius:18px;background:var(--card);box-shadow:var(--shadow-sm)}
 .mcard>div{display:flex;flex-direction:column;gap:4px;min-width:0}
@@ -852,6 +865,13 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   .tech{font-size:13px;height:36px}
   .shot-b{width:62%;margin-top:-40px}
   .fr{grid-template-columns:32px minmax(0,1fr);gap:10px}
+  .ms-matrix{font-size:12.5px}
+  .ms-matrix th,.ms-matrix td{padding:8px 6px!important}
+  .ms-matrix th:nth-child(1){width:19%}
+  .ms-matrix td.nm{white-space:normal}
+  .ms-matrix .st-pill{font-size:11px;padding:3px 6px}
+  .ms-matrix .resp,.halt-note,.ms-matrix th small{font-size:11px}
+  .mh{font-size:12px}
   .lane-row{grid-template-columns:minmax(0,1fr)}
   .lane-k{flex-direction:row;align-items:baseline;gap:8px;padding:8px 14px}
   .app[data-mode="read"] .lane{grid-template-columns:minmax(0,1fr)}
@@ -1380,7 +1400,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
     </div>
     <div class="pov-shots rise" style="--d:3">
       <figure class="sframe shot-a"><div class="win-bar"><i></i><i></i><i></i><span>무쉼사 · 서비스 소개</span></div><img src="assets/projects/ms-intro.jpg" alt="무쉼사 서비스 소개 이미지와 앱 화면"></figure>
-      <p class="pov-cap">서비스 소개 이미지 · 지도에서 가까운 쉼터 찾기</p>
     </div>
   </div>
 </section>
@@ -1397,16 +1416,18 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   <div class="ms">
     <div class="col">
       <p class="small rise" style="--d:2">매일 03:45 Spring Batch가 공공 API(page-size 1000)와 기존 DB를 chunk 100 단위로 비교합니다.</p>
-      <div class="seg rise" style="--d:2" role="group" aria-label="공공 API 상태">
-        <button type="button" data-ms="ok" aria-pressed="true">API 정상</button>
-        <button type="button" data-ms="partial" aria-pressed="false">일부 쉼터 누락</button>
-        <button type="button" data-ms="fail" aria-pressed="false">API 오류</button>
-      </div>
-      <div class="banner rise" style="--d:3" id="msBanner" aria-live="polite"><svg class="ic"><use id="msIcon" href="#i-check-circle"/></svg><span id="msBannerText"></span></div>
       <div class="scroll-x table-card rise" style="--d:3">
-        <table class="sync-table">
-          <thead><tr><th>쉼터 (예시)</th><th>외부 응답</th><th>처리</th></tr></thead>
-          <tbody id="msBody"></tbody>
+        <table class="sync-table ms-matrix">
+          <thead><tr><th>쉼터 (예시)</th>
+            <th><span class="mh ok">API 정상</span><small>바뀐 쉼터만 저장</small></th>
+            <th><span class="mh keep">일부 쉼터 누락</span><small>빠진 쉼터는 지우지 않음</small></th>
+            <th><span class="mh bad">API 오류</span><small>예외로 멈추고 기존 값 유지</small></th></tr></thead>
+          <tbody>
+            <tr><td class="nm">대전 ○○ 경로당</td><td><span class="resp">운영시간 변경</span><span class="st-pill save">저장</span></td><td><span class="resp">운영시간 변경</span><span class="st-pill save">저장</span></td><td class="halt-all" rowspan="4"><span class="resp">오류 응답 (HTTP 오류)</span><span class="st-pill halt">갱신 중단</span><span class="halt-note">예외로 드러내 갱신을 멈추고, 네 곳 모두 마지막 정상 데이터를 그대로 둡니다.</span></td></tr>
+            <tr><td class="nm">서울 △△ 주민센터</td><td><span class="resp">위치 변경</span><span class="st-pill save">저장 + 사진·지도 캐시 갱신</span></td><td><span class="resp">응답에 없음</span><span class="st-pill keep">삭제 안 함 · 기존 값 유지</span></td></tr>
+            <tr><td class="nm">부산 □□ 도서관</td><td><span class="resp">변경 없음</span><span class="st-pill skip">건너뜀</span></td><td><span class="resp">변경 없음</span><span class="st-pill skip">건너뜀</span></td></tr>
+            <tr><td class="nm">광주 ◇◇ 복지관</td><td><span class="resp">변경 없음</span><span class="st-pill skip">건너뜀</span></td><td><span class="resp">응답에 없음</span><span class="st-pill keep">삭제 안 함 · 기존 값 유지</span></td></tr>
+          </tbody>
         </table>
       </div>
       <div class="pr-c ok rise" style="--d:4"><span class="tile sm t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span><div><p class="k">결과</p><p>바뀐 쉼터만 저장하고, 위치가 바뀐 쉼터만 사진 갱신·지도 캐시 무효화 대상으로 모았습니다. HTTP 오류는 예외로 드러내고, 응답에 없는 쉼터는 지우지 않습니다.</p></div></div>
@@ -1912,25 +1933,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   })();
 
 
-
-  /* ---------- musuimsa ---------- */
-  const MS = {
-    ok:{banner:['외부 응답과 기존 DB를 비교해 바뀐 쉼터만 writer로 넘깁니다.',false], rows:[
-      ['대전 ○○ 경로당','운영시간 변경','저장','save'],['서울 △△ 주민센터','위치 변경','저장 + 사진·지도 캐시 무효화','save'],['부산 □□ 도서관','변경 없음','건너뜀','skip'],['광주 ◇◇ 복지관','변경 없음','건너뜀','skip']]},
-    partial:{banner:['응답에서 빠진 쉼터를 폐쇄로 단정하지 않고, 지우지 않고 건너뜁니다.',false], rows:[
-      ['대전 ○○ 경로당','운영시간 변경','저장','save'],['서울 △△ 주민센터','응답에 없음','삭제하지 않음 · 기존 값 유지','keep'],['부산 □□ 도서관','변경 없음','건너뜀','skip'],['광주 ◇◇ 복지관','응답에 없음','삭제하지 않음 · 기존 값 유지','keep']]},
-    fail:{banner:['HTTP 오류 → ExternalApiException. 갱신을 멈추고 마지막 정상 데이터를 그대로 둡니다.',true], rows:[
-      ['대전 ○○ 경로당','오류 응답','갱신 중단 · 기존 값 유지','halt'],['서울 △△ 주민센터','오류 응답','갱신 중단 · 기존 값 유지','halt'],['부산 □□ 도서관','오류 응답','갱신 중단 · 기존 값 유지','halt'],['광주 ◇◇ 복지관','오류 응답','갱신 중단 · 기존 값 유지','halt']]}
-  };
-  function renderMs(k){
-    document.querySelectorAll('[data-ms]').forEach(b => b.setAttribute('aria-pressed', b.dataset.ms === k ? 'true' : 'false'));
-    const m = MS[k], bn = document.getElementById('msBanner');
-    document.getElementById('msBannerText').textContent = m.banner[0]; bn.classList.toggle('bad', m.banner[1]); document.getElementById('msIcon').setAttribute('href', m.banner[1] ? '#i-alert' : '#i-check-circle');
-    const tb = document.getElementById('msBody'); tb.innerHTML = '';
-    m.rows.forEach(([a,b,c,cls]) => { const tr = document.createElement('tr'); tr.innerHTML = '<td></td><td></td><td class="res"><span class="st-pill ' + cls + '"></span></td>'; tr.children[0].textContent = a; tr.children[1].textContent = b; tr.children[2].firstChild.textContent = c; tb.appendChild(tr); });
-  }
-  document.querySelectorAll('[data-ms]').forEach(b => b.addEventListener('click', () => renderMs(b.dataset.ms)));
-  renderMs('ok');
 
   /* ---------- gift transaction ---------- */
   let txMode = 'before', txBroken = false;
