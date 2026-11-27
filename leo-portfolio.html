@@ -160,21 +160,12 @@ details.star>summary:hover{border-color:var(--accent)}
 .go-hint{font-family:var(--f-text);font-size:14px;color:var(--muted)}
 
 /* ---------- 2 principles ---------- */
-.prin{display:grid;grid-template-columns:600px 1fr;gap:48px;flex:1;min-height:0}
-.prin-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.prin{display:flex;flex-direction:column;flex:1;min-height:0}
+.prin-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-content:start}
 .prin-btn{display:grid;grid-template-columns:40px 1fr;gap:4px 14px;text-align:left;padding:20px 8px 20px 0;border:0;border-bottom:1px solid var(--line);background:transparent;cursor:pointer}
 .prin-btn .n{grid-row:span 2;font-family:var(--f-mono);font-size:15px;color:var(--muted);padding-top:6px}
 .prin-btn .t{font-size:26px;font-weight:700;line-height:1.35}
 .prin-btn .d{font-size:17px;line-height:1.55;color:var(--muted)}
-.prin-btn[aria-pressed="true"] .t{color:var(--accent)}
-.prin-btn[aria-pressed="true"] .n{color:var(--accent)}
-.prin-btn:hover .t{color:var(--accent)}
-.proof{align-self:start;background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:30px 32px;display:flex;flex-direction:column;gap:18px}
-.proof-list{display:flex;flex-direction:column;gap:0}
-.proof-item{display:grid;grid-template-columns:150px 1fr auto;gap:18px;align-items:baseline;padding:18px 0;border-top:1px solid var(--line-soft);animation:rise .45s cubic-bezier(.2,.7,.2,1) both}
-.proof-item:nth-child(2){animation-delay:70ms}.proof-item:nth-child(3){animation-delay:140ms}
-.proof-item .p{font-family:var(--f-text);font-weight:700;font-size:16px;color:var(--accent)}
-.proof-item .w{font-size:19px;line-height:1.55}
 .jump{border:0;background:transparent;font-family:var(--f-text);font-size:14px;color:var(--muted);cursor:pointer;white-space:nowrap;padding:4px 0}
 .jump:hover{color:var(--accent)}
 
@@ -538,19 +529,13 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .fc-b{right:-36px;bottom:52px}
 
 /* principles */
-.prin-list{gap:12px;border-top:0}
-.prin-btn{grid-template-columns:52px 1fr;padding:17px 22px 17px 18px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card);box-shadow:var(--shadow-sm);transition:border-color .2s,box-shadow .2s,transform .2s}
-.prin-btn:hover{transform:translateY(-1px)}
-.prin-btn .n{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;padding:0;background:var(--panel);color:var(--muted);font-family:var(--f-text);font-weight:800;font-size:17px}
-.prin-btn[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft),var(--shadow-md)}
-.prin-btn[aria-pressed="true"] .n{background:var(--accent);color:var(--accent-ink)}
-.proof{border-radius:24px;background:var(--card);border-color:var(--line-soft);box-shadow:var(--shadow-md)}
-.proof-item{grid-template-columns:auto 1fr auto}
-.proof-item .p{padding:5px 12px;border-radius:999px;background:var(--accent-soft);white-space:nowrap;font-size:14px}
+.prin-btn{grid-template-columns:52px 1fr;align-content:start;padding:20px 22px 20px 18px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card);box-shadow:var(--shadow-sm);cursor:default}
+.prin-btn .n{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;padding:0;background:var(--accent);color:var(--accent-ink);font-family:var(--f-text);font-weight:800;font-size:17px}
 .jump{padding:6px 14px;border-radius:999px;border:1px solid var(--line-soft);background:var(--sheet)}
 .jump:hover{border-color:var(--accent)}
-.ev-print{display:none;grid-column:2;flex-direction:column;gap:7px;margin-top:10px;padding-top:11px;border-top:1px dashed var(--line)}
-.evp{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline;font-size:14px;line-height:1.45;color:var(--ink);text-align:left}
+.ev-print{display:flex;grid-column:2;flex-direction:column;gap:7px;margin-top:10px;padding-top:11px;border-top:1px dashed var(--line)}
+.evp{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px;align-items:baseline;width:100%;padding:0;border:0;background:transparent;cursor:pointer;font:inherit;font-size:15px;line-height:1.45;color:var(--ink);text-align:left}
+.evp:hover .w{color:var(--accent)}
 .evp .p{padding:2px 10px;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-weight:700;font-size:12.5px;white-space:nowrap}
 
 /* timeline */
@@ -805,6 +790,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   .app[data-mode="read"] .pov{grid-template-columns:minmax(0,1fr);gap:28px}
   .app[data-mode="read"] .shot-b{margin-right:0}
   .app[data-mode="read"] .fr-card{grid-template-columns:minmax(0,1fr);gap:12px}
+  .app[data-mode="read"] .prin-list{grid-template-columns:minmax(0,1fr)}
   .app[data-mode="read"] .sp4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .app[data-mode="read"] .sp4 li::after{display:none}
   .app[data-mode="read"] .msx{grid-template-columns:minmax(0,1fr)}
@@ -826,7 +812,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   .lede{font-size:18px}
   .facts{grid-template-columns:minmax(0,1fr)}
   .prin-btn .t{font-size:20px}
-  .proof-item{grid-template-columns:minmax(0,1fr)}
   .tl-row,.tl-act{grid-template-columns:120px 1fr}
   .tl-axis{margin-left:120px}
   .tl-grid{left:120px}
@@ -921,14 +906,6 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   .slide,.slide.is-before,.slide.is-active{position:relative;box-sizing:border-box;width:1600px;height:900px;overflow:hidden;opacity:1!important;visibility:visible!important;transform:none!important;transition:none!important;break-after:page;page-break-after:always}
   .rise{animation:none!important}
   details.star{display:none}
-  .prin{grid-template-columns:minmax(0,1fr)!important}
-  .proof{display:none!important}
-  .prin-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-content:start}
-  .evp{font-size:15px}
-  .prin-btn,.prin-btn[aria-pressed="true"]{border-color:var(--line-soft);box-shadow:var(--shadow-sm);transform:none;align-content:start;padding-block:20px}
-  .prin-btn .n,.prin-btn[aria-pressed="true"] .n{background:var(--accent);color:var(--accent-ink)}
-  .prin-btn[aria-pressed="true"] .t{color:var(--ink)}
-  .ev-print{display:flex!important}
 }
 </style>
 
@@ -1025,15 +1002,11 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
     <h2 class="s-title rise" style="--d:1">제가 일하는 네 가지 기준</h2>
   </header>
   <div class="prin">
-    <div class="prin-list rise" style="--d:2" id="prinList" role="group" aria-label="일하는 기준">
-      <button class="prin-btn" type="button" data-p="0" aria-pressed="true"><span class="n">A</span><span class="t">돌아가는 코드보다 살아남는 구조</span><span class="d">테스트 통과로 끝내지 않고, 장애가 난 순간 핵심 데이터가 남는지 확인합니다.</span></button>
-      <button class="prin-btn" type="button" data-p="1" aria-pressed="false"><span class="n">B</span><span class="t">외부 시스템은 언제든 멈춘다</span><span class="d">공공 API, 알림, LLM 호출이 실패해도 서비스 흐름이 막히지 않게 경계를 나눕니다.</span></button>
-      <button class="prin-btn" type="button" data-p="2" aria-pressed="false"><span class="n">C</span><span class="t">실제 사용 환경에서 기능을 다시 정의</span><span class="d">요구사항 목록보다 사용자가 실제로 겪을 상황에서 필요한 기능을 찾습니다.</span></button>
-      <button class="prin-btn" type="button" data-p="3" aria-pressed="false"><span class="n">D</span><span class="t">가설보다 계측, 숫자는 조건과 함께</span><span class="d">같은 오류 코드라도 원인을 단정하지 않고 구간을 잽니다. 측정 조건도 같이 적습니다.</span></button>
-    </div>
-    <div class="proof rise" style="--d:3">
-      <p class="label" id="proofLabel">기준 A가 드러난 작업</p>
-      <div class="proof-list" id="proofList"></div>
+    <div class="prin-list rise" style="--d:2" id="prinList">
+      <article class="prin-btn" data-p="0"><span class="n">A</span><span class="t">돌아가는 코드보다 살아남는 구조</span><span class="d">테스트 통과로 끝내지 않고, 장애가 난 순간 핵심 데이터가 남는지 확인합니다.</span></article>
+      <article class="prin-btn" data-p="1"><span class="n">B</span><span class="t">외부 시스템은 언제든 멈춘다</span><span class="d">공공 API, 알림, LLM 호출이 실패해도 서비스 흐름이 막히지 않게 경계를 나눕니다.</span></article>
+      <article class="prin-btn" data-p="2"><span class="n">C</span><span class="t">실제 사용 환경에서 기능을 다시 정의</span><span class="d">요구사항 목록보다 사용자가 실제로 겪을 상황에서 필요한 기능을 찾습니다.</span></article>
+      <article class="prin-btn" data-p="3"><span class="n">D</span><span class="t">가설보다 계측, 숫자는 조건과 함께</span><span class="d">같은 오류 코드라도 원인을 단정하지 않고 구간을 잽니다. 측정 조건도 같이 적습니다.</span></article>
     </div>
   </div>
 </section>
@@ -1456,7 +1429,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
     <div class="pov-main">
       <p class="eyebrow rise" style="--d:0"><b>Project 5</b> 2025.03 – 2025.12 · 3명 · 팀장</p>
       <div class="pov-brand rise" style="--d:1"><span class="tile pov-mark"><svg class="ic"><use href="#i-hand"/></svg></span><h2 class="pov-name">수어프라이즈<small>드라이브스루를 위한 온디바이스 수어 통역 앱</small></h2></div>
-      <div class="pov-tags rise" style="--d:2"><span class="ptag hl"><svg class="ic"><use href="#i-file"/></svg>학사 학위 논문</span><span class="ptag">청각장애인 접근성</span><span class="ptag">Android 온디바이스 AI</span></div>
+      <div class="pov-tags rise" style="--d:2"><span class="ptag hl"><svg class="ic"><use href="#i-cap"/></svg>졸업 프로젝트</span><span class="ptag">청각장애인 접근성</span><span class="ptag">Android 온디바이스 AI</span></div>
       <p class="pov-what rise" style="--d:3">음성으로만 주문받는 드라이브스루에서 청각장애인도 주문할 수 있도록, 스마트폰 하나로 수어는 글자로, 점원의 말도 글자로 바꿔 주는 앱입니다. 인터넷 없이 단말 안에서 모두 처리합니다.</p>
       <div class="pov-role rise" style="--d:4">
         <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 팀장 / AI 모델 · Android</p>
@@ -1512,10 +1485,10 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 </section>
 
 <!-- 14 EARLIER -->
-<section class="slide alt" data-id="earlier" data-title="그 전의 프로젝트" data-section="그 전의 프로젝트">
+<section class="slide alt" data-id="earlier" data-title="그 외 프로젝트" data-section="그 외 프로젝트">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">2024.10 – 2025.08</p>
-    <h2 class="s-title rise" style="--d:1">그 전의 프로젝트</h2>
+    <h2 class="s-title rise" style="--d:1">그 외 프로젝트</h2>
   </header>
   <div class="cards3">
     <article class="pcard rise" style="--d:2">
@@ -1569,19 +1542,17 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
   <div class="two">
     <ul class="list rise" style="--d:2">
       <li class="th"><span class="tile sm"><svg class="ic"><use href="#i-cap"/></svg></span><span>학력 · 교육 과정</span></li>
-      <li><span class="when">2020.03–2026.02</span><span class="what">충남대학교 컴퓨터융합학부<small>평점 3.93/4.5 · 전공 3.84/4.5 · 석차 18/83</small></span></li>
       <li><span class="when">2026.01–2026.12</span><span class="what">SSAFY 15기<small>1학기 성적우수상(대전3반 2등) · 2학기 자율 프로젝트 우수상(대전1반 2등)</small></span></li>
       <li><span class="when">2025.06–2025.11</span><span class="what">카카오테크 캠퍼스 3기 · 백엔드<small>현업 멘토 코드 리뷰, 무쉼사 팀 프로젝트</small></span></li>
       <li><span class="when">2024.07–2024.12</span><span class="what">NHN Academy 5기 · 백엔드<small>22주 과정, 8주 팀 프로젝트로 기획부터 배포까지</small></span></li>
       <li><span class="when">2024.04–2025.02</span><span class="what">글로벌 SW·AI 인재 프로그램 9기<small>충남대 선발형 과정, UCSD 연수와 연구 프로젝트</small></span></li>
+      <li><span class="when">2020.03–2026.02</span><span class="what">충남대학교 컴퓨터융합학부<small>평점 3.93/4.5 · 전공 3.84/4.5 · 석차 18/83</small></span></li>
     </ul>
     <ul class="list rise" style="--d:3">
       <li class="th"><span class="tile sm t-violet"><svg class="ic"><use href="#i-users"/></svg></span><span>활동 · 멘토링</span></li>
-      <li><span class="when">2024</span><span class="what">동아리 ADMIN 교육부장<small>Java 교육(30명, 8주)과 DB 교육(20명, 2일) 기획·운영, 멘토링 프로그램 멘토 중 1위</small></span></li>
       <li><span class="when">2025.04–2025.06</span><span class="what">코딩튜터 프로그램 튜터<small>후배 대상 1:1 튜터링, 코드 리뷰, 디버깅</small></span></li>
       <li><span class="when">2024.10</span><span class="what">Scribe-Data 오픈소스 기여</span></li>
-      <li><span class="when">2026</span><span class="what">SSAFY 동기 3명 역량테스트 A형 준비 도움<small>정답 코드 대신 풀이 과정을 질문으로 이끌어, 세 명 모두 A형 취득</small></span></li>
-      <li><span class="when">매일</span><span class="what">알고리즘 1문제<small>기본기와 꾸준함을 지키는 습관</small></span></li>
+      <li><span class="when">2024</span><span class="what">동아리 ADMIN 교육부장<small>Java 교육(30명, 8주)과 DB 교육(20명, 2일) 기획·운영, 멘토링 프로그램 멘토 중 1위</small></span></li>
     </ul>
   </div>
 </section>
@@ -1596,7 +1567,7 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
     <div class="col">
       <ul class="list rise" style="--d:2">
         <li class="th"><span class="tile sm t-peach"><svg class="ic"><use href="#i-trophy"/></svg></span><span>수상</span></li>
-        <li class="hl"><span class="when">2026.11</span><span class="what">SSAFY 2학기 자율 프로젝트 우수상 (기업연계)<small>2학기 자율 프로젝트 대전1반 2등 · SHERLOG</small></span></li>
+        <li><span class="when">2026.11</span><span class="what">SSAFY 2학기 자율 프로젝트 우수상 (기업연계)<small>2학기 자율 프로젝트 대전1반 2등 · SHERLOG</small></span></li>
         <li><span class="when">2026.06</span><span class="what">SSAFY 1학기 성적우수상<small>삼성전자 · 1학기 종합성적 대전3반 2등</small></span></li>
         <li><span class="when">2025.11</span><span class="what">CNU 창의 SW/AI 축전 DevDay 코딩경진대회 동상</span></li>
         <li><span class="when">2025.06</span><span class="what">CNU SW/AI Project Fair DevDay 코딩경진대회 장려상</span></li>
@@ -1794,28 +1765,14 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
       ['SHERLOG','재시작 준비를 SQL별로 재서 같은 잠금 안의 중복 외래 키 검사를 찾았습니다.','sherlog-storage'],
       ['책추책책추','정상 응답만 보지 않고 Qdrant alias·태그 버전·배포 이미지를 대조해 감사 PASS를 확인했습니다.','chaekchu']]}
   ];
-  const prinBtns = Array.from(document.querySelectorAll('.prin-btn'));
-  function renderPrin(i){
-    prinBtns.forEach((b, k) => b.setAttribute('aria-pressed', k === i ? 'true' : 'false'));
-    document.getElementById('proofLabel').textContent = '기준 ' + PRIN[i].k + '가 드러난 작업';
-    const list = document.getElementById('proofList'); list.innerHTML = '';
-    PRIN[i].items.forEach(([p, w, id]) => {
-      const row = document.createElement('div'); row.className = 'proof-item';
-      row.innerHTML = '<span class="p"></span><span class="w"></span><button class="jump" type="button">보기 →</button>';
-      row.querySelector('.p').textContent = p; row.querySelector('.w').textContent = w;
-      row.querySelector('.jump').addEventListener('click', () => goId(id));
-      list.appendChild(row);
-    });
-  }
-  prinBtns.forEach((b, k) => b.addEventListener('click', () => renderPrin(k)));
-  renderPrin(0);
-  // PDF/print shows every principle's evidence inside its own card (the click panel is hidden in print)
-  prinBtns.forEach((b, k) => {
+  const prinCards = Array.from(document.querySelectorAll('.prin-btn'));
+  prinCards.forEach((b, k) => {
     const box = document.createElement('span'); box.className = 'ev-print';
-    PRIN[k].items.forEach(([p, w]) => {
-      const it = document.createElement('span'); it.className = 'evp';
+    PRIN[k].items.forEach(([p, w, id]) => {
+      const it = document.createElement('button'); it.type = 'button'; it.className = 'evp';
       it.innerHTML = '<span class="p"></span><span class="w"></span>';
       it.children[0].textContent = p; it.children[1].textContent = w;
+      it.addEventListener('click', () => goId(id));
       box.appendChild(it);
     });
     b.appendChild(box);

@@ -22,8 +22,8 @@
 | 콜미베이비 | 가족 영상통화 · 백엔드 테크 리더 → 재접속 유예, AI 그림일기 파이프라인 |
 | 책추책책추 | 도서 추천 · AI 담당 → 오프라인 색인부터 온라인 추천까지 AI 파이프라인 한 장 |
 | 무쉼사 | 무더위쉼터 찾기 · 백엔드 테크 리더 → 공공데이터 동기화와 CI/CD |
-| 수어프라이즈 | 드라이브스루 온디바이스 수어 통역 앱 · 팀장 · 학사 학위 논문 → 수집 앱부터 LSTM 학습, TFLite 탑재까지 |
-| 그 외 | 이전 프로젝트(선물하기 클론 포함), 교육·활동, 수상·자격·논문, 연락처 |
+| 수어프라이즈 | 드라이브스루 온디바이스 수어 통역 앱 · 팀장 · 졸업 프로젝트 → 수집 앱부터 LSTM 학습, TFLite 탑재까지 |
+| 그 외 | 그 외 프로젝트(선물하기 클론 포함), 교육·활동, 수상·자격·논문, 연락처 |
 
 ## 파일
 
@@ -40,7 +40,7 @@
 
 기술 스택 로고는 [Devicon](https://devicon.dev/) 2.16.0(MIT License)의 SVG를 그대로 사용했습니다. 각 로고는 해당 기술 소유자의 상표입니다.
 
-프로젝트 로고와 화면은 각 팀 저장소의 자료를 크기만 줄여 사용했습니다: [SHERLOG](https://github.com/win929/SHERLOG), [콜미베이비](https://github.com/ssafy-call-me-baby), [책추책책추](https://github.com/chackchu), [무쉼사](https://github.com/kakao-tech-campus-3rd-step3/Team19_FE), [수어프라이즈](https://github.com/CD03-01/SueoPrize). 수어프라이즈의 시스템 구조 그림과 앱 화면은 학사 학위 논문에서 가져왔습니다.
+프로젝트 로고와 화면은 각 팀 저장소의 자료를 크기만 줄여 사용했습니다: [SHERLOG](https://github.com/win929/SHERLOG), [콜미베이비](https://github.com/ssafy-call-me-baby), [책추책책추](https://github.com/chackchu), [무쉼사](https://github.com/kakao-tech-campus-3rd-step3/Team19_FE), [수어프라이즈](https://github.com/CD03-01/SueoPrize). 수어프라이즈의 시스템 구조 그림과 앱 화면은 졸업 프로젝트 논문에서 가져왔습니다.
 
 ## 연락처
 
