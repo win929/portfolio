@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<style>body{margin:0}img{max-width:100%}</style>
 <title>Hi, I'm Leo</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,9 +45,10 @@
   --shadow-sm:0 1px 2px rgba(0,0,0,.45); --shadow-md:0 16px 36px -18px rgba(0,0,0,.75); --shadow-lg:0 30px 70px -28px rgba(0,0,0,.85); color-scheme:dark}
 
 html,body{height:100%}
+body{margin:0}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-text);font-size:var(--t-body);line-height:1.6;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
 [hidden]{display:none!important}
-img{height:auto}
+img{max-width:100%;height:auto}
 button{font:inherit;color:inherit}
 a{color:var(--accent)}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
@@ -1868,8 +1868,11 @@ ol.flow li::before{top:8px}
   applyMode();
   if (mode() === 'read' && si > 0) slides[si].scrollIntoView({block:'start'});
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  // Print/PDF always uses the slide layout, even from the scroll view (narrow window or 스크롤로 보기)
+  let modeBeforePrint = null;
+  window.addEventListener('beforeprint', () => { modeBeforePrint = app.dataset.mode; app.dataset.mode = 'deck'; });
+  window.addEventListener('afterprint', () => { if (modeBeforePrint) { app.dataset.mode = modeBeforePrint; modeBeforePrint = null; fit(); } });
 })();
 </script>
-
 </body>
 </html>
