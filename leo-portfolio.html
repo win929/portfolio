@@ -279,36 +279,23 @@ details.star>summary:hover{border-color:var(--accent)}
 .flow5 .pill{height:26px;padding:0 10px}
 
 /* ---------- SHERLOG process ---------- */
-.proc-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
-.proc-stats{display:flex;gap:12px}
-.proc-stats .ps{display:flex;flex-direction:column;gap:2px;min-width:128px;padding:12px 20px 14px;border-radius:18px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
-.proc-stats .v{font-family:var(--f-display);font-weight:800;font-size:34px;line-height:1.15;letter-spacing:-.01em}
-.proc-stats .k{font-size:14px;font-weight:600;color:var(--muted)}
-.proc-src{margin:8px 0 0;font-size:13px;color:var(--muted);text-align:right}
-.proc{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;position:relative;flex:1;min-height:0}
-.proc::before{content:"";position:absolute;left:16px;right:16px;top:15px;height:2px;background:linear-gradient(90deg,var(--accent),var(--violet));opacity:.45}
-.pc{display:flex;flex-direction:column;gap:12px;min-width:0}
-.pc-top{position:relative;display:flex;align-items:center;gap:0}
-.pc-n{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:14px;font-weight:800;box-shadow:0 0 0 5px var(--panel)}
-.pc-date{padding:0 10px;background:var(--panel);font-size:14px;font-weight:700;color:var(--muted);white-space:nowrap}
-.pc-card{flex:1;display:flex;flex-direction:column;gap:10px;padding:18px 18px 16px;border-radius:20px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
-.pc-t{margin:0;display:flex;align-items:center;gap:10px;font-size:20px;font-weight:800;line-height:1.25}
-.pc-m{margin:2px 0 0;font-family:var(--f-display);font-size:27px;font-weight:800;line-height:1.15;letter-spacing:-.02em;color:var(--accent)}
-.pc-m small{font-size:15px;font-weight:700;color:var(--muted);letter-spacing:0;margin-left:4px}
-.pc-d{margin:0;flex:1;font-size:16.5px;line-height:1.65}
-.pc-d b{color:var(--accent);font-weight:800}
-.mine{align-self:flex-start;padding:6px 10px;border-radius:10px;background:var(--accent-soft);color:var(--ink);font-size:13px;font-weight:600;line-height:1.4}
+.frows{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;flex:1;min-height:0;position:relative}
+.frows::before{content:"";position:absolute;left:21px;top:24px;bottom:24px;width:2px;background:linear-gradient(var(--accent),var(--violet));opacity:.4}
+.fr{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:center;flex:1}
+.fr-n{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:18px;font-weight:800;box-shadow:0 0 0 6px var(--panel)}
+.fr-card{height:100%;box-sizing:border-box;display:grid;grid-template-columns:230px minmax(0,1fr) 220px;gap:24px;align-items:center;padding:12px 22px;border-radius:18px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.fr-h{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.fr-t{margin:0;font-size:21px;font-weight:800;line-height:1.25}
+.fr-s{margin:0;font-size:14px;font-weight:600;color:var(--muted)}
+.fr-h .mine{margin-top:4px}
+.fr-d{margin:0;font-size:15.5px;line-height:1.55}
+.fr-d b{color:var(--accent);font-weight:800}
+.fr-m{display:flex;flex-direction:column;gap:2px;padding-left:22px;border-left:1px solid var(--line-soft)}
+.fr-m .v{font-family:var(--f-display);font-size:28px;font-weight:800;line-height:1.15;letter-spacing:-.02em;color:var(--accent);white-space:nowrap}
+.fr-m.ok .v{color:var(--ok)}
+.fr-m .k{font-size:13px;font-weight:600;line-height:1.45;color:var(--muted)}
+.mine{align-self:flex-start;padding:5px 10px;border-radius:10px;background:var(--accent-soft);color:var(--ink);font-size:13px;font-weight:600;line-height:1.4}
 .mine b{color:var(--accent);font-weight:800;margin-right:4px}
-.proc-out{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px}
-.po-main{display:flex;align-items:center;gap:18px;padding:16px 24px;border-radius:20px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-md)}
-.po-main .k{margin:0;font-size:15px;font-weight:600;color:var(--muted)}
-.po-v{margin:0;font-size:25px;font-weight:800;line-height:1.35}
-.po-v s{color:var(--muted);font-weight:600;text-decoration-thickness:2px}
-.po-v b{color:var(--ok)}
-.po-v small{margin-left:10px;font-size:15px;font-weight:600;color:var(--muted)}
-.po-award{display:flex;align-items:center;gap:12px;padding:16px 26px;border-radius:20px;background:var(--ink);color:var(--sheet);font-size:18px;font-weight:800;line-height:1.4;box-shadow:var(--shadow-md)}
-.po-award .ic{width:26px;height:26px;color:#F5B83D}
-.po-award small{display:block;font-size:14px;font-weight:600;opacity:.75}
 
 /* ---------- SHERLOG storage ---------- */
 .three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;flex:1;min-height:0;border-top:2px solid var(--ink)}
@@ -821,10 +808,9 @@ ol.flow li::before{top:8px}
   .app[data-mode="read"] .lv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .app[data-mode="read"] .pov{grid-template-columns:minmax(0,1fr);gap:28px}
   .app[data-mode="read"] .shot-b{margin-right:0}
-  .app[data-mode="read"] .proc-head,.app[data-mode="read"] .proc-out{grid-template-columns:minmax(0,1fr);gap:20px}
-  .app[data-mode="read"] .proc-src{text-align:left}
-  .app[data-mode="read"] .proc{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .app[data-mode="read"] .proc::before{display:none}
+  .app[data-mode="read"] .fr-card{grid-template-columns:minmax(0,1fr);gap:12px}
+  .app[data-mode="read"] .fr-m{padding-left:0;border-left:0}
+  .app[data-mode="read"] .fr{align-items:start}
   .app[data-mode="read"] .s-head2{grid-template-columns:minmax(0,1fr);gap:20px}
   .app[data-mode="read"] .flow5{grid-template-columns:repeat(2,minmax(0,1fr))}
   .app[data-mode="read"] .flow5 li::after{display:none}
@@ -873,15 +859,14 @@ ol.flow li::before{top:8px}
   .ptag.hl{font-size:15px;min-height:40px;height:auto}
   .tech{font-size:13px;height:36px}
   .shot-b{width:62%;margin-top:-40px}
-  .proc-stats{flex-wrap:wrap}
-  .proc-stats .ps{min-width:0;flex:1 1 30%;padding:10px 14px}
-  .proc-stats .v{font-size:26px}
-  .app[data-mode="read"] .proc{grid-template-columns:minmax(0,1fr)}
+  .fr{grid-template-columns:32px minmax(0,1fr);gap:10px}
+  .fr-n{width:32px;height:32px;font-size:15px}
+  .frows::before{left:15px}
+  .fr-card{padding:14px 16px}
+  .fr-m .v{font-size:24px}
   .app[data-mode="read"] .flow5{grid-template-columns:minmax(0,1fr)}
   .pr-c{grid-template-columns:minmax(0,1fr);gap:8px;padding:14px 16px}
   .pr-c p{font-size:15px}
-  .po-v{font-size:21px}
-  .po-v small{display:block;margin-left:0}
   .lv-card{padding:16px;gap:10px;border-radius:18px}
   .logo{width:52px;height:52px;border-radius:15px}
   .logo img{width:32px;height:32px}
@@ -1068,85 +1053,52 @@ ol.flow li::before{top:8px}
 
 <!-- 5 SHERLOG PROCESS -->
 <section class="slide alt" data-id="sherlog-process" data-title="SHERLOG 개발 과정" data-section="SHERLOG">
-  <header class="proc-head">
-    <div class="s-head">
-      <p class="eyebrow rise" style="--d:0"><b>SHERLOG</b> 개발 과정 · 6명 · 6주</p>
-      <h2 class="s-title rise" style="--d:1">실제 로그 한 줄 없이 시작해,<br>현업 엔지니어가 직접 써 본 도구까지</h2>
-    </div>
-    <div class="rise" style="--d:2">
-      <div class="proc-stats">
-        <div class="ps"><span class="v num">1,493</span><span class="k">커밋</span></div>
-        <div class="ps"><span class="v num">496</span><span class="k">병합한 MR</span></div>
-        <div class="ps"><span class="v num">442</span><span class="k">작업 이슈</span></div>
-      </div>
-      <p class="proc-src">팀 저장소 기록 · 2026.10.12 – 11.18</p>
-    </div>
+  <header class="s-head">
+    <p class="eyebrow rise" style="--d:0"><b>SHERLOG</b> 개발 과정 · 6명 · 6주</p>
+    <h2 class="s-title rise" style="--d:1">실제 로그 한 줄 없이 시작해,<br>현업 엔지니어가 직접 써 본 도구까지</h2>
   </header>
-  <ol class="proc rise" style="--d:3">
-    <li class="pc">
-      <div class="pc-top"><span class="pc-n num">1</span><span class="pc-date num">10.07 – 10.14</span></div>
-      <div class="pc-card">
-        <p class="pc-t"><span class="tile sm"><svg class="ic"><use href="#i-users"/></svg></span>요구사항</p>
-        <p class="pc-m">핵심 문제 3가지</p>
-        <p class="pc-d">SEMES 멘토링에서 로그 구조를 익히고 필요한 로그 찾기, 정상 종료 속 이상, 여러 사건의 관계를 풀 문제로 정했습니다. 보안상 <b>실제 로그는 가져올 수 없었습니다.</b></p>
-        <span class="mine"><b>내 몫</b>팀장 · 멘토링 일지</span>
+  <ol class="frows rise" style="--d:2">
+    <li class="fr">
+      <span class="fr-n num">1</span>
+      <div class="fr-card">
+        <div class="fr-h"><p class="fr-t">로그 생성기</p><p class="fr-s">실제 로그를 가져올 수 없어서</p></div>
+        <p class="fr-d">보안상 SEMES의 실제 설비 로그는 외부로 가져올 수 없었습니다. 멘토링에서 확인한 구조로 <b>Python 로그 생성기</b>를 만들어 이상·노이즈·패치를 원하는 위치에 넣고, 줄마다 정답을 기록해 분석 결과를 자동으로 대조했습니다. 같은 조건이면 같은 로그가 나와 반복 시험도 됩니다.</p>
+        <div class="fr-m"><span class="v">205만 줄</span><span class="k">하루치 합성 로그 · 줄마다 정답</span></div>
       </div>
     </li>
-    <li class="pc">
-      <div class="pc-top"><span class="pc-n num">2</span><span class="pc-date num">10.15</span></div>
-      <div class="pc-card">
-        <p class="pc-t"><span class="tile sm t-violet"><svg class="ic"><use href="#i-branch"/></svg></span>협업 체계</p>
-        <p class="pc-m">자동화 규칙 8개</p>
-        <p class="pc-d">개발 전에 브랜치 전략과 Jira 규칙을 정하고, MR이 열리고 병합되면 <b>이슈 상태가 따라 바뀌도록</b> 자동화했습니다.</p>
-        <span class="mine"><b>내 몫</b>브랜치 전략 · Jira 자동화</span>
+    <li class="fr">
+      <span class="fr-n num">2</span>
+      <div class="fr-card">
+        <div class="fr-h"><p class="fr-t">요구사항 구현</p><p class="fr-s">SEMES가 요청한 기능</p><span class="mine"><b>내 몫</b>실행·조회 API · AI 근거 검증</span></div>
+        <p class="fr-d">흩어진 로그 파일을 공정 흐름으로 묶어 시간순으로 보여 주고, 설비마다 다른 로그 형식은 <b>AI가 읽기 규칙(정규식) 초안</b>을 만들어 검증합니다. 코드가 찾은 이상 후보는 AI가 필요한 로그를 서버에 반복 조회해 원인 후보를 내고, 백엔드가 그 근거가 실제 로그인지 확인합니다.</p>
+        <div class="fr-m"><span class="v">27 / 30</span><span class="k">합성 사건에서 정답 로그 위치를 찾은 수 (GPT-4o)</span></div>
       </div>
     </li>
-    <li class="pc">
-      <div class="pc-top"><span class="pc-n num">3</span><span class="pc-date num">10.15 – 10.24</span></div>
-      <div class="pc-card">
-        <p class="pc-t"><span class="tile sm t-peach"><svg class="ic"><use href="#i-file"/></svg></span>데이터 만들기</p>
-        <p class="pc-m">205만 줄<small>/ 하루</small></p>
-        <p class="pc-d">실제 로그 대신 Python 합성 로그 생성기를 만들었습니다. 이상·노이즈·패치 줄마다 <b>정답을 표시</b>하고, 같은 조건이면 같은 로그가 나와 반복 시험이 됩니다.</p>
+    <li class="fr">
+      <span class="fr-n num">3</span>
+      <div class="fr-card">
+        <div class="fr-h"><p class="fr-t">추가 기능</p><p class="fr-s">이상 발견만으로는 부족해서</p><span class="mine"><b>내 몫</b>기준 비교 API · 비교 화면 개선</span></div>
+        <p class="fr-d">멘토링을 거듭하며 명세의 기능만으로는 현업의 불편을 다 풀 수 없다고 느꼈습니다. 정상 종료됐지만 느려진 공정은 같은 레시피의 정상 공정과(<b>기준 비교</b>), 패치 뒤 새 오류는 패치 전후 공정과(<b>패치 비교</b>), 모듈별 HW 차이는 다른 모듈과(<b>모듈 비교</b>) 견줍니다.</p>
+        <div class="fr-m"><span class="v">비교 3종</span><span class="k">기준 · 패치 · 모듈</span></div>
       </div>
     </li>
-    <li class="pc">
-      <div class="pc-top"><span class="pc-n num">4</span><span class="pc-date num">10.26 – 11.02</span></div>
-      <div class="pc-card">
-        <p class="pc-t"><span class="tile sm"><svg class="ic"><use href="#i-layers"/></svg></span>설계와 구현</p>
-        <p class="pc-m">AI 조회 도구 6종</p>
-        <p class="pc-d">ERD와 API 계약을 먼저 맞추고 BE·AI·FE가 동시에 개발했습니다. AI는 로그 읽기 규칙 초안을 만들고, <b>필요한 로그만 조회해</b> 원인 후보를 냅니다.</p>
-        <span class="mine"><b>내 몫</b>ERD·API 계약 · 실행·저장 API</span>
+    <li class="fr">
+      <span class="fr-n num">4</span>
+      <div class="fr-card">
+        <div class="fr-h"><p class="fr-t">현업 테스트</p><p class="fr-s">SEMES 멘토님이 직접</p></div>
+        <p class="fr-d">멘토님이 <b>실제 설비의 웨이퍼 10매 공정 데이터</b>로 SHERLOG를 직접 시험했습니다. 공정 시작 기록 형식이 달라 일부 공정이 빠지는 문제와, 정상 종료한 감시 함수의 ABORTED를 오류로 잡는 문제를 찾아 읽기 규칙과 판정 조건을 고쳤습니다.</p>
+        <div class="fr-m ok"><span class="v">30분 → 10분</span><span class="k">이슈 로그 분석 · 최초 프로파일 생성 제외 시 약 5분</span></div>
       </div>
     </li>
-    <li class="pc">
-      <div class="pc-top"><span class="pc-n num">5</span><span class="pc-date num">11.02 – 11.10</span></div>
-      <div class="pc-card">
-        <p class="pc-t"><span class="tile sm t-mint"><svg class="ic"><use href="#i-zap"/></svg></span>현업 기능 · 성능</p>
-        <p class="pc-m">7.5분 → 3.6분</p>
-        <p class="pc-d">이상 발견만으로는 부족해 <b>기준·패치·모듈 비교</b>를 더했습니다. 합성 하루치 로그 분석 시간도 멘토님 목표(10분) 안으로 줄였습니다.</p>
-        <span class="mine"><b>내 몫</b>동시 분석 · 503 해결</span>
-      </div>
-    </li>
-    <li class="pc">
-      <div class="pc-top"><span class="pc-n num">6</span><span class="pc-date num">11.10 – 11.18</span></div>
-      <div class="pc-card">
-        <p class="pc-t"><span class="tile sm t-violet"><svg class="ic"><use href="#i-monitor"/></svg></span>현업 검증</p>
-        <p class="pc-m">실제 설비 데이터</p>
-        <p class="pc-d">멘토님의 실제 PC에서 시험하며 <b>공정 누락·ABORTED 오탐</b>을 찾아 고치고, 사용자 매뉴얼과 인수인계 자료를 전달했습니다.</p>
-        <span class="mine"><b>내 몫</b>인수인계 자료 정리</span>
+    <li class="fr">
+      <span class="fr-n num">5</span>
+      <div class="fr-card">
+        <div class="fr-h"><p class="fr-t">성과</p><p class="fr-s">인수인계 논의 · 우수상</p><span class="mine"><b>내 몫</b>인수인계 자료 정리</span></div>
+        <p class="fr-d">멘토님이 산정한 손실 비용으로 하루 4건 × 건당 20분 단축을 가정하면 연 약 487시간, 약 4억 원의 손실을 줄일 수 있습니다. 현업 적용을 위해 소스코드·빌드 환경·사용자 가이드 인수인계를 논의했고, <b>자율 프로젝트 우수상(대전1반 2등)</b>을 받았습니다.</p>
+        <div class="fr-m"><span class="v">연 4억 원</span><span class="k">기대효과 추정 · 현장 실측값 아님</span></div>
       </div>
     </li>
   </ol>
-  <div class="proc-out rise" style="--d:4">
-    <div class="po-main">
-      <span class="tile t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span>
-      <div>
-        <p class="k">SEMES 멘토님이 실제 설비의 웨이퍼 10매 공정 데이터로 직접 시험</p>
-        <p class="po-v">이슈 로그 분석 <s>약 30분</s> → <b>약 10분</b><small>최초 프로파일 생성 제외 시 약 5분</small></p>
-      </div>
-    </div>
-    <div class="po-award"><svg class="ic"><use href="#i-trophy"/></svg><span>자율 프로젝트 우수상<small>11.19 최종 발표 · 대전1반 2등</small></span></div>
-  </div>
 </section>
 
 <!-- 5 SHERLOG 503 -->
