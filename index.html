@@ -262,6 +262,22 @@ details.star>summary:hover{border-color:var(--accent)}
 .tv-res .ic{width:18px;height:18px;color:var(--signal)}
 .tv-res.ok .ic{color:var(--ok)}
 
+/* ---------- 문제 / 결과 cards ---------- */
+.s-head2{display:grid;grid-template-columns:minmax(0,1fr) 580px;gap:40px;align-items:end}
+.pr-c{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;align-items:start;padding:16px 20px;border-radius:18px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.pr-c .k{margin:0 0 2px;font-size:14px;font-weight:800;letter-spacing:.04em;color:var(--signal)}
+.pr-c.ok .k{color:var(--ok)}
+.pr-c p{margin:0;font-size:16.5px;line-height:1.6}
+.pr-c .scope{display:block;margin-top:4px;font-size:14px;line-height:1.5;color:var(--muted)}
+.flow5{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.flow5 li{position:relative;display:flex;flex-direction:column;gap:6px;padding:16px 18px;border-radius:18px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.flow5 li:not(:last-child)::after{content:"";position:absolute;right:-12px;top:26px;width:10px;height:10px;border-top:2px solid var(--accent);border-right:2px solid var(--accent);transform:rotate(45deg);opacity:.6}
+.flow5 .k{font-family:var(--f-mono);font-size:13px;font-weight:600;color:var(--accent)}
+.flow5 .t{margin:0;font-size:19px;font-weight:800;line-height:1.3}
+.flow5 .d{margin:0;flex:1;font-size:15.5px;line-height:1.6}
+.flow5 .st{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;font-family:var(--f-mono);font-size:12.5px}
+.flow5 .pill{height:26px;padding:0 10px}
+
 /* ---------- SHERLOG process ---------- */
 .proc-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
 .proc-stats{display:flex;gap:12px}
@@ -809,6 +825,9 @@ ol.flow li::before{top:8px}
   .app[data-mode="read"] .proc-src{text-align:left}
   .app[data-mode="read"] .proc{grid-template-columns:repeat(2,minmax(0,1fr))}
   .app[data-mode="read"] .proc::before{display:none}
+  .app[data-mode="read"] .s-head2{grid-template-columns:minmax(0,1fr);gap:20px}
+  .app[data-mode="read"] .flow5{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .app[data-mode="read"] .flow5 li::after{display:none}
 }
 @media screen and (max-width:640px){
   :root{--t-display:52px; --t-h1:28px; --t-h2:21px; --t-body:16px; --t-small:15px; --t-label:12px}
@@ -858,6 +877,9 @@ ol.flow li::before{top:8px}
   .proc-stats .ps{min-width:0;flex:1 1 30%;padding:10px 14px}
   .proc-stats .v{font-size:26px}
   .app[data-mode="read"] .proc{grid-template-columns:minmax(0,1fr)}
+  .app[data-mode="read"] .flow5{grid-template-columns:minmax(0,1fr)}
+  .pr-c{grid-template-columns:minmax(0,1fr);gap:8px;padding:14px 16px}
+  .pr-c p{font-size:15px}
   .po-v{font-size:21px}
   .po-v small{display:block;margin-left:0}
   .lv-card{padding:16px;gap:10px;border-radius:18px}
@@ -1230,19 +1252,12 @@ ol.flow li::before{top:8px}
 
 <!-- 8 RECONNECT -->
 <section class="slide alt" data-id="cmb-reconnect" data-title="재접속 유예 45초" data-section="콜미베이비">
-  <details class="star">
-    <summary>상세 보기 (STAR)</summary>
-    <dl class="star-body">
-      <dt>SITUATION</dt><dd>주 사용자가 아이인 영상통화에서 아이가 브라우저를 실수로 닫거나 인터넷이 잠시 끊길 수 있었습니다. 초기 MVP에는 나간 사용자가 다시 들어오는 기능이 없었고, 마지막 참가자가 나가면 통화방이 바로 종료돼 그림일기 생성에도 영향을 줄 수 있었습니다.</dd>
-      <dt>TASK</dt><dd>일시적인 단절과 실제 통화 종료를 구분하고, 돌아올 수 있는 시간 동안 기존 통화방과 이후 그림일기 흐름을 보존해야 했습니다.</dd>
-      <dt>ACTION</dt><dd>Webhook으로 Redis 참여자 집합을 보정하고, 모두 나간 방은 즉시 ENDED로 바꾸지 않고 pending key와 index에 만료 시각을 기록했습니다. 재접속은 아이 lock 소유권과 참여 상태를 확인해 토큰을 발급하고 Lua로 예약을 원자적으로 취소했습니다. 만료는 1초 주기 finalizer가 DB row lock으로 확정합니다. 중복·지연 Webhook, 재접속, 고아 방 정리 회귀 테스트와 운영·API 문서를 보강했습니다.</dd>
-      <dt>RESULT</dt><dd>일시적인 네트워크 오류와 실제 종료를 구분해 기존 통화방을 복구할 수 있게 했습니다. 종료 확정 경계를 DB 잠금과 Redis pending 상태로 나눠, 오래된 종료 예약이 복구된 방을 다시 닫는 경로를 막았습니다.</dd>
-      <dt class="warn">범위</dt><dd class="muted">재접속률이나 장애 감소율은 따로 측정하지 않았습니다. RoomStatus는 WAITING·ACTIVE·ENDED·CANCELLED·FAILED입니다.</dd>
-    </dl>
-  </details>
-  <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>CallMeBaby</b> 실시간 상태 · 장애 복구</p>
-    <h2 class="s-title rise" style="--d:1">아이가 브라우저를 닫아도<br>통화방은 45초 동안 기다립니다</h2>
+  <header class="s-head2">
+    <div class="s-head">
+      <p class="eyebrow rise" style="--d:0"><b>CallMeBaby</b> 실시간 상태 · 장애 복구</p>
+      <h2 class="s-title rise" style="--d:1">아이가 브라우저를 닫아도<br>통화방은 45초 동안 기다립니다</h2>
+    </div>
+    <div class="pr-c why rise" style="--d:2"><span class="tile sm t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><p class="k">문제</p><p>주 사용자가 아이라 브라우저를 실수로 닫거나 네트워크가 잠깐 끊길 수 있었습니다. 초기 버전은 마지막 참가자가 나가면 방이 바로 끝나, 이어지는 그림일기 생성까지 영향을 받았습니다.</p></div></div>
   </header>
   <div class="rc">
     <div class="rc-sim rise" style="--d:2">
@@ -1271,33 +1286,25 @@ ol.flow li::before{top:8px}
       <li data-s="5"><span class="n">5</span><span>Webhook이 누락될 때를 대비해 30초마다 90초 넘은 ACTIVE 방을 확인하고, LiveKit 조회가 성공했고 참가자가 없을 때만 같은 유예를 시작합니다.</span></li>
     </ol>
   </div>
-  <p class="evidence rise" style="--d:4">근거 · CallRoomRedisService · CallRoomReconnectionGraceScheduler · CallRoomOrphanReconciliationScheduler</p>
+  <div class="pr-c ok rise" style="--d:4"><span class="tile sm t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span><div><p class="k">결과</p><p>일시적인 단절과 실제 종료를 구분해 같은 통화방으로 돌아오게 했고, 오래된 종료 예약이 복구된 방을 다시 닫는 경로를 막았습니다. 중복·지연 Webhook, 재접속, 고아 방 정리 회귀 테스트를 추가했습니다. <span class="scope">재접속률·장애 감소율은 따로 재지 않았습니다.</span></p></div></div>
 </section>
 
 <!-- 9 DIARY -->
 <section class="slide" data-id="cmb-diary" data-title="AI 그림일기 파이프라인" data-section="콜미베이비">
-  <details class="star">
-    <summary>상세 보기 (STAR)</summary>
-    <dl class="star-body">
-      <dt>SITUATION</dt><dd>통화 후 그림일기는 아이의 STT·선택 토픽·부모 메모를 LLM에 보내 만들었습니다. 근거 없는 문장, 개인정보, 프롬프트 인젝션, AI 지연과 실패가 사용자 경험과 안전에 영향을 줄 수 있었습니다.</dd>
-      <dt>TASK</dt><dd>입력 근거와 출력 품질·안전성을 검증하면서, AI 실패가 통화·그림 저장을 막지 않도록 비동기 처리와 재시도 경계를 설계해야 했습니다.</dd>
-      <dt>ACTION</dt><dd>입력을 인용 근거로 정규화하고 필터를 거친 뒤 사건 근거 추출 → 생성 → 검증 순서로 처리했습니다. 요청은 AFTER_COMMIT 이벤트와 @Async로 통화 트랜잭션에서 분리했습니다. 평가셋, 블라인드 평가, 프롬프트 개선, few-shot·모델 비교, 다양성 검증도 추가했습니다.</dd>
-      <dt>RESULT</dt><dd>AI 생성 작업을 통화 흐름과 분리하고 검증 실패를 재시도·실패 상태로 격리했습니다.</dd>
-      <dt class="warn">범위</dt><dd class="muted">지표는 로컬 RTX 4050에서 합성 데이터로 15회 잰 값입니다. 운영 트래픽 성능이 아닙니다.</dd>
-    </dl>
-  </details>
-  <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>CallMeBaby</b> AI 파이프라인</p>
-    <h2 class="s-title rise" style="--d:1">AI가 실패해도 통화 기록은 남도록<br>그림일기 생성을 분리했습니다</h2>
+  <header class="s-head2">
+    <div class="s-head">
+      <p class="eyebrow rise" style="--d:0"><b>CallMeBaby</b> AI 파이프라인</p>
+      <h2 class="s-title rise" style="--d:1">AI가 실패해도 통화 기록은 남도록<br>그림일기 생성을 분리했습니다</h2>
+    </div>
+    <div class="pr-c why rise" style="--d:2"><span class="tile sm t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><p class="k">문제</p><p>아이의 STT·선택 토픽·부모 메모를 LLM에 보내 일기를 만들다 보니, 근거 없는 문장·개인정보·프롬프트 인젝션과 AI 지연·실패가 사용자 경험과 안전을 해칠 수 있었습니다.</p></div></div>
   </header>
-  <div class="pipe rise" style="--d:2" id="pipe" role="group" aria-label="그림일기 생성 단계"></div>
-  <div class="states rise" style="--d:3" aria-label="생성 상태">
-    <span class="pill" data-state="PENDING">PENDING</span><span class="arr">→</span>
-    <span class="pill" data-state="PROCESSING">PROCESSING</span><span class="arr">→</span>
-    <span class="pill ok" data-state="COMPLETED">COMPLETED</span><span class="arr">/</span>
-    <span class="pill bad" data-state="FAILED">FAILED · retry</span>
-  </div>
-  <div class="stage-detail rise" style="--d:3" id="pipeDetail" aria-live="polite"></div>
+  <ol class="flow5 rise" style="--d:2" aria-label="그림일기 생성 단계">
+    <li><span class="k num">01</span><p class="t">통화 종료 · 커밋</p><p class="d">AFTER_COMMIT 이벤트와 @Async로 생성 요청을 통화 트랜잭션 밖으로 뺐습니다. AI가 느려도 통화 종료와 그림 저장이 먼저 끝납니다.</p><div class="st"><span class="pill on">PENDING</span></div></li>
+    <li><span class="k num">02</span><p class="t">입력 근거 정리</p><p class="d">아이 STT·선택 토픽·부모 메모를 인용 근거로 정규화하고, 개인정보와 프롬프트 인젝션 신호를 걸러 냅니다.</p><div class="st"><span class="pill on">PROCESSING</span></div></li>
+    <li><span class="k num">03</span><p class="t">사건 추출 · 생성</p><p class="d">근거에서 사건을 먼저 뽑은 뒤 구조화 출력으로 일기를 씁니다. 이전 본문을 기록해 재생성 결과가 반복되지 않게 했습니다.</p><div class="st"><span class="pill on">PROCESSING</span></div></li>
+    <li><span class="k num">04</span><p class="t">출력 검증</p><p class="d">형식, 분량(최대 378자), 선택 토픽 포함, 근거 문장 대응을 검사합니다. 하나라도 실패하면 저장하지 않습니다.</p><div class="st"><span class="pill on">PROCESSING</span></div></li>
+    <li><span class="k num">05</span><p class="t">저장 · 재시도</p><p class="d">통과하면 저장하고, 실패는 재시도 경계로 격리합니다. 평가셋·블라인드 평가·few-shot·모델 비교로 품질을 관리했습니다.</p><div class="st"><span class="pill ok on">COMPLETED</span><span class="pill bad on">FAILED · retry</span></div></li>
+  </ol>
   <div class="metrics rise" style="--d:4">
     <div><span class="v num">890.9ms</span><span class="k">평균 생성 지연</span></div>
     <div><span class="v num">1,131ms</span><span class="k">p95 지연</span></div>
@@ -1305,7 +1312,7 @@ ol.flow li::before{top:8px}
     <div><span class="v num">100%</span><span class="k">선택 토픽 포함률</span></div>
     <div><span class="v num">0%</span><span class="k">fallback 발생률</span></div>
   </div>
-  <p class="evidence rise" style="--d:5">로컬 RTX 4050 · 합성 데이터 15회 측정 · 운영 수치 아님</p>
+  <div class="pr-c ok rise" style="--d:5"><span class="tile sm t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span><div><p class="k">결과</p><p>AI 생성을 통화 흐름과 분리해, 검증에 실패해도 통화와 그림 저장은 끝나고 일기만 재시도·실패 상태로 남습니다. <span class="scope">위 지표는 로컬 RTX 4050에서 합성 데이터로 15회 잰 값이며 운영 수치가 아닙니다.</span></p></div></div>
 </section>
 
 <!-- 10a CHAEKCHU OVERVIEW -->
@@ -1335,19 +1342,12 @@ ol.flow li::before{top:8px}
 
 <!-- 10 CHAEKCHU -->
 <section class="slide" data-id="chaekchu" data-title="추천 파이프라인" data-section="책추책책추">
-  <details class="star">
-    <summary>상세 보기 (STAR)</summary>
-    <dl class="star-body">
-      <dt>SITUATION</dt><dd>약 45만 건의 Data4Library 후보를 추천 서비스에 연결하면서 태그·임베딩 생성 비용과 장시간 배치의 안정성을 함께 따져야 했습니다. 태그가 책과 맞는지, 같은 책이 반복되지 않는지, AI 결과를 백엔드 도서 정보와 어떻게 맞출지도 과제였습니다.</dd>
-      <dt>TASK</dt><dd>대출 데이터를 추천 가능한 입력으로 만들고 온라인 서비스까지 연결하면서, GMS 호출량과 검색 실패의 영향을 통제해야 했습니다.</dd>
-      <dt>ACTION</dt><dd>입력 필드와 관계 데이터를 검증하고 ISBN 기준으로 후보를 정리했습니다. 임베딩을 오프라인 생성해 Qdrant에 색인하고, 검색 결과에 다섯 가지 신호를 결합했습니다. seed·서재 책 제외, 다양성 보정, cold-start 인기 추천과 fallback을 적용했습니다. AI 태그 코드(FIC)와 백엔드 공개 태그(FICTION)가 달라 명시적 매핑을 추가했습니다.</dd>
-      <dt>RESULT</dt><dd>440,377건 태깅·임베딩·색인 완료. 실제 EC2에서 FastAPI 추천이 fallback 없이 5권을 반환했고 요청 태그와 결과 태그가 일치했습니다. 백엔드 추천 API도 5권을 반환했고, 태그가 없으면 세그먼트 인기 추천이 동작했습니다.</dd>
-      <dt class="warn">범위</dt><dd class="muted">모델을 직접 학습하지 않았습니다. 정확도 향상률과 비용 절감액은 측정하지 않았습니다.</dd>
-    </dl>
-  </details>
-  <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>책추책책추</b> 내 역할 · 추천 파이프라인</p>
-    <h2 class="s-title rise" style="--d:1">45만 권을 추천 가능한 색인으로 만들고<br>호출 비용을 통제했습니다</h2>
+  <header class="s-head2">
+    <div class="s-head">
+      <p class="eyebrow rise" style="--d:0"><b>책추책책추</b> 내 역할 · 추천 파이프라인</p>
+      <h2 class="s-title rise" style="--d:1">45만 권을 추천 가능한 색인으로 만들고<br>호출 비용을 통제했습니다</h2>
+    </div>
+    <div class="pr-c why rise" style="--d:2"><span class="tile sm t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><p class="k">문제</p><p>약 45만 건의 Data4Library 후보를 추천에 쓰려면 태그·임베딩 생성 비용, 긴 배치의 안정성, 같은 책 반복, AI 결과와 백엔드 도서 정보 연결을 함께 풀어야 했습니다.</p></div></div>
   </header>
   <div class="ck">
     <div class="col">
@@ -1376,6 +1376,7 @@ ol.flow li::before{top:8px}
       <p class="note">막대 길이는 배치 크기 대비 비율입니다. 리포트 항목은 서로 겹칠 수 있어 합산하지 않습니다. 온라인 추천 요청은 GMS를 호출하지 않습니다.</p>
     </div>
   </div>
+  <div class="pr-c ok rise" style="--d:5"><span class="tile sm t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span><div><p class="k">결과</p><p>실제 EC2에서 FastAPI 추천이 fallback 없이 5권을 돌려주고 요청 태그와 결과 태그가 일치했습니다. 서재 책 제외·다양성 보정·태그 코드 매핑(FIC → FICTION)을 넣고, 태그가 없으면 세그먼트 인기 추천으로 대신합니다. <span class="scope">모델은 직접 학습하지 않았고, 정확도 향상률·비용 절감액은 재지 않았습니다.</span></p></div></div>
 </section>
 
 <!-- 11 WORLDCUP -->
@@ -1440,19 +1441,12 @@ ol.flow li::before{top:8px}
 
 <!-- 12 MUSUIMSA -->
 <section class="slide alt" data-id="musuimsa" data-title="공공데이터 동기화" data-section="무쉼사">
-  <details class="star">
-    <summary>상세 보기 (STAR)</summary>
-    <dl class="star-body">
-      <dt>SITUATION</dt><dd>전국 6만여 개 쉼터 데이터를 매일 동기화해야 했고, 전체 갱신은 DB 락과 메모리 부하를 부를 수 있었습니다. 처음에는 공공데이터 API 응답을 그대로 믿고 저장했지만, 프로젝트 기간 중 데이터센터 화재로 API가 멈추는 일을 겪었습니다.</dd>
-      <dt>TASK</dt><dd>부하를 줄이면서, 실패하거나 불완전한 외부 응답이 기존 정상 데이터를 덮어쓰지 않게 해야 했습니다.</dd>
-      <dt>ACTION</dt><dd>Spring Batch Job/Step을 chunk 100으로 구성해 기존 쉼터를 페이징 조회하고 외부 데이터와 비교해 변경분만 writer로 넘겼습니다. 위치가 바뀐 쉼터 ID만 ExecutionContext에 모아 사진 갱신·지도 캐시 무효화 대상으로 분리했습니다. HTTP 오류는 ExternalApiException으로 드러내고, 응답에 없는 쉼터는 삭제하지 않고 건너뛰었습니다.</dd>
-      <dt>RESULT</dt><dd>전체를 매번 갱신하지 않고 변경된 쉼터만 저장·후처리하는 구조로 동기화 부하와 캐시 갱신 범위를 줄였고, 외부 실패나 누락이 기존 DB를 훼손하지 않게 했습니다.</dd>
-      <dt class="warn">범위</dt><dd class="muted">다른 기관 API로 자동 전환하는 런타임 폴백은 없습니다. 처리 시간·메모리 개선 수치는 측정하지 않았습니다.</dd>
-    </dl>
-  </details>
-  <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>무쉼사</b> 트러블슈팅 · 공공데이터 동기화</p>
-    <h2 class="s-title rise" style="--d:1">공공 API가 멈춰도<br>6만여 개 쉼터 데이터는 그대로</h2>
+  <header class="s-head2">
+    <div class="s-head">
+      <p class="eyebrow rise" style="--d:0"><b>무쉼사</b> 트러블슈팅 · 공공데이터 동기화</p>
+      <h2 class="s-title rise" style="--d:1">공공 API가 멈춰도<br>6만여 개 쉼터 데이터는 그대로</h2>
+    </div>
+    <div class="pr-c why rise" style="--d:2"><span class="tile sm t-peach"><svg class="ic"><use href="#i-alert"/></svg></span><div><p class="k">문제</p><p>전국 6만여 개 쉼터를 매일 전부 갱신하면 DB 락과 메모리 부하가 생길 수 있었습니다. 처음엔 공공 API 응답을 그대로 믿고 저장했는데, 프로젝트 중 데이터센터 화재로 API가 실제로 멈췄습니다.</p></div></div>
   </header>
   <div class="ms">
     <div class="col">
@@ -1469,6 +1463,7 @@ ol.flow li::before{top:8px}
           <tbody id="msBody"></tbody>
         </table>
       </div>
+      <div class="pr-c ok rise" style="--d:4"><span class="tile sm t-mint"><svg class="ic"><use href="#i-check-circle"/></svg></span><div><p class="k">결과</p><p>바뀐 쉼터만 저장하고, 위치가 바뀐 쉼터만 사진 갱신·지도 캐시 무효화 대상으로 모았습니다. HTTP 오류는 예외로 드러내고, 응답에 없는 쉼터는 지우지 않습니다. <span class="scope">다른 기관 API로 자동 전환하는 폴백은 없고, 처리 시간·메모리 개선은 재지 않았습니다.</span></p></div></div>
     </div>
     <div class="col">
       <div class="mini stack rise" style="--d:3">
@@ -2014,28 +2009,6 @@ ol.flow li::before{top:8px}
   }
   rcRange.addEventListener('input', renderRc); renderRc();
 
-  /* ---------- diary pipeline ---------- */
-  const PIPE = [
-    ['01','통화 종료 · 커밋','통화 요청 트랜잭션이 커밋된 뒤에 시작합니다','Spring의 AFTER_COMMIT 이벤트와 @Async로 그림일기 생성 요청을 통화 트랜잭션 밖으로 뺐습니다. AI가 느리거나 실패해도 통화 종료와 그림 저장은 먼저 끝납니다.',['PENDING']],
-    ['02','입력 근거 정리','STT·토픽·메모를 인용 가능한 근거로','아이의 STT, 선택한 토픽, 부모 메모를 인용 근거로 정규화하고 개인정보와 프롬프트 인젝션 신호를 걸러 냅니다. 재생성을 위해 원본 STT는 Redis에 임시 보관하고 사용 횟수를 관리합니다.',['PENDING','PROCESSING']],
-    ['03','사건 추출 · 생성','근거에서 사건을 먼저 뽑고 일기를 씁니다','입력에서 사건 근거를 먼저 추출한 뒤 그림일기를 구조화 출력으로 생성합니다. 이전 본문 기록을 두어 재생성 결과가 반복되지 않게 했습니다.',['PENDING','PROCESSING']],
-    ['04','출력 검증','통과한 결과만 저장 후보가 됩니다','구조화 출력 형식, 본문 분량(최대 378자), 선택 토픽 포함 여부, 근거 문장 대응을 검증합니다. 하나라도 실패하면 저장하지 않습니다.',['PENDING','PROCESSING']],
-    ['05','저장 · 재시도','성공은 COMPLETED, 실패는 FAILED와 재시도','검증을 통과하면 COMPLETED로 저장하고, 실패는 FAILED 상태와 retry 경계로 격리합니다. 평가셋과 블라인드 평가, few-shot·모델 비교로 품질 기준을 관리했습니다.',['PENDING','PROCESSING','COMPLETED','FAILED']]
-  ];
-  const pipe = document.getElementById('pipe');
-  PIPE.forEach((p, i) => {
-    const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
-    b.innerHTML = '<span class="k">' + p[0] + '</span><span class="t"></span>'; b.querySelector('.t').textContent = p[1];
-    b.addEventListener('click', () => renderPipe(i)); pipe.appendChild(b);
-  });
-  function renderPipe(i){
-    Array.from(pipe.children).forEach((b, k) => b.setAttribute('aria-pressed', k === i ? 'true' : 'false'));
-    const p = PIPE[i], d = document.getElementById('pipeDetail');
-    d.innerHTML = '<p class="label"></p><h4></h4><p></p>';
-    d.children[0].textContent = 'STEP ' + p[0]; d.children[1].textContent = p[2]; d.children[2].textContent = p[3];
-    document.querySelectorAll('.states .pill').forEach(pl => pl.classList.toggle('on', p[4].includes(pl.dataset.state)));
-  }
-  renderPipe(0);
 
   /* ---------- chaekchu cost ---------- */
   const RUNS = [
