@@ -597,6 +597,12 @@ details.star>summary{border-radius:999px;background:var(--card);border-color:var
 .viz{background:var(--card);border:1px solid var(--line-soft);border-radius:24px;box-shadow:var(--shadow-md)}
 .timing .bar{border-radius:999px}
 .three{gap:18px;border-top:0}
+.three.cols2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.three.cols2{align-items:start;gap:24px}
+.three.cols2>.cell{padding:28px 32px;gap:18px}
+.three.cols2 .big{font-size:56px}
+.three.cols2 .small{font-size:19px;line-height:1.65}
+.three.cols2 .note{font-size:15.5px}
 .three>.cell{padding:22px 24px;border:1px solid var(--line-soft);border-radius:22px;background:var(--card);box-shadow:var(--shadow-sm);gap:14px}
 .big{font-size:42px}
 .job{border-radius:999px}
@@ -1131,12 +1137,12 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 6 SHERLOG STORAGE -->
-<section class="slide alt" data-id="sherlog-storage" data-title="분석 결과를 지키는 저장 계층" data-section="SHERLOG">
+<section class="slide alt" data-id="sherlog-storage" data-title="동시 분석 · 재시작 시간" data-section="SHERLOG">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0"><b>SHERLOG</b> 저장 · 실행 계층</p>
-    <h2 class="s-title rise" style="--d:1">분석 결과를 잃지 않는 저장 계층</h2>
+    <h2 class="s-title rise" style="--d:1">분석은 3건까지 동시에,<br>큰 결과 DB도 빠르게 다시 엽니다</h2>
   </header>
-  <div class="three rise" style="--d:2">
+  <div class="three cols2 rise" style="--d:2">
     <div class="cell">
       <p class="label with-ic"><span class="tile sm"><svg class="ic"><use href="#i-layers"/></svg></span>동시 분석</p>
       <p class="big num">1 <span class="arrow">→</span> 3건</p>
@@ -1161,18 +1167,6 @@ ol.flow li::before{top:8px}
         <div class="r"><span>수정 후</span><div class="b after" style="width:36.9%"><span class="num">4.2014s · 47.3% 단축</span></div></div>
       </div>
       <p class="note">같은 1.94GB 합성 DB의 저장 런타임 준비 구간. 전체 앱 시작 시간은 별도입니다. 강제 종료 후 재연결, 12개 테이블 행 수·대표 원문 위치를 전후 대조했습니다.</p>
-    </div>
-    <div class="cell">
-      <p class="label with-ic"><span class="tile sm t-violet"><svg class="ic"><use href="#i-db"/></svg></span>스키마 v2 → v3 이전</p>
-      <p class="big">실패해도 원래대로</p>
-      <ol class="flow">
-        <li>앱과 같은 OS 소유 잠금을 백업부터 커밋까지 유지</li>
-        <li>SQLite 백업으로 WAL 포함 DB·설정 보존, 해시·구조 검증</li>
-        <li>v3 DDL과 버전을 단일 트랜잭션으로 적용</li>
-        <li>DDL·FK·quick_check 통과 후 커밋</li>
-        <li class="fail">오류 주입 시 v2 스키마·결과와 검증된 백업이 그대로 남음</li>
-      </ol>
-      <p class="note">합성 DB 이전 전후 기존 11개 테이블 전체 행, 9개 API 응답, 설정 바이트 일치.</p>
     </div>
   </div>
 </section>
@@ -1753,7 +1747,7 @@ ol.flow li::before{top:8px}
   const PRIN = [
     {k:'A', items:[
       ['선물하기 클론','주문이 커밋된 뒤에 알림을 보내고, 위시리스트 삭제는 REQUIRES_NEW로 떼어 냈습니다.','gift'],
-      ['SHERLOG','검증된 백업과 단일 트랜잭션으로 DB 버전을 올리고, 실패하면 원래 버전이 남게 했습니다.','sherlog-storage'],
+      ['SHERLOG','분석 작업마다 취소 신호와 결과를 따로 두어, 하나를 취소해도 다른 분석 결과는 그대로 남게 했습니다.','sherlog-storage'],
       ['무쉼사','외부 응답에 없는 쉼터는 지우지 않고 건너뛰어 마지막 정상 데이터를 지켰습니다.','musuimsa']]},
     {k:'B', items:[
       ['무쉼사','공공 API 오류를 ExternalApiException으로 드러내고 갱신을 멈춰 기존 DB를 보존했습니다.','musuimsa'],
