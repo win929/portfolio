@@ -687,6 +687,40 @@ ol.flow li::before{top:8px}
 .lv-meter i{height:12px;border-radius:6px;background:var(--line)}
 .lv-meter.l1 i:nth-child(-n+1),.lv-meter.l2 i:nth-child(-n+2),.lv-meter.l3 i:nth-child(-n+3),.lv-meter.l4 i:nth-child(-n+4),.lv-meter.l5 i{background:linear-gradient(90deg,var(--accent),var(--accent-2))}
 
+/* project overview pages */
+.pov{display:grid;grid-template-columns:minmax(0,1fr) 720px;gap:56px;flex:1;min-height:0;align-items:start}
+.pov-main{display:flex;flex-direction:column;gap:18px;min-width:0}
+.pov-brand{display:flex;align-items:center;gap:18px;min-height:92px}
+.pov-plate{display:inline-flex;align-items:center;padding:14px 22px;border-radius:20px;background:#FFFFFF;border:1px solid var(--line-soft);box-shadow:var(--shadow-sm)}
+.pov-plate img{display:block;height:64px;width:auto;max-width:100%}
+.pov-icon{display:block;width:84px;height:auto;border-radius:22px;box-shadow:var(--shadow-md)}
+.pov-gift{width:84px;height:84px;border-radius:24px}
+.pov-gift .ic{width:40px;height:40px}
+.pov-name{margin:0;font-size:54px;font-weight:800;line-height:1.05;letter-spacing:-.03em}
+.pov-name small{display:block;margin-top:8px;font-size:18px;font-weight:600;letter-spacing:0;color:var(--muted)}
+.pov-tags{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ptag{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 16px;border-radius:999px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm);font-size:15px;font-weight:700;color:var(--ink);white-space:nowrap}
+.ptag .ic{width:17px;height:17px}
+.ptag.hl{height:46px;padding:0 22px 0 18px;font-size:18px;font-weight:800;background:var(--ink);color:var(--sheet);border-color:var(--ink);box-shadow:var(--shadow-md)}
+.ptag.award{color:var(--signal)}
+.pov-what{margin:0;font-size:20px;line-height:1.6;max-width:34em}
+.pov-role{display:flex;flex-direction:column;gap:10px;padding:18px 22px;border:1px solid var(--line-soft);border-radius:20px;background:var(--card);box-shadow:var(--shadow-sm)}
+.pov-role .label{display:flex;align-items:center;gap:10px}
+.pov-stack{display:flex;flex-direction:column;gap:10px}
+.techs{display:flex;flex-wrap:wrap;gap:8px}
+.tech{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 14px 0 7px;border-radius:12px;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-sm);font-size:15px;font-weight:600;white-space:nowrap}
+.tech img,.tech .tic{display:grid;place-items:center;flex:none;width:28px;height:28px;padding:3px;border-radius:8px;background:#FFFFFF;box-sizing:border-box}
+.tech .tic{background:var(--accent-soft);color:var(--accent)}
+.tech .tic .ic{width:16px;height:16px}
+.pov-shots{position:relative;isolation:isolate;display:flex;flex-direction:column;padding-top:24px;min-width:0}
+.pov-shots::before{content:"";position:absolute;inset:60px -22px 40px 56px;border-radius:40px;background:var(--accent-soft);transform:rotate(-2.5deg);z-index:-1}
+.sframe{margin:0;border-radius:16px;overflow:hidden;background:var(--card);border:1px solid var(--line-soft);box-shadow:var(--shadow-lg)}
+.sframe img{display:block;width:100%;height:auto}
+.sframe .win-bar{height:32px;background:var(--panel);border-bottom:1px solid var(--line-soft);color:var(--muted)}
+.sframe .win-bar span{font-family:var(--f-text);font-size:13px;font-weight:600}
+.shot-b{position:relative;z-index:1;width:48%;align-self:flex-end;margin:-84px -16px 0 0}
+.pov-cap{margin:14px 0 0;font-size:13px;color:var(--muted)}
+
 /* ---------- reader mode (narrow screens or chosen) — screen only, so printing always uses the slide layout ---------- */
 @media screen{
 .app[data-mode="read"]{position:static;display:block;padding:0}
@@ -720,6 +754,8 @@ ol.flow li::before{top:8px}
   .app[data-mode="read"] .pipe{flex-wrap:wrap}
   .app[data-mode="read"] .pipe button{flex:1 1 45%}
   .app[data-mode="read"] .lv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .app[data-mode="read"] .pov{grid-template-columns:minmax(0,1fr);gap:28px}
+  .app[data-mode="read"] .shot-b{margin-right:0}
 }
 @media screen and (max-width:640px){
   :root{--t-display:52px; --t-h1:28px; --t-h2:21px; --t-body:16px; --t-small:15px; --t-label:12px}
@@ -759,6 +795,12 @@ ol.flow li::before{top:8px}
   .controls .kbd-hint,.controls .section-name{display:none}
   .json{font-size:13px}
   .lv-grid{gap:10px}
+  .pov-name{font-size:34px}
+  .pov-plate img{height:44px}
+  .ptag{white-space:normal;height:auto;min-height:34px;padding:6px 14px}
+  .ptag.hl{font-size:15px;min-height:40px;height:auto}
+  .tech{font-size:13px;height:36px}
+  .shot-b{width:62%;margin-top:-40px}
   .lv-card{padding:16px;gap:10px;border-radius:18px}
   .logo{width:52px;height:52px;border-radius:15px}
   .logo img{width:32px;height:32px}
@@ -796,7 +838,7 @@ ol.flow li::before{top:8px}
 </head>
 <body>
 <div class="app" id="app" data-mode="deck">
-<svg class="sprite" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden"><defs><symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15v4M17 17h4M5 3v3M3.5 4.5h3"/></symbol><symbol id="i-video" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol><symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="8" r="3"/><path d="M6 9v6"/><path d="M18 11a6 6 0 0 1-6 6H9"/></symbol><symbol id="i-cpu" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 4.5a4 4 0 0 1 0 7"/><path d="M18 14.5a7 7 0 0 1 4 6.5"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></symbol><symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/><path d="M22 10v6"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol><symbol id="i-brief" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol><symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol><symbol id="i-x-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol><symbol id="i-package" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol><symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.3l-3.6-3.6a2 2 0 0 1 2.8-2.8L7 15"/></symbol><symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 11v2M13 17v2"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M8 16v-4M13 16V7M18 16v-7"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></symbol><symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></symbol></defs></svg>
+<svg class="sprite" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden"><defs><symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></symbol><symbol id="i-server" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6h.01M6 18h.01"/></symbol><symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol><symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5"/><path d="m2 12 10 5 10-5"/></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15v4M17 17h4M5 3v3M3.5 4.5h3"/></symbol><symbol id="i-video" viewBox="0 0 24 24"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/></symbol><symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol><symbol id="i-branch" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="8" r="3"/><path d="M6 9v6"/><path d="M18 11a6 6 0 0 1-6 6H9"/></symbol><symbol id="i-cpu" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><rect x="9" y="9" width="6" height="6" rx="1"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></symbol><symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol><symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 4.5a4 4 0 0 1 0 7"/><path d="M18 14.5a7 7 0 0 1 4 6.5"/></symbol><symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></symbol><symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/><path d="M22 10v6"/></symbol><symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol><symbol id="i-brief" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol><symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></symbol><symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></symbol><symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol><symbol id="i-x-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol><symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></symbol><symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></symbol><symbol id="i-monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></symbol><symbol id="i-package" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol><symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-4 0v5M14 10V4a2 2 0 0 0-4 0v6M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.9-6-2.3l-3.6-3.6a2 2 0 0 1 2.8-2.8L7 15"/></symbol><symbol id="i-ticket" viewBox="0 0 24 24"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/><path d="M13 5v2M13 11v2M13 17v2"/></symbol><symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M8 16v-4M13 16V7M18 16v-7"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol><symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4"/></symbol><symbol id="i-gift" viewBox="0 0 24 24"><path d="M20 12v10H4V12"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></symbol><symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.5 12.9 17 22l-5-3-5 3 1.5-9.1"/></symbol></defs></svg>
   <div class="viewport" id="viewport">
     <div class="stage" id="stage">
 
@@ -920,36 +962,27 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 4 SHERLOG -->
-<section class="slide" data-id="sherlog" data-title="SHERLOG" data-section="SHERLOG">
-  <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>Project 1</b> 2026.10 – 2026.11 · SSAFY 2학기 자율 프로젝트(기업연계) · 6명 · 팀장</p>
-  </header>
-  <div class="proj">
-    <div class="col">
-      <div class="title-row rise" style="--d:1"><h2 class="display" style="font-size:88px">SHERLOG</h2><span class="award-badge"><span class="tile sm t-peach"><svg class="ic"><use href="#i-trophy"/></svg></span><span class="ab-t"><b>우수상</b>SSAFY 2학기 자율 프로젝트 · 대전1반 2등</span></span></div>
-      <p class="lede rise" style="--d:2">흩어진 반도체 설비 로그를 하나의 실행 흐름으로 복원하고, 정상 패턴과 비교해 이상 시점과 근거 원문을 찾아 주는 Windows 사후 분석 프로그램입니다.</p>
-      <div class="role-box rise" style="--d:3">
-        <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 팀장 / BE 1 (앱 실행 · API · 저장 · 조회)</p>
-        <ul class="ticks small">
-          <li>FastAPI · SQLite 기반 분석 작업의 실행·취소, 결과와 근거 원문 조회 API</li>
-          <li>Electron ↔ Python 백엔드 연동과 Windows 실행 파일에 백엔드 동봉</li>
-          <li>분석 이력·결과 보존과 파일·행·시각으로 원문을 되짚는 저장 구조</li>
-        </ul>
+<section class="slide" data-id="sherlog" data-title="SHERLOG 소개" data-section="SHERLOG">
+  <div class="pov">
+    <div class="pov-main">
+      <p class="eyebrow rise" style="--d:0"><b>Project 1 · SEMES 기업연계</b> 2026.10 – 2026.11 · 6명 · 팀장</p>
+      <div class="pov-brand rise" style="--d:1"><span class="pov-plate"><img src="assets/projects/sherlog-logo.png" alt="SHERLOG" width="192" height="64"></span></div>
+      <div class="pov-tags rise" style="--d:2"><span class="ptag hl"><svg class="ic"><use href="#i-brief"/></svg>SEMES 기업연계 프로젝트</span><span class="ptag">SSAFY 2학기 자율 프로젝트</span><span class="ptag award"><svg class="ic"><use href="#i-trophy"/></svg>우수상 · 대전1반 2등</span></div>
+      <p class="pov-what rise" style="--d:3">흩어진 반도체 설비 로그를 하나의 실행 흐름으로 복원하고, 정상 패턴과 비교해 핵심 오류와 근거 원문을 찾아 주는 Windows 사후 분석 프로그램입니다.</p>
+      <div class="pov-role rise" style="--d:4">
+        <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 팀장 / BE 1 (실행 · API · 저장 · 조회)</p>
+        <ul class="ticks small"><li>FastAPI·SQLite 분석 실행·취소·조회 API 설계</li><li>Electron ↔ Python 연동과 Windows 배포 패키징</li><li>결과 DB 백업·버전 이전·재시작 시간 단축</li></ul>
+        <p class="note">로그 파싱(DATA)·실행 복원(BE 2)·핵심 오류 선별(AI)은 팀원 담당</p>
       </div>
-      <div class="split rise" style="--d:4" aria-label="팀 역할 분담">
-        <div><span class="k">DATA</span><span class="v">로그 파싱 · 공통 이벤트</span></div>
-        <div><span class="k">BE 2</span><span class="v">Run–End 페어링 · 실행 복원</span></div>
-        <div class="me"><span class="k">BE 1 · 나</span><span class="v">실행 · API · 저장 · 조회</span></div>
-        <div><span class="k">AI</span><span class="v">핵심 오류 선별 · 설명</span></div>
-        <div><span class="k">FE ×2</span><span class="v">React · Electron 화면</span></div>
+      <div class="pov-stack rise" style="--d:5">
+        <p class="label">기술 스택</p>
+        <div class="techs"><span class="tech"><img src="assets/logos/python.svg" alt="" width="28" height="28">Python</span><span class="tech"><img src="assets/logos/fastapi.svg" alt="" width="28" height="28">FastAPI</span><span class="tech"><img src="assets/logos/sqlite.svg" alt="" width="28" height="28">SQLite</span><span class="tech"><img src="assets/logos/electron.svg" alt="" width="28" height="28">Electron</span><span class="tech"><img src="assets/logos/react.svg" alt="" width="28" height="28">React</span><span class="tech"><img src="assets/logos/typescript.svg" alt="" width="28" height="28">TypeScript</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-sparkles"/></svg></span>LLM 구조화 출력</span></div>
       </div>
     </div>
-    <div class="col shot-col">
-    <figure class="shot rise" style="--d:3">
-      <div class="frame"><img src="assets/sherlog-results.jpg" alt="SHERLOG 공정 분석 결과 화면. 처리한 웨이퍼 15장, 오류 후보 6, 읽은 로그 파일 368개와 공정 실행 목록 표" width="1280" height="804"></div>
-      <figcaption>공정 분석 결과 화면 · 더미 로그로 실행</figcaption>
-    </figure>
-      <div class="chips rise" style="--d:5"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">SQLite</span><span class="chip">Electron</span><span class="chip">React · TS</span><span class="chip">LLM Structured Output</span></div>
+    <div class="pov-shots rise" style="--d:3">
+      <figure class="sframe shot-a"><div class="win-bar"><i></i><i></i><i></i><span>SHERLOG · 공정 분석 결과</span></div><img src="assets/sherlog-results.jpg" alt="SHERLOG 공정 분석 결과 화면"></figure>
+      <figure class="sframe shot-b"><img src="assets/projects/sherlog-evidence.jpg" alt="SHERLOG 근거 원문 추적 화면"></figure>
+      <p class="pov-cap">실제 화면 · 공정 분석 결과와 근거 원문 추적 (더미 로그)</p>
     </div>
   </div>
 </section>
@@ -1043,32 +1076,26 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 7 CALLMEBABY -->
-<section class="slide alt" data-id="callmebaby" data-title="콜미베이비" data-section="콜미베이비">
-  <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>Project 2</b> 2026.07 – 2026.08 · SSAFY · 6명 · 백엔드 테크 리더</p>
-  </header>
-  <div class="proj cmb">
-    <div class="col">
-      <h2 class="display rise" style="--d:1;font-size:66px">CallMeBaby</h2>
-      <p class="lede rise" style="--d:2;font-size:21px">부모와 아이의 영상통화에 STT, 대화 이어가기 질문 추천, 공동 그림판, AI 그림일기를 연결한 가족 소통 서비스입니다.</p>
-      <div class="role-box rise" style="--d:3">
+<section class="slide alt" data-id="callmebaby" data-title="콜미베이비 소개" data-section="콜미베이비">
+  <div class="pov">
+    <div class="pov-main">
+      <p class="eyebrow rise" style="--d:0"><b>Project 2</b> 2026.07 – 2026.08 · 6명 · 백엔드 테크 리더</p>
+      <div class="pov-brand rise" style="--d:1"><span class="pov-plate"><img src="assets/projects/cmb-logo.png" alt="콜미베이비" width="192" height="64"></span></div>
+      <div class="pov-tags rise" style="--d:2"><span class="ptag">SSAFY 15기 공통 프로젝트</span><span class="ptag">가족 영상통화 · AI 그림일기</span></div>
+      <p class="pov-what rise" style="--d:3">부모와 아이의 영상통화에 STT, 대화 주제 추천, 공동 그림판, AI 그림일기를 연결한 가족 소통 서비스입니다.</p>
+      <div class="pov-role rise" style="--d:4">
         <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 백엔드 테크 리더</p>
-        <ul class="ticks small">
-          <li>백엔드 전반의 API 계약과 통화방 상태 흐름 조율</li>
-          <li>LiveKit Webhook과 Redis로 일시 이탈과 실제 종료를 구분하는 재접속 복구</li>
-          <li>그림일기 생성 AI를 비동기·검증 가능한 파이프라인으로 재구성</li>
-        </ul>
+        <ul class="ticks small"><li>백엔드 API 계약·통화방 상태 흐름 조율 (Jira 88건)</li><li>Webhook·Redis로 이탈과 종료를 구분하는 재접속 복구</li><li>그림일기 AI를 비동기·검증 파이프라인으로 분리</li></ul>
       </div>
-      <div class="stat-row rise" style="--d:4">
-        <div class="stat"><span class="v num">88건</span><span class="k">Jira 담당 이슈 완료</span></div>
-        <div class="stat"><span class="v num">45초</span><span class="k">재접속 유예</span></div>
-        <div class="stat"><span class="v num">p95 1.1s</span><span class="k">그림일기 생성 (로컬 측정)</span></div>
+      <div class="pov-stack rise" style="--d:5">
+        <p class="label">기술 스택</p>
+        <div class="techs"><span class="tech"><img src="assets/logos/java.svg" alt="" width="28" height="28">Java</span><span class="tech"><img src="assets/logos/spring-boot.svg" alt="" width="28" height="28">Spring Boot</span><span class="tech"><img src="assets/logos/mysql.svg" alt="" width="28" height="28">MySQL</span><span class="tech"><img src="assets/logos/redis.svg" alt="" width="28" height="28">Redis</span><span class="tech"><img src="assets/logos/aws.svg" alt="" width="28" height="28">AWS</span><span class="tech"><img src="assets/logos/docker.svg" alt="" width="28" height="28">Docker</span><span class="tech"><img src="assets/logos/fastapi.svg" alt="" width="28" height="28">FastAPI</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-video"/></svg></span>LiveKit</span></div>
       </div>
     </div>
-    <div class="col">
-      <div class="arch rise" style="--d:3" id="cmbArch"></div>
-      <div class="chips rise" style="--d:5"><span class="chip">Java 21</span><span class="chip">Spring Boot 4.1</span><span class="chip">JPA · Flyway</span><span class="chip">MySQL 8.4</span><span class="chip">Redis 7.4</span><span class="chip">LiveKit</span><span class="chip">S3</span><span class="chip">FastAPI</span></div>
-      <img class="illus rise" style="--d:6" src="assets/callmebaby.png" alt="아이가 태블릿에 그림을 그리며 엄마와 영상통화하는 콜미베이비 일러스트" width="620" height="465">
+    <div class="pov-shots rise" style="--d:3">
+      <figure class="sframe shot-a"><div class="win-bar"><i></i><i></i><i></i><span>콜미베이비 · AI 그림일기</span></div><img src="assets/projects/cmb-diary.jpg" alt="콜미베이비 AI 그림일기 화면"></figure>
+      <figure class="sframe shot-b"><img src="assets/projects/cmb-topic.jpg" alt="콜미베이비 대화 주제 추천 화면"></figure>
+      <p class="pov-cap">실제 화면 · AI 그림일기와 대화 주제 추천</p>
     </div>
   </div>
 </section>
@@ -1153,8 +1180,33 @@ ol.flow li::before{top:8px}
   <p class="evidence rise" style="--d:5">로컬 RTX 4050 · 합성 데이터 15회 측정 · 운영 수치 아님 · Jira <b>S15P11B101-200 · 204 · 205 · 277–280 · 342 · 348 · 363 · 377 · 426</b></p>
 </section>
 
+<!-- 10a CHAEKCHU OVERVIEW -->
+<section class="slide" data-id="chaekchu-overview" data-title="책추책책추 소개" data-section="책추책책추">
+  <div class="pov">
+    <div class="pov-main">
+      <p class="eyebrow rise" style="--d:0"><b>Project 3</b> 2026.08 – 2026.09 · 6명 · AI 담당 · 백엔드 일부</p>
+      <div class="pov-brand rise" style="--d:1"><span class="pov-plate"><img src="assets/projects/ck-logo.png" alt="책추책책추" width="214" height="64"></span></div>
+      <div class="pov-tags rise" style="--d:2"><span class="ptag">SSAFY 15기 특화 프로젝트</span><span class="ptag">도서 추천 · AI</span></div>
+      <p class="pov-what rise" style="--d:3">서재에 기록한 책과 도서관 대출 데이터를 바탕으로, 추천 이유와 함께 다음에 읽을 책을 골라 주는 개인 서재·도서 추천 서비스입니다.</p>
+      <div class="pov-role rise" style="--d:4">
+        <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · AI 담당 (백엔드 일부)</p>
+        <ul class="ticks small"><li>45만 건 정제, 임베딩·Qdrant 색인 440,377건</li><li>하이브리드 추천 랭킹과 Spring Boot 연동</li><li>익명 책 월드컵 서버 세션, GMS 비용 제어</li></ul>
+      </div>
+      <div class="pov-stack rise" style="--d:5">
+        <p class="label">기술 스택</p>
+        <div class="techs"><span class="tech"><img src="assets/logos/python.svg" alt="" width="28" height="28">Python</span><span class="tech"><img src="assets/logos/fastapi.svg" alt="" width="28" height="28">FastAPI</span><span class="tech"><img src="assets/logos/java.svg" alt="" width="28" height="28">Java</span><span class="tech"><img src="assets/logos/spring-boot.svg" alt="" width="28" height="28">Spring Boot</span><span class="tech"><img src="assets/logos/postgresql.svg" alt="" width="28" height="28">PostgreSQL</span><span class="tech"><img src="assets/logos/elasticsearch.svg" alt="" width="28" height="28">Elasticsearch</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-db"/></svg></span>Qdrant</span><span class="tech"><img src="assets/logos/docker.svg" alt="" width="28" height="28">Docker</span><span class="tech"><img src="assets/logos/aws.svg" alt="" width="28" height="28">AWS</span></div>
+      </div>
+    </div>
+    <div class="pov-shots rise" style="--d:3">
+      <figure class="sframe shot-a"><div class="win-bar"><i></i><i></i><i></i><span>책추책책추 · 오늘의 책추</span></div><img src="assets/projects/ck-recommend.jpg" alt="책추책책추 추천 화면"></figure>
+      <figure class="sframe shot-b"><img src="assets/projects/ck-bookdna.jpg" alt="책추책책추 북 DNA 화면"></figure>
+      <p class="pov-cap">실제 화면 · 오늘의 책 추천과 북 DNA</p>
+    </div>
+  </div>
+</section>
+
 <!-- 10 CHAEKCHU -->
-<section class="slide" data-id="chaekchu" data-title="책추책책추 추천 파이프라인" data-section="책추책책추">
+<section class="slide alt" data-id="chaekchu" data-title="추천 파이프라인" data-section="책추책책추">
   <details class="star">
     <summary>상세 보기 (STAR)</summary>
     <dl class="star-body">
@@ -1166,12 +1218,11 @@ ol.flow li::before{top:8px}
     </dl>
   </details>
   <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>Project 3</b> 2026.08 – 2026.09 · SSAFY · 6명 · AI 담당, 백엔드 일부</p>
-    <h2 class="display ko rise" style="--d:1;font-size:72px">책추책책추</h2>
+    <p class="eyebrow rise" style="--d:0"><b>책추책책추</b> 내 역할 · 추천 파이프라인</p>
+    <h2 class="s-title rise" style="--d:1">45만 권을 추천 가능한 색인으로 만들고<br>호출 비용을 통제했습니다</h2>
   </header>
   <div class="ck">
     <div class="col">
-      <p class="lede rise" style="--d:2;font-size:21px">도서관 대출 데이터와 내 서재를 바탕으로, 이유와 함께 책을 추천하는 서비스입니다. 추천 파이프라인과 백엔드 연동을 맡았습니다.</p>
       <ul class="chain rise" style="--d:3">
         <li><span class="tile sm"><svg class="ic"><use href="#i-db"/></svg></span><div><p class="t">Data4Library 후보 약 45만 건 검증 · ISBN 기준 정리</p></div></li>
         <li><span class="tile sm t-violet"><svg class="ic"><use href="#i-layers"/></svg></span><div><p class="t">1,536차원 임베딩을 오프라인 생성 → Qdrant 색인</p><p class="d">태그 배치는 규칙 기반 결과와 confidence를 먼저 쓰고, 필요한 요청만 GMS로</p></div></li>
@@ -1200,7 +1251,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 11 WORLDCUP -->
-<section class="slide alt" data-id="chaekchu-worldcup" data-title="익명 책 월드컵 · 배포 검증" data-section="책추책책추">
+<section class="slide" data-id="chaekchu-worldcup" data-title="익명 책 월드컵 · 배포 검증" data-section="책추책책추">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0"><b>책추책책추</b> 익명 책 월드컵 · 배포 검증</p>
     <h2 class="s-title rise" style="--d:1">우승 전까지 책 정체를 숨기는<br>서버 권위형 월드컵</h2>
@@ -1235,8 +1286,32 @@ ol.flow li::before{top:8px}
   <p class="evidence rise" style="--d:5"><b>배포 환경 검증</b> · 감사 CLI의 Qdrant alias 조회 경로를 <b>/aliases</b>로 수정 · 책·태그 alias 활성 버전과 태그 포인트 버전 대조 · current-release와 Docker 이미지 태그 비교 → 최종 인덱스 감사 <b>status PASS · failureCount 0</b> · 실제 JWT로 세션 생성부터 15회 선택, COMPLETED까지 확인</p>
 </section>
 
+<!-- 12a MUSUIMSA OVERVIEW -->
+<section class="slide alt" data-id="musuimsa-overview" data-title="무쉼사 소개" data-section="무쉼사">
+  <div class="pov">
+    <div class="pov-main">
+      <p class="eyebrow rise" style="--d:0"><b>Project 4</b> 2025.08 – 2025.11 · 5명 · 백엔드 테크 리더</p>
+      <div class="pov-brand rise" style="--d:1"><img class="pov-icon" src="assets/projects/ms-logo.png" alt="무쉼사 로고" width="84" height="92"><h2 class="pov-name">무쉼사<small>무더위 쉼터를 찾는 사람들</small></h2></div>
+      <div class="pov-tags rise" style="--d:2"><span class="ptag">카카오테크 캠퍼스 3기</span><span class="ptag">웹 + Android 하이브리드 앱</span></div>
+      <p class="pov-what rise" style="--d:3">폭염 때 현재 위치에서 가장 가까운 무더위쉼터를 빠르게 찾고, 이용 후기와 폭염 알림을 받을 수 있는 서비스입니다.</p>
+      <div class="pov-role rise" style="--d:4">
+        <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 백엔드 테크 리더</p>
+        <ul class="ticks small"><li>DB 모델링, Spring Batch로 6만여 쉼터 동기화</li><li>GitHub Actions·Docker·AWS 배포 자동화</li><li>JWT 인증, FCM 폭염 알림·리뷰 리마인더</li></ul>
+      </div>
+      <div class="pov-stack rise" style="--d:5">
+        <p class="label">기술 스택</p>
+        <div class="techs"><span class="tech"><img src="assets/logos/java.svg" alt="" width="28" height="28">Java</span><span class="tech"><img src="assets/logos/spring-boot.svg" alt="" width="28" height="28">Spring Boot</span><span class="tech"><img src="assets/logos/mysql.svg" alt="" width="28" height="28">MySQL</span><span class="tech"><img src="assets/logos/redis.svg" alt="" width="28" height="28">Redis</span><span class="tech"><img src="assets/logos/docker.svg" alt="" width="28" height="28">Docker</span><span class="tech"><img src="assets/logos/aws.svg" alt="" width="28" height="28">AWS</span><span class="tech"><img src="assets/logos/githubactions.svg" alt="" width="28" height="28">GitHub Actions</span><span class="tech"><img src="assets/logos/firebase.svg" alt="" width="28" height="28">Firebase FCM</span></div>
+      </div>
+    </div>
+    <div class="pov-shots rise" style="--d:3">
+      <figure class="sframe shot-a"><div class="win-bar"><i></i><i></i><i></i><span>무쉼사 · 서비스 소개</span></div><img src="assets/projects/ms-intro.jpg" alt="무쉼사 서비스 소개 이미지와 앱 화면"></figure>
+      <p class="pov-cap">서비스 소개 이미지 · 지도에서 가까운 쉼터 찾기</p>
+    </div>
+  </div>
+</section>
+
 <!-- 12 MUSUIMSA -->
-<section class="slide" data-id="musuimsa" data-title="무쉼사 공공데이터 동기화" data-section="무쉼사">
+<section class="slide" data-id="musuimsa" data-title="공공데이터 동기화" data-section="무쉼사">
   <details class="star">
     <summary>상세 보기 (STAR)</summary>
     <dl class="star-body">
@@ -1248,12 +1323,12 @@ ol.flow li::before{top:8px}
     </dl>
   </details>
   <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>Project 4</b> 2025.08 – 2025.11 · 카카오테크 캠퍼스 · 5명 · 백엔드 테크 리더</p>
-    <h2 class="s-title rise" style="--d:1">무쉼사 · 공공 API가 멈춰도<br>6만여 개 쉼터 데이터는 그대로</h2>
+    <p class="eyebrow rise" style="--d:0"><b>무쉼사</b> 트러블슈팅 · 공공데이터 동기화</p>
+    <h2 class="s-title rise" style="--d:1">공공 API가 멈춰도<br>6만여 개 쉼터 데이터는 그대로</h2>
   </header>
   <div class="ms">
     <div class="col">
-      <p class="small rise" style="--d:2">전국 무더위쉼터를 찾고 리뷰를 남기는 서비스입니다. 매일 03:45 Spring Batch가 공공 API(page-size 1000)와 기존 DB를 chunk 100 단위로 비교합니다.</p>
+      <p class="small rise" style="--d:2">매일 03:45 Spring Batch가 공공 API(page-size 1000)와 기존 DB를 chunk 100 단위로 비교합니다.</p>
       <div class="seg rise" style="--d:2" role="group" aria-label="공공 API 상태">
         <button type="button" data-ms="ok" aria-pressed="true">API 정상</button>
         <button type="button" data-ms="partial" aria-pressed="false">일부 쉼터 누락</button>
@@ -1266,7 +1341,6 @@ ol.flow li::before{top:8px}
           <tbody id="msBody"></tbody>
         </table>
       </div>
-      <div class="chips rise" style="--d:5"><span class="chip">Spring Batch</span><span class="chip">Spring Security</span><span class="chip">MySQL</span><span class="chip">GitHub Actions</span><span class="chip">Docker</span><span class="chip">AWS EC2 · ECR</span><span class="chip">FCM</span></div>
     </div>
     <div class="col">
       <div class="mini stack rise" style="--d:3">
@@ -1282,11 +1356,36 @@ ol.flow li::before{top:8px}
   </div>
 </section>
 
+<!-- 13a GIFT OVERVIEW -->
+<section class="slide alt" data-id="gift-overview" data-title="선물하기 클론 소개" data-section="선물하기 클론">
+  <div class="pov">
+    <div class="pov-main">
+      <p class="eyebrow rise" style="--d:0"><b>Project 5</b> 2025.06 – 2025.08 · 1인 풀스택</p>
+      <div class="pov-brand rise" style="--d:1"><span class="tile pov-gift"><svg class="ic"><use href="#i-gift"/></svg></span><h2 class="pov-name">선물하기 클론<small>카카오톡 선물하기 흐름 구현</small></h2></div>
+      <div class="pov-tags rise" style="--d:2"><span class="ptag">카카오테크 캠퍼스 3기 개인 과제</span><span class="ptag">커머스 · 주문</span></div>
+      <p class="pov-what rise" style="--d:3">카카오톡 선물하기 흐름을 따라 상품 선택부터 주문, 카카오 메시지 알림까지 직접 설계하고 구현한 커머스 서비스입니다.</p>
+      <div class="pov-role rise" style="--d:4">
+        <p class="label"><span class="tile sm"><svg class="ic"><use href="#i-user"/></svg></span>내 역할 · 1인 풀스택</p>
+        <ul class="ticks small"><li>상품·옵션·회원·주문·위시리스트 API 구현</li><li>JWT 인증, Kakao OAuth 로그인·메시지 연동</li><li>주문 커밋 뒤 알림 실행으로 트랜잭션 분리</li></ul>
+      </div>
+      <div class="pov-stack rise" style="--d:5">
+        <p class="label">기술 스택</p>
+        <div class="techs"><span class="tech"><img src="assets/logos/java.svg" alt="" width="28" height="28">Java</span><span class="tech"><img src="assets/logos/spring-boot.svg" alt="" width="28" height="28">Spring Boot</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-db"/></svg></span>Spring Data JPA</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-db"/></svg></span>H2</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-file"/></svg></span>Thymeleaf</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-lock"/></svg></span>JWT</span><span class="tech"><span class="tic"><svg class="ic"><use href="#i-link"/></svg></span>Kakao API</span></div>
+      </div>
+    </div>
+    <div class="pov-shots rise" style="--d:3">
+      <figure class="sframe shot-a"><div class="win-bar"><i></i><i></i><i></i><span>선물하기 · 상품 목록</span></div><img src="assets/projects/gift-list.jpg" alt="선물하기 클론 상품 목록 화면"></figure>
+      <figure class="sframe shot-b"><img src="assets/projects/gift-detail.jpg" alt="선물하기 클론 상품 상세 화면"></figure>
+      <p class="pov-cap">실제 화면 · 상품 목록과 상품 상세</p>
+    </div>
+  </div>
+</section>
+
 <!-- 13 GIFT -->
-<section class="slide alt" data-id="gift" data-title="선물하기 트랜잭션 경계" data-section="선물하기 클론">
+<section class="slide" data-id="gift" data-title="트랜잭션 경계" data-section="선물하기 클론">
   <header class="s-head">
-    <p class="eyebrow rise" style="--d:0"><b>Project 5</b> 2025.06 – 2025.08 · 카카오테크 캠퍼스 · 1인 풀스택</p>
-    <h2 class="s-title rise" style="--d:1">카카오톡 선물하기 클론 · 알림 API가<br>실패해도 주문은 남아야 합니다</h2>
+    <p class="eyebrow rise" style="--d:0"><b>선물하기 클론</b> 트러블슈팅 · 트랜잭션 경계</p>
+    <h2 class="s-title rise" style="--d:1">알림 API가 실패해도<br>주문은 남아야 합니다</h2>
   </header>
   <div class="tx">
     <div class="col">
@@ -1294,7 +1393,6 @@ ol.flow li::before{top:8px}
       <ul class="ticks small rise" style="--d:3">
         <li>주문 저장 후 <b>OrderCompletedEvent</b> 발행, <b>@TransactionalEventListener</b>로 커밋 뒤에 알림 실행</li>
         <li>위시리스트 삭제는 <b>REQUIRES_NEW</b> 독립 트랜잭션으로 격리</li>
-        <li>상품·옵션·회원·주문·위시리스트 API, JWT + Interceptor 인증, Kakao OAuth 2.0 로그인·메시지 연동</li>
       </ul>
       <p class="small muted rise" style="--d:4">이 피드백 이후로 "평소에 도는가"보다 "장애가 났을 때 무엇이 남는가"를 먼저 묻게 됐습니다.</p>
     </div>
@@ -1313,7 +1411,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 14 EARLIER -->
-<section class="slide" data-id="earlier" data-title="그 전의 프로젝트" data-section="그 전의 프로젝트">
+<section class="slide alt" data-id="earlier" data-title="그 전의 프로젝트" data-section="그 전의 프로젝트">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">2024.10 – 2025.12</p>
     <h2 class="s-title rise" style="--d:1">그 전의 프로젝트</h2>
@@ -1362,7 +1460,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 16 EDUCATION -->
-<section class="slide alt" data-id="education" data-title="교육과 활동" data-section="역량">
+<section class="slide" data-id="education" data-title="교육과 활동" data-section="역량">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">Education & Activities</p>
     <h2 class="s-title rise" style="--d:1">배우고, 가르치며 쌓은 기본기</h2>
@@ -1388,7 +1486,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 17 AWARDS -->
-<section class="slide" data-id="awards" data-title="수상 · 자격 · 논문" data-section="역량">
+<section class="slide alt" data-id="awards" data-title="수상 · 자격 · 논문" data-section="역량">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">Awards · Certifications · Publication</p>
     <h2 class="s-title rise" style="--d:1">수상, 자격, 논문</h2>
@@ -1424,7 +1522,7 @@ ol.flow li::before{top:8px}
 </section>
 
 <!-- 18 CONTACT -->
-<section class="slide alt" data-id="contact" data-title="연락처" data-section="마무리">
+<section class="slide" data-id="contact" data-title="연락처" data-section="마무리">
   <header class="s-head">
     <p class="eyebrow rise" style="--d:0">Thank you</p>
   </header>
@@ -1630,11 +1728,11 @@ ol.flow li::before{top:8px}
     ['SSACTHREE Book Store','7명 · 정책·쿠폰 시스템','2024-10-14','2024-12-13',false,'earlier'],
     ['UCSD QI AI Project','5명 · 데이터 수집·전처리','2025-01-14','2025-02-14',false,'earlier'],
     ['수어프라이즈','3명 · 팀장','2025-03-07','2025-12-11',true,'earlier'],
-    ['카카오톡 선물하기 클론','1인 · 풀스택','2025-06-23','2025-08-01',false,'gift'],
-    ['무쉼사','5명 · 백엔드 테크 리더','2025-08-04','2025-11-07',true,'musuimsa'],
+    ['카카오톡 선물하기 클론','1인 · 풀스택','2025-06-23','2025-08-01',false,'gift-overview'],
+    ['무쉼사','5명 · 백엔드 테크 리더','2025-08-04','2025-11-07',true,'musuimsa-overview'],
     ['콜미베이비','6명 · 백엔드 테크 리더','2026-07-13','2026-08-09',true,'callmebaby'],
-    ['책추책책추','6명 · AI 담당','2026-08-18','2026-09-28',false,'chaekchu'],
-    ['SHERLOG','6명 · 팀장 · 프로젝트 우수상','2026-10-06','2026-11-18',true,'sherlog']
+    ['책추책책추','6명 · AI 담당','2026-08-18','2026-09-28',false,'chaekchu-overview'],
+    ['SHERLOG','6명 · 팀장','2026-10-06','2026-11-18',true,'sherlog']
   ];
   const axis = document.getElementById('tlAxis'), rows = document.getElementById('tlRows'), grid = document.getElementById('tlGrid');
   ['2024-07','2025-01','2025-07','2026-01','2026-07'].forEach(m => {
@@ -1764,7 +1862,7 @@ ol.flow li::before{top:8px}
     s += ln('M660 70 C 680 90, 680 110, 696 118', true);
     s += ln('M640 86 C 720 170, 700 240, 664 270', true, 'AFTER_COMMIT · @Async', 712, 236);
     s += '</svg><p class="note">파란 테두리가 제가 설계·구현을 맡은 흐름입니다.</p>';
-    document.getElementById('cmbArch').innerHTML = s;
+    const archEl = document.getElementById('cmbArch'); if (archEl) archEl.innerHTML = s;
   })();
 
   /* ---------- reconnect slider ---------- */
